@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">2026년 8월 셋째 주 AI 신호 지도</title>
+  <desc id="desc">통제, 보안, 에이전트, 생산성, 거버넌스의 다섯 행에 열 개 뉴스를 같은 크기의 카드로 배치한 지도</desc>
+  <style>
+    .bg{fill:#f7f8fb}.axis{fill:#0f2c59}.label{font:700 20px Inter,'Noto Sans KR',sans-serif;fill:#fff}.card{fill:#fff;stroke:#c9d2df;stroke-width:2}.deep{fill:#e8eef8;stroke:#2563eb;stroke-width:3}.k{font:800 16px Inter,'Noto Sans KR',sans-serif;fill:#2563eb}.t{font:800 22px Inter,'Noto Sans KR',sans-serif;fill:#101114}.s{font:600 16px Inter,'Noto Sans KR',sans-serif;fill:#5f6570}.foot{font:700 15px Inter,'Noto Sans KR',sans-serif;fill:#5f6570}
+  </style>
+  <rect class="bg" width="1200" height="630" rx="24"/>
+  <g transform="translate(36 34)">
+    <g><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">통제</text></g>
+    <g transform="translate(166 0)"><rect class="deep" width="456" height="92" rx="14"/><text class="k" x="22" y="31">DEEP 01</text><text class="t" x="22" y="62">사이버 임계점에서 RL 중단</text></g>
+    <g transform="translate(642 0)"><rect class="deep" width="456" height="92" rx="14"/><text class="k" x="22" y="31">DEEP 02</text><text class="t" x="22" y="62">Claude 텍스트 워터마크</text></g>
+    <g transform="translate(0 108)"><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">보안</text></g>
+    <g transform="translate(166 108)"><rect class="deep" width="456" height="92" rx="14"/><text class="k" x="22" y="31">DEEP 03</text><text class="t" x="22" y="62">Copilot Autofix의 CI 주입</text></g>
+    <g transform="translate(642 108)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 09</text><text class="t" x="22" y="62">Zero Data Retention 안전 처리</text></g>
+    <g transform="translate(0 216)"><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">에이전트</text></g>
+    <g transform="translate(166 216)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 04</text><text class="t" x="22" y="62">45-agent 협업의 범위 효과</text></g>
+    <g transform="translate(642 216)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 06</text><text class="t" x="22" y="62">최종 답보다 실행 궤적 테스트</text></g>
+    <g transform="translate(0 324)"><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">생산성</text></g>
+    <g transform="translate(166 324)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 05</text><text class="t" x="22" y="62">PR은 늘고 시간은 그대로</text></g>
+    <g transform="translate(642 324)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 08</text><text class="t" x="22" y="62">MathCode 0.3 + Lean 4</text></g>
+    <g transform="translate(0 432)"><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">거버넌스</text></g>
+    <g transform="translate(166 432)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 07</text><text class="t" x="22" y="62">Debian의 LLM 기여 투표</text></g>
+    <g transform="translate(642 432)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 10</text><text class="t" x="22" y="62">“AI 답변을 그대로 붙이지 말라”</text></g>
+  </g>
+  <text class="foot" x="600" y="598" text-anchor="middle">파란 면 = 딥다이브 · 흰 면 = 레이더 · 순위는 종합점수와 편집 판단</text>
+</svg>
