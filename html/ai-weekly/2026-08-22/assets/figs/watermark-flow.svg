@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Claude 텍스트 워터마크 생성과 탐지 흐름</title>
+  <desc id="desc">낮은 위험의 다음 토큰 후보가 키와 앞선 단어에 따라 선택되고, 긴 텍스트에서 통계적 탐지 신호로 누적되는 흐름과 약한 조건을 보여준다</desc>
+  <defs><marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#2563eb"/></marker></defs>
+  <style>
+    .bg{fill:#f7f8fb}.box{fill:#fff;stroke:#b8c8e2;stroke-width:3}.focus{fill:#e8eef8;stroke:#2563eb;stroke-width:3}.n{font:900 17px Inter,'Noto Sans KR',sans-serif;fill:#2563eb}.h{font:900 25px Inter,'Noto Sans KR',sans-serif;fill:#101114}.p{font:600 17px Inter,'Noto Sans KR',sans-serif;fill:#5f6570}.arrow{fill:none;stroke:#2563eb;stroke-width:8;marker-end:url(#arrow)}.weak{fill:#fff4dc;stroke:#d29a3a;stroke-width:2}.wh{font:900 22px Inter,'Noto Sans KR',sans-serif;fill:#6f4607}.wp{font:600 17px Inter,'Noto Sans KR',sans-serif;fill:#6f4607}
+  </style>
+  <rect class="bg" width="1200" height="630" rx="24"/>
+  <g transform="translate(45 72)"><rect class="box" width="230" height="220" rx="18"/><text class="n" x="24" y="42">01 · CANDIDATES</text><text class="h" x="24" y="84">다음 토큰 후보</text><text class="p" x="24" y="124">의미·품질 차이가 작은</text><text class="p" x="24" y="155">낮은 위험 선택지</text></g>
+  <path class="arrow" d="M275 182H350"/>
+  <g transform="translate(350 72)"><rect class="focus" width="230" height="220" rx="18"/><text class="n" x="24" y="42">02 · KEYED CHOICE</text><text class="h" x="24" y="84">편향된 난수</text><text class="p" x="24" y="124">비밀 키 + 앞선 단어로</text><text class="p" x="24" y="155">선택 분포를 조정</text></g>
+  <path class="arrow" d="M580 182H655"/>
+  <g transform="translate(655 72)"><rect class="box" width="230" height="220" rx="18"/><text class="n" x="24" y="42">03 · OUTPUT</text><text class="h" x="24" y="84">평문 출력</text><text class="p" x="24" y="124">숨은 문자·추가 토큰·</text><text class="p" x="24" y="155">사용자 식별자 없음</text></g>
+  <path class="arrow" d="M885 182H960"/>
+  <g transform="translate(960 72)"><rect class="focus" width="195" height="220" rx="18"/><text class="n" x="22" y="42">04 · DETECT</text><text class="h" x="22" y="84">통계 판정</text><text class="p" x="22" y="124">신호를 누적해</text><text class="p" x="22" y="155">가능성 제시</text></g>
+  <g transform="translate(100 382)"><rect class="weak" width="1000" height="174" rx="18"/><text class="wh" x="28" y="44">약한 조건과 해석 경계</text><text class="wp" x="28" y="82">짧은 답 · 사실 중심 문장 · 교정 · 코드에서는 선택지가 적어 신호가 약하다.</text><text class="wp" x="28" y="116">가벼운 편집은 남을 수 있지만 전체 재작성은 제거할 수 있다.</text><text class="wp" x="28" y="150">탐지 결과는 Claude 관여 가능성이지 저자·진실·부정행위의 증명이 아니다.</text></g>
+</svg>
