@@ -3759,10 +3759,10 @@ html.reader-size-large .continuous-mode {
   margin: 8px auto 0;
 }
 .continuous-mode .report-section > .report-figure {
-  width: min(1040px, calc(100vw - 24px));
-  max-width: none;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
+  transform: none;
 }
 .continuous-mode .report-section .source-pair .report-figure > .asset-note {
   max-width: 100%;
@@ -4569,12 +4569,6 @@ html, body, button, input { font-family: var(--font-sans-ko); }
   .ai-weekly-report .report-toc__item a { min-height: 14mm; padding: 2mm 10mm 2mm 2mm; }
   .ai-weekly-report .report-toc__item a::after { display: none; }
   .ai-weekly-report .report-toc__page { display: block; position: absolute; right: 3mm; }
-  .continuous-mode .report-section > .report-figure {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    transform: none;
-  }
   .ai-weekly-report .weekly-toc li { padding: 2.2mm 1mm; }
   .ai-weekly-report .weekly-claims { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .ai-weekly-report .method-grid,
