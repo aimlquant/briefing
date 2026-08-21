@@ -4,13 +4,13 @@
   <style>.bg{fill:#f8fafc}.card{fill:#fff;stroke:#c9d3e1;stroke-width:2}.blue{fill:#e9f2ff;stroke:#1f5ea8;stroke-width:2}.orange{fill:#fff0ea;stroke:#e4562a;stroke-width:2}.lab{font-family:Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:1px;fill:#536078}.name{font-family:Arial,'Noto Sans KR',sans-serif;font-size:27px;font-weight:800;fill:#172033}.num{font-family:Arial,sans-serif;font-size:72px;font-weight:900;fill:#1f5ea8}.num2{font-family:Arial,sans-serif;font-size:72px;font-weight:900;fill:#e4562a}.unit{font-family:Arial,sans-serif;font-size:22px;font-weight:800;fill:#536078}.body{font-family:Arial,'Noto Sans KR',sans-serif;font-size:18px;font-weight:650;fill:#354157}.neq{font-family:Arial,sans-serif;font-size:70px;font-weight:900;fill:#8491a5}</style>
   <rect class="bg" width="1200" height="680" rx="24"/>
   <rect class="blue" x="52" y="55" width="490" height="520" rx="24"/><rect class="orange" x="658" y="55" width="490" height="520" rx="24"/>
-  <text class="lab" x="88" y="105">INDEPENDENT OBSERVATION</text><text class="name" x="88" y="150">Gemini 3.7 Flash</text>
-  <text class="num" x="88" y="270">389.5</text><text class="unit" x="350" y="270">tok/s</text>
+  <text class="lab" x="88" y="105">독립 측정 · 중앙값</text><text class="name" x="88" y="150">Gemini 3.7 Flash</text>
+  <text class="num" x="88" y="270">389.5</text><text class="unit" x="350" y="270">토큰/초</text>
   <rect class="card" x="88" y="320" width="418" height="204" rx="16"/>
   <text class="body" x="116" y="365">통계</text><text class="body" x="248" y="365">관측 중앙값</text><text class="body" x="116" y="410">주체</text><text class="body" x="248" y="410">Artificial Analysis</text><text class="body" x="116" y="455">조건</text><text class="body" x="248" y="455">독립 측정 환경</text><text class="body" x="116" y="500">해석</text><text class="body" x="248" y="500">전형적 관측에 가까움</text>
-  <text class="lab" x="694" y="105">PROVIDER-PUBLISHED MAXIMUM</text><text class="name" x="694" y="150">GPT-5.6 Sol Ultrafast</text>
-  <text class="num2" x="694" y="270">750</text><text class="unit" x="875" y="270">tok/s까지</text>
+  <text class="lab" x="694" y="105">회사 발표 · 최대값</text><text class="name" x="694" y="150">GPT-5.6 Sol Ultrafast</text>
+  <text class="num2" x="694" y="270">750</text><text class="unit" x="875" y="270">토큰/초까지</text>
   <rect class="card" x="694" y="320" width="418" height="204" rx="16"/>
-  <text class="body" x="722" y="365">통계</text><text class="body" x="854" y="365">공개 최대값</text><text class="body" x="722" y="410">주체</text><text class="body" x="854" y="410">OpenAI · Cerebras</text><text class="body" x="722" y="455">조건</text><text class="body" x="854" y="455">제한 프리뷰</text><text class="body" x="722" y="500">해석</text><text class="body" x="854" y="500">가능한 상한에 가까움</text>
+  <text class="body" x="722" y="365">통계</text><text class="body" x="854" y="365">공개 최대값</text><text class="body" x="722" y="410">주체</text><text class="body" x="854" y="410">OpenAI · Cerebras</text><text class="body" x="722" y="455">조건</text><text class="body" x="854" y="455">일부 고객 대상</text><text class="body" x="722" y="500">해석</text><text class="body" x="854" y="500">가능한 상한에 가까움</text>
   <text class="neq" x="573" y="330">≠</text>
 </svg>

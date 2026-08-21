@@ -258,27 +258,6 @@
   overflow-wrap: anywhere;
 }
 
-.report-figure.is-zoomable {
-  position: relative;
-}
-
-.report-figure.is-zoomable::after {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 2;
-  padding: 6px 10px;
-  border: 1px solid rgba(255, 255, 255, .55);
-  border-radius: 999px;
-  color: #fff;
-  background: rgba(5, 10, 18, .72);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, .24);
-  content: "⤢ 확대";
-  font-size: 11px;
-  font-weight: 850;
-  pointer-events: none;
-}
-
 .report-lightbox__original {
   display: inline-flex;
   align-items: center;
@@ -316,7 +295,6 @@
 }
 
 @media print {
-  .report-figure.is-zoomable::after { display: none !important; }
   .story-resources,
   .story-facts > div,
   .status-grid > article,
@@ -513,11 +491,11 @@ h1, h2, h3, h4, h5, h6 {
   page-break-before: always !important;
 }
 /* SVG/이미지 페이지 폭 가득 — viewBox 비율 유지 */
-.continuous-mode img,
-.continuous-mode svg,
-.continuous-mode figure img,
-.continuous-mode figure svg,
-.continuous-mode p > img {
+.report.continuous-mode img,
+.report.continuous-mode svg,
+.report.continuous-mode figure img,
+.report.continuous-mode figure svg,
+.report.continuous-mode p > img {
   max-width: 100% !important;
   width: 100% !important;
   height: auto !important;
@@ -4496,11 +4474,13 @@ html, body, button, input { font-family: var(--font-sans-ko); }
 .report-lightbox__actions button {
   width: 42px;
   height: 42px;
+  padding: 0;
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: 7px;
   background: rgba(255,255,255,0.08);
   color: #fff;
   font: 800 15px/1 Inter, 'Noto Sans KR', system-ui, sans-serif;
+  white-space: nowrap;
   cursor: pointer;
 }
 .report-lightbox__actions button:hover { background: rgba(255,255,255,0.17); }
@@ -4536,7 +4516,7 @@ html, body, button, input { font-family: var(--font-sans-ko); }
   user-select: none;
   -webkit-user-select: none;
 }
-.report-lightbox__visual {
+.report-lightbox .report-lightbox__visual {
   display: block;
   width: min(1100px, calc(100vw - 48px)) !important;
   height: auto !important;
@@ -4546,9 +4526,10 @@ html, body, button, input { font-family: var(--font-sans-ko); }
   border-radius: 8px;
   background: #FAFAF9;
   box-shadow: 0 24px 80px rgba(0,0,0,0.48);
+  object-fit: contain;
   pointer-events: none;
 }
-svg.report-lightbox__visual {
+.report-lightbox svg.report-lightbox__visual {
   width: min(1100px, calc(100vw - 48px)) !important;
 }
 .report-lightbox__hint {
@@ -4568,8 +4549,8 @@ svg.report-lightbox__visual {
   .report-lightbox__actions { width: 100%; justify-content: center; }
   .report-lightbox__actions button { width: 40px; height: 40px; }
   .report-lightbox__scale { min-width: 50px; }
-  .report-lightbox__visual { width: calc(100vw - 20px) !important; max-width: calc(100vw - 20px) !important; max-height: calc(100dvh - 128px) !important; }
-  svg.report-lightbox__visual { width: calc(100vw - 20px) !important; }
+  .report-lightbox .report-lightbox__visual { width: calc(100vw - 20px) !important; max-width: calc(100vw - 20px) !important; max-height: calc(100dvh - 128px) !important; }
+  .report-lightbox svg.report-lightbox__visual { width: calc(100vw - 20px) !important; }
   .report-lightbox__hint { font-size: 10px; }
 }
 @media print {
