@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">리만 제타 영점 비율 하한의 변화</title><desc id="desc">0에서 100퍼센트 축 위에 이전 기록 41.67, 새 정리 66.67, 최적화 상수 67.25, 리만 가설 100을 구분</desc>
+  <style>.bg{fill:#f7f8fb}.track{fill:#d8dee8}.old{fill:#8c9bb0}.new{fill:#2563eb}.goal{fill:#a93650}.h{font:900 27px Inter,'Noto Sans KR',sans-serif;fill:#101114}.big{font:950 40px Inter,'Noto Sans KR',sans-serif}.s{font:650 17px Inter,'Noto Sans KR',sans-serif;fill:#5f6570}.card{fill:#fff;stroke:#c9d2df;stroke-width:3}.blue{fill:#2563eb}.red{fill:#a93650}.gray{fill:#617086}</style>
+  <rect class="bg" width="1200" height="630" rx="24"/><text class="h" x="600" y="64" text-anchor="middle">“67.2% 해결”이 아니라 무조건 하한의 큰 점프</text>
+  <g transform="translate(90 252)"><rect class="track" width="1020" height="42" rx="21"/><rect class="old" width="425" height="42" rx="21"/><rect class="new" width="686" height="42" rx="21"/><rect class="goal" x="1006" width="14" height="42" rx="7"/></g>
+  <line x1="515" y1="232" x2="515" y2="326" stroke="#617086" stroke-width="4"/><line x1="770" y1="232" x2="770" y2="326" stroke="#2563eb" stroke-width="4"/><line x1="776" y1="332" x2="776" y2="388" stroke="#2563eb" stroke-width="3"/><line x1="1110" y1="232" x2="1110" y2="326" stroke="#a93650" stroke-width="4"/>
+  <g transform="translate(150 106)"><rect class="card" width="330" height="110" rx="16"/><text class="big gray" x="24" y="52">41.67%</text><text class="s" x="24" y="84">이전 무조건 기록 · 5/12</text></g>
+  <g transform="translate(518 106)"><rect class="card" width="390" height="110" rx="16"/><text class="big blue" x="24" y="52">≥ 66.67%</text><text class="s" x="24" y="84">Theorem A · 단순 + 임계선</text></g>
+  <g transform="translate(592 394)"><rect class="card" width="368" height="110" rx="16"/><text class="big blue" x="24" y="52">67.250%</text><text class="s" x="24" y="84">Montgomery–Taylor window</text></g>
+  <g transform="translate(890 106)"><rect class="card" width="250" height="110" rx="16"/><text class="big red" x="24" y="52">100%</text><text class="s" x="24" y="84">리만 가설 · 미해결</text></g>
+  <text class="s" x="600" y="568" text-anchor="middle">Lean 4 형식 산출물은 증명 단계의 일관성을 확인한다 · 정의·전제·수학적 의미의 인간 검토는 별도</text>
+</svg>
