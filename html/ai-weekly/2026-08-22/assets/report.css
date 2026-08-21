@@ -301,7 +301,11 @@
   .explainer-grid > article,
   .claim-boundary,
   .story-verdict,
-  .worked-example { box-shadow: none !important; }
+  .worked-example {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+  }
 }
 
 /* ===== THEMES (class-based, 슬라이드와 완전 동일) ===== */
