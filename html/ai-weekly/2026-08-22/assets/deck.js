@@ -183,6 +183,222 @@
     chromeTimer = window.setTimeout(hideChrome, 2600);
   }
 
+  function setupImageLightbox() {
+    const targets = Array.from(document.querySelectorAll(".slide figure > img"))
+      .filter((target) => !target.closest("a"));
+    if (!targets.length) return;
+
+    const lightbox = document.createElement("div");
+    lightbox.className = "deck-lightbox";
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightbox.hidden = true;
+    lightbox.innerHTML =
+      '<div class="deck-lightbox__toolbar">' +
+        '<strong class="deck-lightbox__title" id="deckLightboxTitle"></strong>' +
+        '<div class="deck-lightbox__actions">' +
+          '<a class="deck-lightbox__original" data-deck-lightbox-original href="#" target="_blank" rel="noopener" hidden>원본 열기 ↗</a>' +
+          '<button type="button" data-deck-lightbox-action="zoom-out" aria-label="축소">−</button>' +
+          '<output class="deck-lightbox__scale" aria-live="polite">100%</output>' +
+          '<button type="button" data-deck-lightbox-action="zoom-in" aria-label="확대">+</button>' +
+          '<button type="button" data-deck-lightbox-action="reset" aria-label="원래 크기">1:1</button>' +
+          '<button type="button" data-deck-lightbox-action="fullscreen" aria-label="브라우저 전체화면" aria-pressed="false">⛶</button>' +
+          '<button type="button" data-deck-lightbox-action="close" aria-label="닫기">×</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="deck-lightbox__viewport" tabindex="0"><div class="deck-lightbox__stage"></div></div>' +
+      '<p class="deck-lightbox__hint">휠·+/− 확대 · 드래그 이동 · 더블클릭 전환 · Esc 닫기</p>';
+    document.body.appendChild(lightbox);
+
+    const viewport = lightbox.querySelector(".deck-lightbox__viewport");
+    const lightboxStage = lightbox.querySelector(".deck-lightbox__stage");
+    const title = lightbox.querySelector(".deck-lightbox__title");
+    const scaleOutput = lightbox.querySelector(".deck-lightbox__scale");
+    const closeButton = lightbox.querySelector('[data-deck-lightbox-action="close"]');
+    const fullscreenButton = lightbox.querySelector('[data-deck-lightbox-action="fullscreen"]');
+    const originalLink = lightbox.querySelector("[data-deck-lightbox-original]");
+    let visual = null;
+    let lastFocus = null;
+    let scale = 1;
+    let panX = 0;
+    let panY = 0;
+    let drag = null;
+    const MIN_SCALE = 1;
+    const MAX_SCALE = 6;
+
+    function figureLabel(target) {
+      const figure = target.closest("figure");
+      return figure?.querySelector("figcaption")?.textContent.replace(/\s+/g, " ").trim() || target.alt || "확대 이미지";
+    }
+
+    function constrainPan() {
+      if (!visual || scale <= 1) {
+        panX = 0;
+        panY = 0;
+        return;
+      }
+      const width = visual.offsetWidth * scale;
+      const height = visual.offsetHeight * scale;
+      const maxX = Math.max(0, (width - viewport.clientWidth) / 2 + viewport.clientWidth * 0.2);
+      const maxY = Math.max(0, (height - viewport.clientHeight) / 2 + viewport.clientHeight * 0.2);
+      panX = clamp(panX, -maxX, maxX);
+      panY = clamp(panY, -maxY, maxY);
+    }
+
+    function renderView() {
+      constrainPan();
+      lightboxStage.style.transform = `translate(calc(-50% + ${panX}px), calc(-50% + ${panY}px)) scale(${scale})`;
+      scaleOutput.textContent = `${Math.round(scale * 100)}%`;
+      viewport.classList.toggle("is-zoomed", scale > 1);
+    }
+
+    function resetView() {
+      scale = 1;
+      panX = 0;
+      panY = 0;
+      renderView();
+    }
+
+    function zoomAt(nextScale, clientX, clientY) {
+      const next = clamp(nextScale, MIN_SCALE, MAX_SCALE);
+      if (next === scale) return;
+      const rect = viewport.getBoundingClientRect();
+      const x = typeof clientX === "number" ? clientX - rect.left - rect.width / 2 : 0;
+      const y = typeof clientY === "number" ? clientY - rect.top - rect.height / 2 : 0;
+      const worldX = (x - panX) / scale;
+      const worldY = (y - panY) / scale;
+      panX = x - worldX * next;
+      panY = y - worldY * next;
+      scale = next;
+      renderView();
+    }
+
+    function openLightbox(target) {
+      const figure = target.closest("figure");
+      const originalUrl = figure?.dataset.originalUrl;
+      originalLink.hidden = !originalUrl;
+      originalLink.href = originalUrl || "#";
+      lastFocus = document.activeElement;
+      visual = document.createElement("img");
+      visual.src = target.currentSrc || target.src;
+      visual.alt = target.alt || "";
+      visual.className = "deck-lightbox__visual";
+      visual.draggable = false;
+      lightboxStage.replaceChildren(visual);
+      title.textContent = figureLabel(target);
+      lightbox.setAttribute("aria-labelledby", "deckLightboxTitle");
+      lightbox.setAttribute("aria-hidden", "false");
+      lightbox.hidden = false;
+      document.body.classList.add("deck-lightbox-open");
+      resetView();
+      requestAnimationFrame(() => {
+        lightbox.classList.add("is-open");
+        closeButton.focus({ preventScroll: true });
+      });
+    }
+
+    function closeLightbox() {
+      if (lightbox.hidden) return;
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("deck-lightbox-open");
+      if (document.fullscreenElement === lightbox) document.exitFullscreen?.();
+      lightbox.hidden = true;
+      lightboxStage.replaceChildren();
+      visual = null;
+      drag = null;
+      lastFocus?.focus?.({ preventScroll: true });
+    }
+
+    targets.forEach((target) => {
+      const figure = target.closest("figure");
+      figure?.classList.add("is-deck-zoomable");
+      target.dataset.deckZoomable = "true";
+      target.tabIndex = 0;
+      target.setAttribute("role", "button");
+      target.setAttribute("aria-haspopup", "dialog");
+      target.setAttribute("aria-label", `${figureLabel(target)} — 전체화면으로 확대`);
+      target.title = "클릭하여 전체화면으로 확대";
+      target.addEventListener("click", () => openLightbox(target));
+      target.addEventListener("keydown", (event) => {
+        if (["Enter", " "].includes(event.key)) {
+          event.preventDefault();
+          openLightbox(target);
+        }
+      });
+      target.addEventListener("dragstart", (event) => event.preventDefault());
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      const control = event.target.closest("[data-deck-lightbox-action]");
+      if (!control) return;
+      const action = control.dataset.deckLightboxAction;
+      if (action === "close") closeLightbox();
+      if (action === "zoom-in") zoomAt(scale + 0.25);
+      if (action === "zoom-out") zoomAt(scale - 0.25);
+      if (action === "reset") resetView();
+      if (action === "fullscreen") {
+        if (document.fullscreenElement) document.exitFullscreen?.();
+        else lightbox.requestFullscreen?.({ navigationUI: "hide" });
+      }
+    });
+
+    viewport.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      zoomAt(scale * (event.deltaY < 0 ? 1.15 : 1 / 1.15), event.clientX, event.clientY);
+    }, { passive: false });
+
+    viewport.addEventListener("dblclick", (event) => {
+      event.preventDefault();
+      zoomAt(scale > 1 ? 1 : 2, event.clientX, event.clientY);
+    });
+
+    viewport.addEventListener("pointerdown", (event) => {
+      if (scale <= 1) return;
+      viewport.setPointerCapture(event.pointerId);
+      drag = { x: event.clientX, y: event.clientY, panX, panY };
+      viewport.classList.add("is-dragging");
+    });
+
+    viewport.addEventListener("pointermove", (event) => {
+      if (!drag) return;
+      panX = drag.panX + event.clientX - drag.x;
+      panY = drag.panY + event.clientY - drag.y;
+      renderView();
+    });
+
+    function endDrag() {
+      drag = null;
+      viewport.classList.remove("is-dragging");
+    }
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+
+    document.addEventListener("keydown", (event) => {
+      if (lightbox.hidden) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeLightbox();
+      } else if (["+", "="].includes(event.key)) {
+        event.preventDefault();
+        zoomAt(scale + 0.25);
+      } else if (event.key === "-") {
+        event.preventDefault();
+        zoomAt(scale - 0.25);
+      } else if (event.key === "0") {
+        event.preventDefault();
+        resetView();
+      }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      const active = document.fullscreenElement === lightbox;
+      fullscreenButton.setAttribute("aria-pressed", String(active));
+    });
+    window.addEventListener("resize", renderView);
+  }
+
   document.getElementById("prevButton").addEventListener("click", () => move(-1));
   document.getElementById("nextButton").addEventListener("click", () => move(1));
   themeButton.addEventListener("click", toggleTheme);
@@ -192,6 +408,7 @@
 
   document.addEventListener("keydown", (event) => {
     showChrome();
+    if (document.body.classList.contains("deck-lightbox-open")) return;
     if (event.key === "Escape") {
       setToc(false);
       setSettings(false);
@@ -244,6 +461,7 @@
 
   numberFigures();
   buildToc();
+  setupImageLightbox();
   fitStage();
   applyTheme(savedTheme() === "dark" ? "dark" : "light");
   showSlide(hashIndex(), { skipHash: true });

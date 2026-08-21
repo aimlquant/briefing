@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img">
+  <title>에이전트 행동 승인 매트릭스</title>
+  <desc>외부 영향과 복구 가능성에 따라 자동 실행, 사후 검토, 사전 승인, 이중 승인을 나눈다</desc>
+  <style>.bg{fill:#f8fafc}.grid{stroke:#718096;stroke-width:3}.q1{fill:#e9f8f4}.q2{fill:#fff8de}.q3{fill:#e9f2ff}.q4{fill:#fff0ea}.axis{font-family:Arial,'Noto Sans KR',sans-serif;font-size:16px;font-weight:800;fill:#536078}.t{font-family:Arial,'Noto Sans KR',sans-serif;font-size:24px;font-weight:900;fill:#172033}.s{font-family:Arial,'Noto Sans KR',sans-serif;font-size:17px;font-weight:650;fill:#354157}.chip{fill:#fff;stroke:#c9d3e1;stroke-width:1.5}</style>
+  <rect class="bg" width="1200" height="680" rx="24"/>
+  <rect class="q3" x="170" y="60" width="460" height="260"/><rect class="q4" x="630" y="60" width="460" height="260"/><rect class="q1" x="170" y="320" width="460" height="260"/><rect class="q2" x="630" y="320" width="460" height="260"/>
+  <line class="grid" x1="170" y1="320" x2="1090" y2="320"/><line class="grid" x1="630" y1="60" x2="630" y2="580"/><rect x="170" y="60" width="920" height="520" fill="none" class="grid"/>
+  <text class="axis" x="630" y="635" text-anchor="middle">외부 영향 → 낮음에서 높음</text><text class="axis" x="70" y="320" text-anchor="middle" transform="rotate(-90 70 320)">복구 가능성 → 높음에서 낮음</text>
+  <g><text class="t" x="205" y="105">사전 승인</text><text class="s" x="205" y="145">권한 변경 · 대량 수정</text><text class="s" x="205" y="178">민감 데이터 이동</text><text class="t" x="665" y="105">이중 승인</text><text class="s" x="665" y="145">결제 · 삭제 · 외부 게시</text><text class="s" x="665" y="178">되돌릴 수 없는 실행</text><text class="t" x="205" y="365">자동 실행</text><text class="s" x="205" y="405">읽기 · 검색 · 초안</text><text class="s" x="205" y="438">샌드박스 안의 계산</text><text class="t" x="665" y="365">사후 검토</text><text class="s" x="665" y="405">내부 파일 생성 · 티켓 초안</text><text class="s" x="665" y="438">버전 관리되는 변경</text></g>
+  <g class="chip"><rect x="205" y="220" width="170" height="48" rx="24"/><rect x="665" y="220" width="190" height="48" rx="24"/><rect x="205" y="480" width="170" height="48" rx="24"/><rect x="665" y="480" width="190" height="48" rx="24"/></g>
+  <g class="axis"><text x="290" y="250" text-anchor="middle">대상·범위 표시</text><text x="760" y="250" text-anchor="middle">금액·수신자 표시</text><text x="290" y="510" text-anchor="middle">예산·시간 상한</text><text x="760" y="510" text-anchor="middle">diff·롤백 보존</text></g>
+</svg>

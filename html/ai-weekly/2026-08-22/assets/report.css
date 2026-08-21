@@ -56,6 +56,276 @@
   .source-gallery figcaption span { font-size: 6.5pt; }
 }
 
+/* AI Weekly 2026-08-22 · standalone explainer layouts */
+.ai-weekly-report .story {
+  scroll-margin-top: 28px;
+}
+
+.story-facts,
+.status-grid,
+.explainer-grid,
+.resource-grid,
+.image-ledger,
+.source-pair {
+  display: grid;
+  gap: 16px;
+}
+
+.story-facts {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 24px 0 32px;
+}
+
+.story-facts > div,
+.status-grid > article,
+.explainer-grid > article,
+.claim-boundary,
+.story-verdict,
+.worked-example,
+.story-resources {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.story-facts > div {
+  display: grid;
+  gap: 5px;
+  padding: 18px 20px;
+}
+
+.story-facts > div > span {
+  color: var(--brand-primary);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.story-facts > div > b {
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.story-facts > div > small {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.story-facts dt {
+  margin: 0 0 7px;
+  color: var(--brand-primary);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.story-facts dd {
+  margin: 0;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 720;
+  line-height: 1.55;
+}
+
+.status-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 24px 0;
+}
+
+.status-grid > article,
+.explainer-grid > article {
+  padding: 22px 24px;
+}
+
+.status-grid h2,
+.explainer-grid h2,
+.worked-example h2,
+.story-resources h2 {
+  margin-top: 0;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+  background: #0f2c59;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .09em;
+}
+
+.status-chip--research { background: #5b21b6; }
+.status-chip--vendor { background: #9a3412; }
+.status-chip--investigation { background: #374151; }
+
+.explainer-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 24px 0;
+}
+
+.explainer-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.claim-boundary,
+.story-verdict,
+.worked-example {
+  margin: 26px 0;
+  padding: 22px 26px;
+  border-left: 5px solid var(--brand-primary);
+}
+
+.claim-boundary { background: color-mix(in srgb, var(--surface) 84%, #fef3c7); }
+.story-verdict { background: color-mix(in srgb, var(--surface) 88%, #dbeafe); }
+.worked-example { background: color-mix(in srgb, var(--surface) 90%, #dcfce7); }
+
+.source-pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  margin: 24px 0;
+}
+
+.source-pair .report-figure {
+  height: 100%;
+  margin: 0;
+}
+
+.source-pair .report-figure > img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  background: #fafaf9;
+}
+
+.story-resources {
+  margin: 40px 0 12px;
+  padding: 24px 26px 26px;
+  background: color-mix(in srgb, var(--surface) 94%, var(--brand-primary));
+}
+
+.resource-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resource-grid a {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.resource-grid a:hover,
+.resource-grid a:focus-visible {
+  border-color: var(--brand-primary);
+  box-shadow: 0 8px 24px rgba(15, 44, 89, .12);
+}
+
+.resource-grid b { color: var(--brand-primary); }
+.resource-grid span { color: var(--text-secondary); line-height: 1.45; }
+
+.image-ledger {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.image-ledger > li {
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  list-style: none;
+}
+
+.code-block,
+.weekly-safe-code {
+  max-width: 100%;
+  overflow: auto;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.report-figure.is-zoomable {
+  position: relative;
+}
+
+.report-figure.is-zoomable::after {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, .55);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(5, 10, 18, .72);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .24);
+  content: "⤢ 확대";
+  font-size: 11px;
+  font-weight: 850;
+  pointer-events: none;
+}
+
+.report-lightbox__original {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, .32);
+  border-radius: 7px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.report-lightbox__original[hidden] { display: none !important; }
+.report-lightbox__original:hover { background: rgba(255, 255, 255, .14); }
+
+@media (max-width: 760px) {
+  .story-facts,
+  .status-grid,
+  .explainer-grid,
+  .explainer-grid--three,
+  .resource-grid,
+  .image-ledger,
+  .source-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .story-facts,
+  .status-grid,
+  .explainer-grid,
+  .source-pair { gap: 12px; }
+
+  .story-resources { padding: 20px 18px; }
+  .report-lightbox__original { min-height: 40px; padding: 0 10px; }
+}
+
+@media print {
+  .report-figure.is-zoomable::after { display: none !important; }
+  .story-resources,
+  .story-facts > div,
+  .status-grid > article,
+  .explainer-grid > article,
+  .claim-boundary,
+  .story-verdict,
+  .worked-example { box-shadow: none !important; }
+}
+
 /* ===== THEMES (class-based, 슬라이드와 완전 동일) ===== */
 html.theme-dark {
   --bg: #0A0A0A; --surface: #141414; --surface-hover: #1C1C1C;
@@ -4365,4 +4635,11 @@ svg.report-lightbox__visual {
     break-inside: auto !important;
     page-break-inside: auto !important;
   }
+}
+
+@media (max-width: 640px) {
+  .report-lightbox__actions { gap: 4px; }
+  .report-lightbox__actions button { width: 36px; height: 36px; }
+  .report-lightbox__scale { min-width: 44px; }
+  .report-lightbox__original { min-height: 36px; padding: 0 8px; font-size: 11px; }
 }

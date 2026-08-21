@@ -1,26 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">2026년 8월 셋째 주 AI 신호 지도</title>
-  <desc id="desc">통제, 보안, 에이전트, 생산성, 거버넌스의 다섯 행에 열 개 뉴스를 같은 크기의 카드로 배치한 지도</desc>
-  <style>
-    .bg{fill:#f7f8fb}.axis{fill:#0f2c59}.label{font:700 20px Inter,'Noto Sans KR',sans-serif;fill:#fff}.card{fill:#fff;stroke:#c9d2df;stroke-width:2}.deep{fill:#e8eef8;stroke:#2563eb;stroke-width:3}.k{font:800 16px Inter,'Noto Sans KR',sans-serif;fill:#2563eb}.t{font:800 22px Inter,'Noto Sans KR',sans-serif;fill:#101114}.s{font:600 16px Inter,'Noto Sans KR',sans-serif;fill:#5f6570}.foot{font:700 15px Inter,'Noto Sans KR',sans-serif;fill:#5f6570}
-  </style>
-  <rect class="bg" width="1200" height="630" rx="24"/>
-  <g transform="translate(36 34)">
-    <g><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">통제</text></g>
-    <g transform="translate(166 0)"><rect class="deep" width="456" height="92" rx="14"/><text class="k" x="22" y="31">DEEP 01</text><text class="t" x="22" y="62">사이버 임계점에서 RL 중단</text></g>
-    <g transform="translate(642 0)"><rect class="deep" width="456" height="92" rx="14"/><text class="k" x="22" y="31">DEEP 02</text><text class="t" x="22" y="62">Claude 텍스트 워터마크</text></g>
-    <g transform="translate(0 108)"><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">보안</text></g>
-    <g transform="translate(166 108)"><rect class="deep" width="456" height="92" rx="14"/><text class="k" x="22" y="31">DEEP 03</text><text class="t" x="22" y="62">Copilot Autofix의 CI 주입</text></g>
-    <g transform="translate(642 108)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 09</text><text class="t" x="22" y="62">Zero Data Retention 안전 처리</text></g>
-    <g transform="translate(0 216)"><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">에이전트</text></g>
-    <g transform="translate(166 216)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 04</text><text class="t" x="22" y="62">45-agent 협업의 범위 효과</text></g>
-    <g transform="translate(642 216)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 06</text><text class="t" x="22" y="62">최종 답보다 실행 궤적 테스트</text></g>
-    <g transform="translate(0 324)"><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">생산성</text></g>
-    <g transform="translate(166 324)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 05</text><text class="t" x="22" y="62">PR은 늘고 시간은 그대로</text></g>
-    <g transform="translate(642 324)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 08</text><text class="t" x="22" y="62">MathCode 0.3 + Lean 4</text></g>
-    <g transform="translate(0 432)"><rect class="axis" width="146" height="92" rx="14"/><text class="label" x="73" y="55" text-anchor="middle">거버넌스</text></g>
-    <g transform="translate(166 432)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 07</text><text class="t" x="22" y="62">Debian의 LLM 기여 투표</text></g>
-    <g transform="translate(642 432)"><rect class="card" width="456" height="92" rx="14"/><text class="k" x="22" y="31">RADAR 10</text><text class="t" x="22" y="62">“AI 답변을 그대로 붙이지 말라”</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img">
+  <title>이번 주 열 개 AI 신호 지도</title>
+  <desc>세 개 딥다이브와 일곱 개 레이더 뉴스를 동일 그리드 카드로 배치한 지도</desc>
+  <style>.bg{fill:#f8fafc}.deep{fill:#e9f2ff;stroke:#1f5ea8}.radar{fill:#fff;stroke:#c9d3e1}.n{font-family:Arial,sans-serif;font-size:18px;font-weight:800;fill:#1f5ea8}.k{font-family:Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:1.5px;fill:#536078}.t{font-family:Arial,'Noto Sans KR',sans-serif;font-size:22px;font-weight:800;fill:#172033}.s{font-family:Arial,'Noto Sans KR',sans-serif;font-size:15px;font-weight:600;fill:#536078}</style>
+  <rect class="bg" width="1200" height="680" rx="24"/>
+  <g stroke-width="2">
+    <rect class="deep" x="30" y="42" width="360" height="222" rx="20"/><rect class="deep" x="420" y="42" width="360" height="222" rx="20"/><rect class="deep" x="810" y="42" width="360" height="222" rx="20"/>
+    <rect class="radar" x="15" y="330" width="150" height="230" rx="16"/><rect class="radar" x="185" y="330" width="150" height="230" rx="16"/><rect class="radar" x="355" y="330" width="150" height="230" rx="16"/><rect class="radar" x="525" y="330" width="150" height="230" rx="16"/><rect class="radar" x="695" y="330" width="150" height="230" rx="16"/><rect class="radar" x="865" y="330" width="150" height="230" rx="16"/><rect class="radar" x="1035" y="330" width="150" height="230" rx="16"/>
   </g>
-  <text class="foot" x="600" y="598" text-anchor="middle">파란 면 = 딥다이브 · 흰 면 = 레이더 · 순위는 종합점수와 편집 판단</text>
+  <g class="n"><text x="58" y="78">01</text><text x="448" y="78">02</text><text x="838" y="78">03</text></g>
+  <g class="k"><text x="58" y="108">DEEP · INFERENCE</text><text x="448" y="108">DEEP · AGENT</text><text x="838" y="108">DEEP · OPEN MODEL</text></g>
+  <g class="t"><text x="58" y="155">속도가 모델의</text><text x="58" y="185">새 등급이 되다</text><text x="448" y="155">에이전트에게</text><text x="448" y="185">컴퓨터를 주다</text><text x="838" y="155">배포층이 성능을</text><text x="838" y="185">결정하다</text></g>
+  <g class="s"><text x="58" y="228">throughput → 완료시간</text><text x="448" y="228">credentials → approval</text><text x="838" y="228">weights → operations</text></g>
+  <g class="n"><text x="35" y="366">04</text><text x="205" y="366">05</text><text x="375" y="366">06</text><text x="545" y="366">07</text><text x="715" y="366">08</text><text x="885" y="366">09</text><text x="1055" y="366">10</text></g>
+  <g class="k"><text x="35" y="396">SERVING</text><text x="205" y="396">MATH</text><text x="375" y="396">PROVENANCE</text><text x="545" y="396">HEALTH</text><text x="715" y="396">ADOPTION</text><text x="885" y="396">FINANCE</text><text x="1055" y="396">DATA</text></g>
+  <g class="t" font-size="18"><text x="35" y="444">DSpark</text><text x="35" y="470">투기 디코딩</text><text x="205" y="444">제타 영점</text><text x="205" y="470">2/3 하한</text><text x="375" y="444">텍스트</text><text x="375" y="470">워터마크</text><text x="545" y="444">AMIE 영상</text><text x="545" y="470">모의 상담</text><text x="715" y="444">기업 AI</text><text x="715" y="470">위임 심화</text><text x="885" y="444">$500B+</text><text x="885" y="470">동원 목표</text><text x="1055" y="444">희귀 서적</text><text x="1055" y="470">스캔 공급망</text></g>
+  <g class="s" font-size="13"><text x="35" y="530">모델×서빙</text><text x="205" y="530">명제 경계</text><text x="375" y="530">확률 신호</text><text x="545" y="530">실험 경계</text><text x="715" y="530">가치≠토큰</text><text x="885" y="530">목표≠집행</text><text x="1055" y="530">확인≠추정</text></g>
 </svg>
