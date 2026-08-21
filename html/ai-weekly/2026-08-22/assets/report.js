@@ -240,14 +240,13 @@
           '<output class="report-lightbox__scale" aria-live="polite">100%</output>' +
           '<button type="button" data-lightbox-action="zoom-in" aria-label="확대" title="확대 (+)">+</button>' +
           '<button type="button" data-lightbox-action="reset" aria-label="화면에 맞춤" title="화면에 맞춤 (0)">맞춤</button>' +
-          '<button type="button" data-lightbox-action="fullscreen" aria-label="브라우저 전체화면" aria-pressed="false" title="브라우저 전체화면">⛶</button>' +
           '<button type="button" data-lightbox-action="close" aria-label="닫기" title="닫기 (Esc)">×</button>' +
         '</div>' +
       '</div>' +
       '<div class="report-lightbox__viewport" tabindex="0">' +
         '<div class="report-lightbox__stage"></div>' +
       '</div>' +
-      '<p class="report-lightbox__hint">휠·+/− 확대 · 드래그 이동 · 더블클릭 전환 · 핀치 줌 · Esc 닫기</p>';
+      '<p class="report-lightbox__hint">클릭 시 150%·전체화면 · 휠·+/− 확대 · 드래그 이동 · 핀치 줌 · Esc 닫기</p>';
     document.body.appendChild(lightbox);
 
     var viewport = lightbox.querySelector('.report-lightbox__viewport');
@@ -255,7 +254,6 @@
     var title = lightbox.querySelector('.report-lightbox__title');
     var scaleOutput = lightbox.querySelector('.report-lightbox__scale');
     var closeButton = lightbox.querySelector('[data-lightbox-action="close"]');
-    var fullscreenButton = lightbox.querySelector('[data-lightbox-action="fullscreen"]');
     var originalLink = lightbox.querySelector('[data-lightbox-original]');
     var lastFocus = null;
     var visual = null;
@@ -266,9 +264,11 @@
     var dragStart = null;
     var pinchStart = null;
     var didMove = false;
+    var enteredFullscreen = false;
     var MIN_SCALE = 1;
     var MAX_SCALE = 6;
     var SCALE_STEP = 0.25;
+    var INITIAL_SCALE = 1.5;
 
     function countPointers() { return Object.keys(pointers).length; }
     function pointerValues() {
@@ -343,6 +343,20 @@
       return clone;
     }
 
+    function enterViewerFullscreen() {
+      if (!lightbox.requestFullscreen || document.fullscreenElement === lightbox) return;
+      try {
+        var attempt = lightbox.requestFullscreen({ navigationUI: 'hide' });
+        if (attempt && typeof attempt.then === 'function') {
+          attempt.then(function () {
+            enteredFullscreen = document.fullscreenElement === lightbox;
+          }).catch(function () {});
+        }
+      } catch (_error) {
+        /* The fixed full-viewport viewer remains available where the API is unsupported. */
+      }
+    }
+
     function openLightbox(target) {
       lastFocus = document.activeElement;
       var figure = target.closest('figure');
@@ -366,6 +380,8 @@
       document.body.classList.add('report-lightbox-open');
       document.documentElement.classList.add('report-lightbox-open');
       resetView();
+      zoomAt(INITIAL_SCALE);
+      enterViewerFullscreen();
       window.requestAnimationFrame(function () {
         lightbox.classList.add('is-open');
         closeButton.focus({ preventScroll: true });
@@ -384,6 +400,7 @@
       lightbox.hidden = true;
       stage.replaceChildren();
       visual = null;
+      enteredFullscreen = false;
       pointers = {};
       dragStart = null;
       pinchStart = null;
@@ -419,13 +436,6 @@
       if (action === 'zoom-in') zoomAt(scale + SCALE_STEP);
       if (action === 'zoom-out') zoomAt(scale - SCALE_STEP);
       if (action === 'reset') resetView();
-      if (action === 'fullscreen') {
-        if (document.fullscreenElement) {
-          document.exitFullscreen().catch(function () {});
-        } else if (lightbox.requestFullscreen) {
-          lightbox.requestFullscreen({ navigationUI: 'hide' }).catch(function () {});
-        }
-      }
     });
 
     viewport.addEventListener('wheel', function (event) {
@@ -554,9 +564,10 @@
     });
 
     document.addEventListener('fullscreenchange', function () {
-      var active = document.fullscreenElement === lightbox;
-      fullscreenButton.setAttribute('aria-pressed', active ? 'true' : 'false');
-      fullscreenButton.title = active ? '전체화면 종료' : '브라우저 전체화면';
+      if (!lightbox.hidden && !document.fullscreenElement && enteredFullscreen) {
+        enteredFullscreen = false;
+        closeLightbox();
+      }
     });
     window.addEventListener('resize', render);
   }

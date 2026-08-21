@@ -1970,7 +1970,7 @@ pre[data-code-language]::after {
 
 /* ===== Fullscreen deck image viewer ===== */
 [data-deck-zoomable="true"] {
-  cursor: zoom-in;
+  cursor: pointer;
   outline: 2px solid transparent;
   outline-offset: 3px;
   transition: filter 160ms ease, outline-color 160ms ease, box-shadow 160ms ease;

@@ -4415,7 +4415,7 @@ html, body, button, input { font-family: var(--font-sans-ko); }
 }
 /* ===== Fullscreen image viewer: click / keyboard / wheel / pinch ===== */
 [data-report-zoomable="true"] {
-  cursor: zoom-in;
+  cursor: pointer;
   transition: filter 160ms ease, outline-color 160ms ease, box-shadow 160ms ease;
   outline: 2px solid transparent;
   outline-offset: 4px;
