@@ -3790,7 +3790,7 @@ html, body, button, input { font-family: var(--font-sans-ko); }
 
 .ai-weekly-report .report-cover__meta {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
   padding-top: 22px;
   border-top: 1px solid var(--border);
@@ -3988,10 +3988,84 @@ html, body, button, input { font-family: var(--font-sans-ko); }
 .weekly-references span { color: var(--accent-secondary); font-weight: 900; }
 .weekly-references a { color: var(--text); overflow-wrap: anywhere; }
 
+.source-figure img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+}
+
+.source-figure .asset-note a {
+  color: inherit;
+  font-weight: 800;
+}
+
+.decision-spectrum {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 24px 0 30px;
+}
+
+.decision-spectrum article {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent-secondary);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.decision-spectrum b {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent-secondary);
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+
+.continuous-mode .report-section .decision-spectrum p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.discussion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 32px;
+}
+
+.discussion-grid article {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.discussion-grid b {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--accent-secondary);
+  font-size: 12px;
+  letter-spacing: .08em;
+}
+
+.continuous-mode .report-section .discussion-grid p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 @media (max-width: 760px) {
   .ai-weekly-report .report-controls { right: 10px; bottom: 10px; }
   .ai-weekly-report .report-controls a { padding: 7px 8px; font-size: 10px; }
-  .ai-weekly-report .report-cover { min-height: auto; padding: 36px 24px; }
+  .ai-weekly-report .report-cover { min-height: auto; padding: 72px 24px 36px; }
   .ai-weekly-report .report-cover__body { margin: 48px 0; }
   .ai-weekly-report .report-cover__title { font-size: 48px; }
   .ai-weekly-report .report-cover__subtitle { font-size: 18px; }
@@ -4003,7 +4077,9 @@ html, body, button, input { font-family: var(--font-sans-ko); }
   .method-grid,
   .claim-limit,
   .fact-strip,
-  .radar-grid { grid-template-columns: 1fr; }
+  .radar-grid,
+  .decision-spectrum,
+  .discussion-grid { grid-template-columns: 1fr; }
   .fact-strip span { min-height: 68px; }
   .radar-card { padding: 20px; }
 }
@@ -4011,6 +4087,40 @@ html, body, button, input { font-family: var(--font-sans-ko); }
 @media print {
   .ai-weekly-report .report-controls { display: none !important; }
   .ai-weekly-report .report-cover { min-height: 297mm; }
+  .ai-weekly-report .report-toc {
+    min-height: auto;
+    padding: 12mm 0 8mm;
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+  .ai-weekly-report .toc-paths {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 4mm;
+    margin: 8mm 0 7mm;
+  }
+  .ai-weekly-report .toc-paths a { min-height: 24mm; padding: 4mm; }
+  .ai-weekly-report .weekly-toc li { padding: 2.2mm 1mm; }
+  .ai-weekly-report .weekly-claims { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ai-weekly-report .method-grid,
+  .ai-weekly-report .claim-limit { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ai-weekly-report .fact-strip,
+  .ai-weekly-report .decision-spectrum { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ai-weekly-report .discussion-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ai-weekly-report .claim-limit,
+  .ai-weekly-report .discussion-grid,
+  .ai-weekly-report .decision-spectrum {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .ai-weekly-report .claim-limit { gap: 2mm; margin: 3mm 0; }
+  .ai-weekly-report .claim-limit > div { padding: 2.5mm; }
+  .continuous-mode.ai-weekly-report .report-section .claim-limit p {
+    font-size: 8pt;
+    line-height: 1.4;
+  }
+  /* The appendix is the print source ledger. Suppress duplicate per-story URL
+     bands so they cannot become one-line orphan pages after a large figure. */
+  .ai-weekly-report .source-line { display: none !important; }
 }
 /* ===== Fullscreen image viewer: click / keyboard / wheel / pinch ===== */
 [data-report-zoomable="true"] {
@@ -4196,7 +4306,7 @@ svg.report-lightbox__visual {
   }
   .continuous-mode .report-cover__meta {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     max-width: 145mm;
   }
   .continuous-mode .report-section h1,
