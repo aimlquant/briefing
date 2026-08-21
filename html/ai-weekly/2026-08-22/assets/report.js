@@ -235,6 +235,7 @@
       '<div class="report-lightbox__toolbar">' +
         '<strong class="report-lightbox__title" id="reportLightboxTitle"></strong>' +
         '<div class="report-lightbox__actions">' +
+          '<a class="report-lightbox__original" data-lightbox-original href="#" target="_blank" rel="noopener" hidden>원본 열기 ↗</a>' +
           '<button type="button" data-lightbox-action="zoom-out" aria-label="축소" title="축소 (−)">−</button>' +
           '<output class="report-lightbox__scale" aria-live="polite">100%</output>' +
           '<button type="button" data-lightbox-action="zoom-in" aria-label="확대" title="확대 (+)">+</button>' +
@@ -255,6 +256,7 @@
     var scaleOutput = lightbox.querySelector('.report-lightbox__scale');
     var closeButton = lightbox.querySelector('[data-lightbox-action="close"]');
     var fullscreenButton = lightbox.querySelector('[data-lightbox-action="fullscreen"]');
+    var originalLink = lightbox.querySelector('[data-lightbox-original]');
     var lastFocus = null;
     var visual = null;
     var scale = 1;
@@ -343,6 +345,15 @@
 
     function openLightbox(target) {
       lastFocus = document.activeElement;
+      var figure = target.closest('figure');
+      var originalUrl = figure && figure.dataset.originalUrl;
+      if (originalUrl) {
+        originalLink.href = originalUrl;
+        originalLink.hidden = false;
+      } else {
+        originalLink.href = '#';
+        originalLink.hidden = true;
+      }
       visual = buildVisual(target);
       visual.classList.add('report-lightbox__visual');
       visual.setAttribute('draggable', 'false');
@@ -380,6 +391,8 @@
     }
 
     targets.forEach(function (target) {
+      var figure = target.closest('figure');
+      if (figure) figure.classList.add('is-zoomable');
       target.dataset.reportZoomable = 'true';
       target.tabIndex = 0;
       target.setAttribute('role', 'button');

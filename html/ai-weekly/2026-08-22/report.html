@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="2026년 8월 15일부터 21일까지 국내외 AI 크리에이터, Hacker News, 공식 발표와 논문을 교차 분석한 AIML Quant AI Weekly 상세 리포트">
-  <title>AI Weekly 2026-08-22 · 상세 리포트</title>
+  <meta name="description" content="2026년 8월 15일부터 21일까지 주목받은 AI 이슈 10개를 원문·논문·코드·제품 화면과 함께 풀어 쓴 AIML Quant AI Weekly 상세 해설">
+  <title>AI Weekly 2026-08-22 · 상세 해설 리포트</title>
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/report.css">
 </head>
@@ -29,172 +29,301 @@
       <div class="report-cover__wordmark"><span class="report-cover__wordmark-name">AIML Quant</span><span class="report-cover__wordmark-sub">AI WEEKLY · ISSUE 001</span></div>
       <p class="report-cover__kicker">2026.08.15 00:00 → 08.21 09:53 KST</p>
       <h1 class="report-cover__title">AI가 답하던 주에서,<br>일을 맡기던 주로</h1>
-      <p class="report-cover__subtitle">속도 경쟁, 전용 컴퓨터 에이전트, 로컬 오픈 모델까지. 이번 주의 승부는 모델 점수 하나가 아니라 일을 끝내는 전체 시스템으로 이동했다.</p>
-      <dl class="report-cover__meta"><div><dt>선정</dt><dd>10개 · 딥다이브 3</dd></div><div><dt>발표</dt><dd>30분 · 15장</dd></div><div><dt>소스 레이더</dt><dd>26개 채널 · 신규 8</dd></div></dl>
+      <p class="report-cover__subtitle">속도 경쟁, 전용 컴퓨터 에이전트, 로컬 오픈 모델부터 연구·금융·데이터 공급망까지. 원문을 열지 않아도 이해할 수 있도록 열 개 이슈의 작동 원리와 한계를 풀어 썼다.</p>
+      <dl class="report-cover__meta"><div><dt>선정</dt><dd>10개 · 딥다이브 3</dd></div><div><dt>읽기</dt><dd>상세 해설 · 원문 직결</dd></div><div><dt>발표</dt><dd>30분 · 15장</dd></div></dl>
     </section>
 
     <nav class="report-toc page-break" aria-label="인쇄용 목차">
       <h1 class="report-toc__title">Contents</h1>
       <ol class="report-toc__list">
         <li class="report-toc__item"><a href="#summary"><span class="report-toc__num">00</span><span class="report-toc__label">이번 주의 결론과 10개 신호</span><span class="report-toc__leader"></span><span class="report-toc__page">3</span></a></li>
-        <li class="report-toc__item"><a href="#method"><span class="report-toc__num">01</span><span class="report-toc__label">매주 갱신되는 소스 레이더</span><span class="report-toc__leader"></span><span class="report-toc__page">5</span></a></li>
-        <li class="report-toc__item"><a href="#story-frontier-throughput-race"><span class="report-toc__num">02</span><span class="report-toc__label">Deep 01 · 추론 속도 경쟁</span><span class="report-toc__leader"></span><span class="report-toc__page">8</span></a></li>
-        <li class="report-toc__item"><a href="#story-grok-bot-computer-agent"><span class="report-toc__num">03</span><span class="report-toc__label">Deep 02 · Grok Bot의 전용 컴퓨터</span><span class="report-toc__leader"></span><span class="report-toc__page">12</span></a></li>
-        <li class="report-toc__item"><a href="#story-qwen-open-deployment"><span class="report-toc__num">04</span><span class="report-toc__label">Deep 03 · Qwen의 오픈 배포 스택</span><span class="report-toc__leader"></span><span class="report-toc__page">16</span></a></li>
-        <li class="report-toc__item"><a href="#story-deepseek-dspark-serving"><span class="report-toc__num">05</span><span class="report-toc__label">Radar 04–07 · 모델·과학·출처</span><span class="report-toc__leader"></span><span class="report-toc__page">20</span></a></li>
-        <li class="report-toc__item"><a href="#story-enterprise-agent-delegation"><span class="report-toc__num">06</span><span class="report-toc__label">Radar 08–10 · 도입·인프라·데이터</span><span class="report-toc__leader"></span><span class="report-toc__page">25</span></a></li>
-        <li class="report-toc__item"><a href="#actions"><span class="report-toc__num">07</span><span class="report-toc__label">실행 플레이북과 토론</span><span class="report-toc__leader"></span><span class="report-toc__page">29</span></a></li>
-        <li class="report-toc__item"><a href="#references"><span class="report-toc__num">A</span><span class="report-toc__label">원문·코드·논문 원장</span><span class="report-toc__leader"></span><span class="report-toc__page">31</span></a></li>
+        <li class="report-toc__item"><a href="#reading-guide"><span class="report-toc__num">01</span><span class="report-toc__label">주장과 숫자를 읽는 법</span><span class="report-toc__leader"></span><span class="report-toc__page">5</span></a></li>
+        <li class="report-toc__item"><a href="#story-frontier-throughput-race"><span class="report-toc__num">02</span><span class="report-toc__label">Deep 01 · 속도가 모델의 새 등급이 되다</span><span class="report-toc__leader"></span><span class="report-toc__page">7</span></a></li>
+        <li class="report-toc__item"><a href="#story-grok-bot-computer-agent"><span class="report-toc__num">03</span><span class="report-toc__label">Deep 02 · Grok Bot의 전용 컴퓨터</span><span class="report-toc__leader"></span><span class="report-toc__page">13</span></a></li>
+        <li class="report-toc__item"><a href="#story-qwen-open-deployment"><span class="report-toc__num">04</span><span class="report-toc__label">Deep 03 · Qwen의 오픈 배포 스택</span><span class="report-toc__leader"></span><span class="report-toc__page">20</span></a></li>
+        <li class="report-toc__item"><a href="#story-deepseek-dspark-serving"><span class="report-toc__num">05</span><span class="report-toc__label">Radar 04–07 · 서빙·수학·출처·의료</span><span class="report-toc__leader"></span><span class="report-toc__page">27</span></a></li>
+        <li class="report-toc__item"><a href="#story-enterprise-agent-delegation"><span class="report-toc__num">06</span><span class="report-toc__label">Radar 08–10 · 도입·금융·데이터</span><span class="report-toc__leader"></span><span class="report-toc__page">38</span></a></li>
+        <li class="report-toc__item"><a href="#actions"><span class="report-toc__num">07</span><span class="report-toc__label">실행 플레이북과 토론</span><span class="report-toc__leader"></span><span class="report-toc__page">46</span></a></li>
+        <li class="report-toc__item"><a href="#references"><span class="report-toc__num">A</span><span class="report-toc__label">원문·코드·논문 전체 원장</span><span class="report-toc__leader"></span><span class="report-toc__page">49</span></a></li>
       </ol>
     </nav>
 
-    <section class="report-section s0 page-break" id="summary">
+    <section class="report-section page-break" id="summary">
       <div class="report-section__kicker">SECTION 00 · EXECUTIVE SUMMARY</div>
-      <h1>이번 주의 경쟁축은 ‘더 똑똑함’에서 ‘더 맡길 수 있음’으로 이동했다</h1>
-      <p class="report-section__lede">Gemini와 GPT-5.6은 지연을, Grok Bot은 전용 컴퓨터를, Qwen과 DeepSeek은 배포 스택을 전면에 놓았다. 모델이 실제 일을 맡으려면 속도·도구·자격증명·승인·감사가 하나의 제품이어야 한다.</p>
-      <div class="callout--hero"><span class="callout__kicker">ONE SENTENCE</span><span class="callout__body"><strong>이번 주의 핵심은 벤치마크 1등이 아니라, 긴 작업을 어떤 비용과 통제 아래 끝내느냐다.</strong></span></div>
-      <p>가장 반복적으로 관측된 신호는 속도였다. Google의 Gemini 3.7 Flash는 1M 입력·64K 출력을, OpenAI의 GPT-5.6 Sol Ultrafast는 최대 750 token/s를 내세웠다. 그러나 이 숫자는 측정 하드웨어, 출력 길이, 제공 방식이 달라 한 줄 순위표로 만들 수 없다. 실제 제품에서는 모델 계산 외에도 네트워크·도구 호출·승인 대기가 작업 완료 시간을 결정한다.</p>
-      <p>두 번째 변화는 에이전트의 물리적 경계다. Grok Bot은 브라우저 탭 안의 채팅이 아니라 로그인된 앱을 가진 전용 클라우드 컴퓨터에서 오래 실행된다. 세 번째 변화는 배포의 재부상이다. Qwen 3.8 27B와 DeepSeek V4 Pro는 가중치만이 아니라 추론 모드, 컨텍스트, 양자화, 서빙 엔진을 함께 보아야 한다. ‘오픈’은 곧 ‘가볍다’거나 ‘운영이 쉽다’는 뜻이 아니다.</p>
-      <figure class="report-figure" id="fig-week-map" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 1</span><span class="asset-caption__title">이번 주 10개 신호: 속도에서 데이터 공급망까지</span></figcaption><img src="assets/figs/week-map-v2.svg" alt="딥다이브 세 개와 레이더 일곱 개를 배치한 주간 신호 지도"><small class="asset-note">파란 카드는 딥다이브다. 인기도가 아니라 ‘일을 맡길 수 있는 시스템’이라는 논지에 기여하는 순서로 배치했다.</small></figure>
-      <table class="cmp-table" id="table-top-ten"><thead><tr><th>#</th><th>신호</th><th>점수</th><th>이번 주에 남긴 질문</th></tr></thead><tbody>
-        <tr><td>1</td><td>Gemini 3.7 Flash · GPT-5.6 Ultrafast</td><td>95</td><td>token/s가 실제 완료시간을 얼마나 줄이나?</td></tr><tr><td>2</td><td>Grok Bot 전용 컴퓨터</td><td>94</td><td>로그인·결제·전송을 어디서 승인할까?</td></tr><tr><td>3</td><td>Qwen 3.8 27B</td><td>93</td><td>오픈 가중치를 운영 가능한 스택으로 만들 수 있나?</td></tr><tr><td>4–7</td><td>DeepSeek · 제타 · 워터마크 · AMIE</td><td>81–91</td><td>연구·서빙·출처의 조건은 무엇인가?</td></tr><tr><td>8–10</td><td>기업 위임 · AI 금융 · 학습 데이터</td><td>76–86</td><td>가치·자본·권리의 공급망을 추적할 수 있나?</td></tr>
+      <h1>모델의 지능보다 ‘일을 끝내는 시스템’이 전면으로 나왔다</h1>
+      <p class="report-section__lede">이번 주 반복해서 등장한 질문은 “어느 모델이 더 똑똑한가?”가 아니었다. 같은 지능을 얼마나 빨리 제공하는지, 로그인된 앱에서 어디까지 행동하는지, 오픈 가중치를 우리 장비에서 어떤 비용으로 운영하는지, 그 행동을 누가 승인하고 되돌릴지가 핵심이었다.</p>
+      <div class="callout--hero"><span class="callout__kicker">ONE SENTENCE</span><span class="callout__body"><strong>모델을 고르는 시대에서, 모델이 일할 환경·권한·검증·자본·데이터 계보를 함께 설계하는 시대로 이동하고 있다.</strong></span></div>
+      <figure class="report-figure" id="fig-week-map" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 1</span><span class="asset-caption__title">열 개 뉴스가 만든 하나의 변화 지도</span></figcaption><img src="assets/figs/week-map.svg" alt="속도, 전용 컴퓨터, 오픈 배포의 세 딥다이브와 서빙, 수학, 워터마크, 의료, 도입, 금융, 데이터의 일곱 레이더 신호"><small class="asset-note">위 세 개는 30분 발표에서 깊게 다루는 축이고, 아래 일곱 개는 같은 변화가 연구·조직·인프라로 퍼지는 장면이다. 그림을 클릭하면 확대·전체화면으로 볼 수 있다.</small></figure>
+      <h2>무엇이 실제로 달라졌나</h2>
+      <div class="explainer-grid explainer-grid--three"><article><b>속도는 제품 기능</b><p>출력 token/s가 높아지면 대화가 매끄러워지는 데서 끝나지 않는다. 한 근무일에 돌릴 수 있는 에이전트 실험 횟수와 장애 대응 루프가 달라진다.</p></article><article><b>권한은 모델 밖의 성능</b><p>에이전트가 브라우저·메일·결제·파일을 쓰기 시작하면 자격증명 수명, 사람 승인, 감사 로그, 복구가 “정확도”만큼 중요해진다.</p></article><article><b>오픈은 스택의 속성</b><p>가중치 공개만으로 로컬 운영이 완성되지 않는다. 라이선스, 양자화, 메모리, 런타임, 동시성, 내부 평가까지 이어져야 배포 가능한 모델이 된다.</p></article></div>
+      <table class="cmp-table" id="table-top-ten"><caption>표 1 · 이번 호 10개 이슈와 정확한 읽기</caption><thead><tr><th>#</th><th>이슈</th><th>확인된 핵심</th><th>과장하면 안 되는 지점</th></tr></thead><tbody>
+        <tr><td>1</td><td>Gemini 3.7 Flash · GPT-5.6 Ultrafast</td><td>속도·지연을 별도 상품 축으로 전면화</td><td>389.5와 750은 같은 조건의 맞대결이 아님</td></tr>
+        <tr><td>2</td><td>Grok Bot</td><td>전용 클라우드 컴퓨터에서 앱을 오가는 베타</td><td>제품 주장만으로 무감독 안전성이 증명되지 않음</td></tr>
+        <tr><td>3</td><td>Qwen 3.8 27B</td><td>27B VLM·262K·Apache 2.0·다중 런타임</td><td>17GB 양자화 가능성이 곧 저지연 운영은 아님</td></tr>
+        <tr><td>4</td><td>DeepSeek V4 Pro + DSpark</td><td>모델과 투기 디코딩 서빙기를 함께 공개</td><td>오픈 모델과 가벼운 모델은 동의어가 아님</td></tr>
+        <tr><td>5</td><td>Claude 제타 연구</td><td>단순·임계선 영점의 무조건 하한 ≥2/3, Lean 산출물</td><td>리만 가설을 67% 풀었다는 뜻이 아님</td></tr>
+        <tr><td>6</td><td>Claude 텍스트 워터마크</td><td>향후 모델에 키 기반 통계 패턴 도입 계획</td><td>현재 모든 출력의 저자 판정기가 아님</td></tr>
+        <tr><td>7</td><td>AMIE Video</td><td>100 시나리오·300회 모의 영상 상담 비교</td><td>실제 환자 임상 배포를 입증한 연구가 아님</td></tr>
+        <tr><td>8</td><td>Enterprise Signals</td><td>Codex 64%, 상위·전형 기업 사용자당 토큰 8.3배</td><td>토큰 양이 사업 가치를 직접 측정하지 않음</td></tr>
+        <tr><td>9</td><td>AI 인프라 금융</td><td>6개 금융사와 $500B+ 장기 동원 플랫폼 발표</td><td>즉시 집행된 투자나 NVIDIA 매출이 아님</td></tr>
+        <tr><td>10</td><td>Amazon 희귀 서적 탐사</td><td>AirTag가 VGT3 스캔 공정까지 물리 흐름을 추적</td><td>데이터셋·모델·권리 근거는 공개되지 않음</td></tr>
       </tbody></table>
     </section>
 
-    <section class="report-section s1 page-break" id="method">
-      <div class="report-section__kicker">SECTION 01 · DYNAMIC SOURCE RADAR</div>
-      <h1>고정 북마크가 아니라, 매주 영향력 지도를 다시 만든다</h1>
-      <p class="report-section__lede">이번 호는 국내외 YouTube 6개 채널의 33개 영상, Hacker News 689개 후보, 공식·미디어·전문가·커뮤니티 채널을 한데 모은 뒤 같은 사건을 묶고 1차 출처로 되돌아갔다.</p>
-      <p>소스 레이더는 두 단계다. 먼저 안정적인 기준점—OpenAI, Anthropic, Google, xAI, NVIDIA, Hugging Face, 주요 연구자와 미디어—을 점검한다. 그 다음 이번 주 검색 결과와 교차 언급에서 새 채널을 발견해 후보군을 넓힌다. 이번 실행에서는 26개 채널을 선택했고 그중 8개가 이번 주 새로 발견된 소스다. 반대로 관련성이 낮거나 원문 추적이 어려운 8개 채널은 이유를 남기고 제외했다.</p>
-      <figure class="report-figure" id="fig-source-radar" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 2</span><span class="asset-caption__title">코어 소스와 회전 소스를 합치는 주간 레이더</span></figcaption><img src="assets/figs/source-radar.svg" alt="영상, 미디어, 전문가, 커뮤니티, 공식 채널을 수집하고 교차 언급과 1차 출처로 검증하는 레이더"><small class="asset-note">정책: 선택 소스 20–40개, 회전 소스 최소 8개, 신규 발견 최소 6개, 한 소유자 최대 2개. X는 로그인 없이 확인 가능한 범위만 사용하며 이번 호 선정에는 필요하지 않았다.</small></figure>
-      <div class="source-gallery" aria-label="이번 주 크리에이터 영상 표본">
-        <figure><img src="assets/source/creator-weekly-roundup.jpg" alt="조코딩 AI 주간 뉴스 영상 썸네일"><figcaption><b>조코딩</b><span>주간 이슈 묶음 · 33,493회</span></figcaption></figure><figure><img src="assets/source/creator-gemini-37.jpg" alt="안될공학 Gemini 3.7 영상 썸네일"><figcaption><b>안될공학</b><span>Gemini 3.7 · 43,261회</span></figcaption></figure><figure><img src="assets/source/creator-grok-bot.jpg" alt="Matthew Berman Grok Bot 영상 썸네일"><figcaption><b>Matthew Berman</b><span>Grok Bot 실험 · 11,647회</span></figcaption></figure><figure><img src="assets/source/creator-deepseek-v4.jpg" alt="Two Minute Papers DeepSeek V4 영상 썸네일"><figcaption><b>Two Minute Papers</b><span>DeepSeek V4 · 115,800회</span></figcaption></figure><figure><img src="assets/source/creator-claude-zeta.jpg" alt="조코딩 Claude 제타 영상 썸네일"><figcaption><b>조코딩 Shorts</b><span>제타 하한 · 47,180회</span></figcaption></figure>
+    <section class="report-section page-break" id="reading-guide">
+      <div class="report-section__kicker">SECTION 01 · CLAIM READING GUIDE</div>
+      <h1>같은 숫자라도 ‘누가, 무엇을, 어떤 조건에서’ 쟀는지가 다르다</h1>
+      <p class="report-section__lede">이 리포트는 발표, 프리뷰, 연구, 공급자 데이터, 언론 탐사를 같은 확정성으로 다루지 않는다. 아래 네 질문을 각 아이템에 반복 적용하면 화려한 숫자와 실제 의사결정을 분리할 수 있다.</p>
+      <div class="status-grid"><article><span class="status-chip status-chip--release">RELEASE</span><h2>사용 가능한가</h2><p>누가 어떤 라이선스·가격·접근 범위로 공개했는지 확인한다. 제한 프리뷰와 일반 제공을 구분한다.</p></article><article><span class="status-chip status-chip--research">RESEARCH</span><h2>무엇을 실험했나</h2><p>시나리오·참가자·대조군·평가자가 누구인지, 현실과 다른 실험 조건이 무엇인지 본다.</p></article><article><span class="status-chip status-chip--vendor">VENDOR DATA</span><h2>표본은 누구인가</h2><p>공급자 고객 데이터는 그 생태계 안의 움직임을 보여준다. 전체 시장과 사업 가치로 곧장 일반화하지 않는다.</p></article><article><span class="status-chip status-chip--investigation">INVESTIGATION</span><h2>어디까지 추적했나</h2><p>관찰·문서·증언으로 확인된 연결과 아직 공개되지 않은 추정을 그림에서 실선과 점선으로 분리한다.</p></article></div>
+      <div class="claim-boundary"><b>숫자 옆에 항상 붙여 읽을 네 가지</b><ol><li><strong>통계량</strong> — 최대값, 중앙값, 평균, 비율 가운데 무엇인가?</li><li><strong>분모</strong> — 사용자, 메시지, 토큰, 상담, 모델 출력 가운데 무엇을 세었나?</li><li><strong>조건</strong> — 하드웨어, 추론 모드, 출력 길이, 동시성, 사람 개입은 같았나?</li><li><strong>미공개</strong> — 공급자가 말하지 않은 가격, 실패율, 데이터 범위, 검증 단계는 무엇인가?</li></ol></div>
+    </section>
+
+    <section class="report-section story page-break" id="story-frontier-throughput-race">
+      <div class="report-section__kicker">DEEP 01 · INFERENCE · CONFIRMED + LIMITED PREVIEW</div>
+      <h1>속도가 모델의 새로운 등급이 되다</h1>
+      <p class="report-section__lede">Google은 8월 13일 Gemini 3.7 Flash를 공개했고, OpenAI는 같은 날 GPT-5.6 Sol을 Cerebras에서 최대 750 output token/s로 제공하는 Ultrafast 제한 프리뷰를 소개했다. 두 발표의 공통점은 “작은 모델이 빠르다”가 아니라 높은 지능 등급을 지연이 민감한 작업에 투입한다는 제품 전략이다.</p>
+      <div class="story-facts"><div><span>Gemini</span><b>1M 입력 · 64K 출력</b><small>조절 가능한 thinking</small></div><div><span>Ultrafast</span><b>최대 750 tok/s</b><small>GPT-5.6 Sol · 제한 프리뷰</small></div><div><span>핵심</span><b>useful work / second</b><small>속도와 지능의 동시 상품화</small></div></div>
+
+      <h2>두 숫자는 왜 한 줄 순위표가 될 수 없나</h2>
+      <p>Artificial Analysis에 표시된 Gemini 3.7 Flash의 389.5 token/s는 독립 관측의 중앙 속도다. 반면 OpenAI의 750 token/s는 Cerebras 기반 Ultrafast가 “최대” 낼 수 있다고 공급자가 공개한 값이다. 중앙값은 여러 요청에서 전형적인 위치를 보여주고, 최대값은 특정 조건에서 관측 가능한 상한을 보여준다. 하드웨어, 프롬프트 길이, 출력 길이, 동시 요청 수, 샘플링, 네트워크 위치가 공개된 방식도 다르다.</p>
+      <figure class="report-figure" id="fig-throughput-race" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 2</span><span class="asset-caption__title">389.5와 750 사이에 먼저 놓아야 할 측정 조건</span></figcaption><img src="assets/figs/throughput-race.svg" alt="Gemini 3.7 Flash 독립 관측 중앙값 389.5 token/s와 GPT-5.6 Sol Ultrafast 공급자 공개 최대 750 token/s의 통계와 조건 비교"><small class="asset-note">둘 다 중요한 신호지만 같은 실험의 결과가 아니다. 직접 비교하려면 동일 지역·프롬프트·출력 길이·동시성·측정 구간에서 다시 재야 한다.</small></figure>
+      <table class="cmp-table" id="table-throughput"><caption>표 2 · 속도 숫자를 업무 지표로 바꾸는 법</caption><thead><tr><th>지표</th><th>무엇을 잰다</th><th>빠뜨리기 쉬운 조건</th><th>의사결정</th></tr></thead><tbody><tr><td>TTFT</td><td>요청부터 첫 토큰까지</td><td>큐·프롬프트 길이·캐시</td><td>대화·인터랙티브 UI</td></tr><tr><td>Output tok/s</td><td>생성 구간의 토큰 처리량</td><td>출력 길이·샘플링·배치</td><td>장문 생성·코딩 루프</td></tr><tr><td>Tool latency</td><td>검색·브라우저·API 대기</td><td>네트워크·재시도·rate limit</td><td>외부 시스템 병목</td></tr><tr><td>Approval wait</td><td>사람이 검토·승인한 시간</td><td>알림·표시 정보·담당자</td><td>고위험 행동의 흐름</td></tr><tr><td>Task completion</td><td>한 업무가 검증까지 끝난 시간</td><td>실패·재작업·사람 수정</td><td>실제 생산성·용량 계획</td></tr></tbody></table>
+
+      <h2>token/s가 두 배여도 업무가 두 배 빨라지지 않는 이유</h2>
+      <p>에이전트 한 건의 완료시간은 단순히 출력 토큰 수를 token/s로 나눈 값이 아니다. 요청 준비, 첫 토큰, 모델 생성, 도구 호출, 사람 승인, 결과 검증이 직렬·병렬로 섞이고, 실패하면 일부 또는 전체가 다시 돈다. 모델 생성이 전체 60초 중 8초라면 이를 8초에서 4초로 줄여도 전체는 56초가 된다. 반대로 생성·추론이 50초를 차지하는 코딩·연구 루프에서는 같은 개선이 실험 반복 횟수를 크게 늘린다.</p>
+      <figure class="report-figure" id="fig-latency-budget" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">에이전트 완료시간을 여섯 구간으로 분해하기</span></figcaption><img src="assets/figs/latency-budget.svg" alt="요청 준비, 첫 토큰, 토큰 생성, 도구 호출, 사람 승인, 검증과 재시도로 이루어진 완료시간"><small class="asset-note">가장 긴 구간이 아니라 가장 자주 재발하는 구간이 전체 처리량을 지배할 수도 있다. 평균뿐 아니라 p50·p95·실패 후 재시도 횟수를 함께 기록한다.</small></figure>
+
+      <div class="worked-example"><h2>계산 예시 · 4,000토큰 코딩 응답</h2><p><code>생성시간 ≈ 출력토큰 / token/s</code>로만 보면 389.5 tok/s에서 약 10.3초, 750 tok/s에서 약 5.3초다. 하지만 도구 호출 18초, 테스트 20초, 승인 45초가 붙는다면 전체는 각각 약 93.3초와 88.3초다. 생성 속도는 1.93배지만 업무 완료시간 개선은 약 5.4%다. 반대로 10회의 모델 중심 수정 루프를 자동으로 연속 수행한다면 5초 차이가 누적되어 의미가 커진다.</p></div>
+
+      <h2>무엇이 새롭고, 아직 모르는 것은 무엇인가</h2>
+      <p>Gemini 3.7 Flash는 1M 입력, 64K 출력, 조절 가능한 thinking과 agentic coding·enterprise workflow를 전면에 놓았다. 모델 카드의 공개 평가에서는 3.6 Flash 대비 여러 코딩·에이전트 지표가 개선됐다. OpenAI는 Ultrafast가 표준 처리보다 최대 14배 빠르며 incident response, 금융 연구, 고객지원처럼 사람이 결과를 기다리는 흐름을 초기 사례로 든다. 이는 “작은 모델로 속도를 산다”는 오래된 교환관계를 약화시키는 방향이다.</p>
+      <p>하지만 Ultrafast의 일반 가격, 용량, 지속 가능한 평균 처리량, 부하가 높을 때의 p95, 표준 모드와의 출력 동일성은 제한 프리뷰 단계에서 충분히 공개되지 않았다. Google 모델 카드도 간헐적 느려짐이나 timeout 가능성을 명시한다. 따라서 이번 신호는 승자 판정이 아니라 <strong>속도가 별도 서비스 등급과 용량 계획의 대상이 됐다</strong>는 변화로 읽는 편이 정확하다.</p>
+      <div class="story-verdict"><b>팀에 가져갈 결정</b><p>모델별로 TTFT, 생성속도, 도구대기, 승인대기, 재시도, 검증을 같은 trace에 기록한다. “빠른 모델” 구매 전 우리 업무의 생성 구간 비중을 계산하고, 같은 프롬프트·출력 길이·동시성으로 p50/p95 완료시간과 성공률을 비교한다.</p></div>
+      <aside class="story-resources" aria-label="속도 경쟁 원문과 데이터"><h2>원문·데이터 바로가기</h2><div class="resource-grid"><a href="https://deepmind.google/models/model-cards/gemini-3-7-flash/"><b>Google DeepMind</b><span>Gemini 3.7 Flash 모델 카드</span></a><a href="https://deepmind.google/models/gemini/flash/"><b>Google DeepMind</b><span>제품 정보·입출력·가용성</span></a><a href="https://openai.com/index/previewing-ultrafast/"><b>OpenAI</b><span>GPT-5.6 Sol Ultrafast 프리뷰</span></a><a href="https://artificialanalysis.ai/models/gemini-3-7-flash"><b>Artificial Analysis</b><span>독립 속도 관측·평가 조건</span></a><a href="https://www.youtube.com/watch?v=BpZI_QowF3o"><b>안될공학</b><span>국내 기술 해설 영상</span></a></div></aside>
+    </section>
+
+    <section class="report-section story page-break" id="story-grok-bot-computer-agent">
+      <div class="report-section__kicker">DEEP 02 · COMPUTER-USE AGENT · EARLY BETA</div>
+      <h1>Grok Bot은 에이전트에게 ‘전용 컴퓨터’를 줬다</h1>
+      <p class="report-section__lede">SpaceXAI가 8월 11일 발표한 Grok Bot은 채팅 안에서 답을 만드는 기능이 아니라, 클라우드 컴퓨터에 로그인해 여러 앱과 웹사이트를 오가며 업무를 끝내는 상시 실행 에이전트다. 공식 표현은 “자기 컴퓨터를 가진, 24시간 일하는 팀원”이며 현재 SuperGrok Heavy, Cursor Ultra, Cursor Teams Premium 일부 사용자 대상 베타다.</p>
+      <figure class="report-figure source-figure" id="fig-grok-source" data-source-image="true" data-original-url="https://x.ai/news/introducing-grok-bot"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">원문 화면</span><span class="asset-caption__title">공식 발표가 내세운 세 요소: 전용 컴퓨터 · 앱 안의 작업 · 24시간 실행</span></figcaption><img src="assets/source/grok-bot-official-screen.png" alt="Introducing Grok Bot 공식 발표 페이지에서 전용 컴퓨터와 앱 안의 작업, 24시간 실행을 설명하는 화면"><small class="asset-note">출처: <a href="https://x.ai/news/introducing-grok-bot">SpaceXAI 공식 발표</a>. 실제 브라우저 사용은 <a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=493s">Matthew Berman 영상 08:13부터</a>, 로그인 세션이 유지되는 장면은 <a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=569s">09:29부터</a> 볼 수 있다. 이미지를 누르면 확대되고, 원문은 확대창의 ‘원본 열기’로 이동한다.</small></figure>
+
+      <h2>채팅 에이전트와 무엇이 다른가</h2>
+      <p>전통적인 도구 호출 에이전트는 개발자가 미리 연결한 API나 MCP 도구 안에서 움직인다. Grok Bot은 API가 없는 웹사이트도 브라우저 UI로 다루고, 사용자가 로그인한 세션을 계속 유지하며, 휴대전화와 데스크톱에서 같은 대화 스레드를 이어 간다. 공식 사례에는 CRM에 통화 메모를 넣고 후속 메일을 초안하는 영업 봇, Gmail로 온 송장을 처리하는 운영 봇, 제품 UI에서 버그를 재현하고 티켓을 만든 뒤 디버깅 봇에 넘기는 엔지니어링 흐름이 포함된다.</p>
+      <p>여러 봇을 동시에 돌리고 한 봇이 다른 봇을 조정하거나, 그룹 대화 안에서 업무를 나눌 수도 있다. 사용자가 한 번 수행 과정을 보여주면 이를 routine으로 저장해 다음부터 반복한다는 제품 약속도 있다. 이 구조에서 모델의 추론 품질은 일부일 뿐이다. 장기 메모리, 실행 상태, 앱 세션, 파일, 네트워크, 승인 요청이 모두 하나의 작업 단위가 된다.</p>
+      <figure class="report-figure" id="fig-grok-boundary" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 4</span><span class="asset-caption__title">전용 컴퓨터가 길게 만드는 신뢰 경계</span></figcaption><img src="assets/figs/grok-trust-boundary.svg" alt="사용자 지시가 Grok Bot, 클라우드 컴퓨터, 로그인된 앱을 거쳐 전송·구매·삭제 같은 외부 행동으로 이어지는 신뢰 경계"><small class="asset-note">모델 호출은 수초~수분이지만 세션·쿠키·파일·routine은 며칠 이상 남을 수 있다. 그래서 접근권한의 수명과 행동의 복구 가능성을 별도로 설계해야 한다.</small></figure>
+
+      <h2>가장 큰 변화는 ‘프롬프트’가 아니라 자격증명의 수명이다</h2>
+      <p>Matthew Berman의 데모에서 사용자는 Grok Bot 브라우저에 Amazon 계정으로 한 번 로그인하고, 그 세션이 이후에도 유지된다고 설명한다. 이 편리함은 동시에 공격 표면이다. 악성 웹페이지의 prompt injection, 잘못된 수신자, 오래된 쿠키, 과도한 파일 접근, 다른 봇으로 전파된 문맥이 하나의 체인에 들어온다. 에이전트가 90%까지 준비한 초안과 실제로 메일을 보내거나 물건을 사는 마지막 10% 사이에는 권한의 질적 차이가 있다.</p>
+      <div class="explainer-grid"><article><b>세션 탈취·오염</b><p>로그인된 브라우저가 외부 페이지를 읽는 동안 숨은 지시가 들어오면, 모델은 사용자의 목표와 웹 콘텐츠의 명령을 혼동할 수 있다.</p></article><article><b>의도 드리프트</b><p>오래 실행되는 동안 가격·수신자·기한 같은 환경이 바뀌면 처음 승인한 목표와 마지막 행동이 달라질 수 있다.</p></article><article><b>봇 간 권한 전파</b><p>조정 봇이 전문 봇에 업무를 넘길 때 데이터와 자격증명이 필요 이상으로 복제될 수 있다.</p></article><article><b>감사 불가능성</b><p>최종 결과만 남고 어떤 페이지·파일·판단으로 행동했는지 없으면 사고 원인과 복구 범위를 알 수 없다.</p></article></div>
+
+      <h2>승인은 “괜찮습니까?”가 아니라 판단 가능한 정보 묶음이어야 한다</h2>
+      <p>승인 UI가 단순 확인 버튼이면 사람은 에이전트의 결론을 다시 조사해야 한다. 메일 전송이라면 최종 수신자·본문·첨부·민감정보·이전 버전과의 차이를, 구매라면 상품·판매자·수량·총액·배송지·환불성을 보여줘야 한다. 권한 변경이라면 대상·현재 권한·새 권한·만료·영향받는 시스템을 한 화면에 놓아야 한다.</p>
+      <figure class="report-figure" id="fig-approval-matrix" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">외부 영향과 복구 가능성으로 나누는 승인 매트릭스</span></figcaption><img src="assets/figs/approval-matrix.svg" alt="복구 가능성과 외부 영향에 따라 읽기·초안은 자동 실행, 내부 변경은 사후 검토, 권한 변경은 사전 승인, 결제·삭제는 이중 승인으로 나눈 매트릭스"><small class="asset-note">행동 이름보다 결과의 외부성과 복구 가능성을 본다. 같은 ‘파일 수정’도 버전 관리 저장소 안의 변경과 원본 덮어쓰기는 다른 칸에 놓인다.</small></figure>
+      <table class="cmp-table" id="table-agent-controls"><caption>표 3 · 전용 컴퓨터 에이전트의 최소 통제 계약</caption><thead><tr><th>경계</th><th>안전한 기본값</th><th>사람에게 보여줄 것</th><th>반드시 남길 로그</th></tr></thead><tbody><tr><td>자격증명</td><td>앱별 최소권한·단기 토큰·자동 만료</td><td>계정·권한 범위·만료 시각</td><td>발급·사용·갱신·폐기</td></tr><tr><td>외부 전송</td><td>새 수신자·도메인은 사전 승인</td><td>수신자·최종 본문·첨부·민감정보</td><td>승인자와 실제 전송 원문</td></tr><tr><td>결제</td><td>상점·카테고리·금액 상한</td><td>품목·총액·배송지·환불성</td><td>견적·승인·주문·영수증</td></tr><tr><td>파일·삭제</td><td>샌드박스·버전 관리·휴지통</td><td>diff·대상 수·복구 경로</td><td>변경 전후 hash·롤백 결과</td></tr><tr><td>장기 실행</td><td>시간·비용·도구 호출 상한</td><td>현재 상태·남은 예산·다음 행동</td><td>체크포인트·재시도·중단 이유</td></tr><tr><td>봇 간 위임</td><td>데이터·권한의 명시적 전달</td><td>보내는 문맥과 받는 봇의 역할</td><td>handoff 원문·소유권 변화</td></tr></tbody></table>
+
+      <div class="worked-example"><h2>운영 예시 · “점심을 주문해줘”</h2><p>브라우저 탐색과 후보 비교는 자동으로 진행할 수 있다. 결제 직전에는 음식점, 메뉴, 옵션, 수량, 총액, 배달 주소, 예상 도착, 취소 가능 시간을 고정된 승인 카드로 보여준다. 승인 뒤 페이지 가격이 바뀌면 재승인을 요청하고, 주문 번호와 영수증을 로그에 붙인다. 같은 문장이라도 “추천”과 “구매” 사이에 이렇게 명확한 실행 경계를 둬야 한다.</p></div>
+      <h2>이번 발표가 증명하지 않은 것</h2>
+      <p>공식 페이지의 사례와 초기 사용자 인용은 제품이 지향하는 경험을 보여주지만 독립 평가가 아니다. 베타의 평균 성공률, 잘못된 행동률, prompt injection 방어, 세션 격리, 사고 시 보상·복구 정책은 공개 자료만으로 판단할 수 없다. “24/7”도 모든 작업을 무감독으로 안전하게 실행한다는 뜻이 아니라, 사용자가 자리를 비워도 클라우드 환경이 계속 존재한다는 제품 속성으로 읽어야 한다.</p>
+      <div class="story-verdict"><b>팀에 가져갈 결정</b><p>브라우저 에이전트를 도입하기 전에 행동 목록을 읽기·초안·내부변경·외부전송·결제·삭제·권한변경으로 나누고, 각 행동의 승인 카드·로그·만료·복구 경로를 먼저 만든다. 첫 파일럿은 테스트 계정과 가상 결제수단, 제한된 도메인에서 시작한다.</p></div>
+      <aside class="story-resources" aria-label="Grok Bot 원문과 영상"><h2>원문·영상 바로가기</h2><div class="resource-grid"><a href="https://x.ai/news/introducing-grok-bot"><b>SpaceXAI</b><span>Introducing Grok Bot 공식 발표</span></a><a href="https://x.ai/news/grok-4-6"><b>SpaceXAI</b><span>Grok 4.6 모델 발표</span></a><a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=493s"><b>Matthew Berman · 08:13</b><span>브라우저 사용·쇼핑 사례</span></a><a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=569s"><b>Matthew Berman · 09:29</b><span>Amazon 로그인과 세션 지속</span></a><a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=1104s"><b>Matthew Berman · 18:24</b><span>로컬 파일 정리 routine 사례</span></a></div></aside>
+    </section>
+
+    <section class="report-section story page-break" id="story-qwen-open-deployment">
+      <div class="report-section__kicker">DEEP 03 · OPEN MODEL · RELEASE</div>
+      <h1>Qwen 3.8 27B는 오픈 모델의 승부를 ‘배포층’으로 옮겼다</h1>
+      <p class="report-section__lede">Qwen 3.8 27B는 27B dense 비전·언어 모델, 262,144토큰의 native context, 최대 1M 확장, Apache 2.0, 조절 가능한 reasoning, Transformers·vLLM·SGLang 등 폭넓은 런타임 호환을 한 묶음으로 공개했다. 모델 카드의 원본 가중치는 약 55.6GB지만, Simon Willison은 17GB Q4_K_M 양자화본을 M5 Max MacBook Pro와 DGX Spark에서 실행했다.</p>
+      <div class="story-facts"><div><span>모델</span><b>27B dense VLM</b><small>이미지·비디오·도구 사용</small></div><div><span>문맥</span><b>262K native</b><small>최대 1M 확장</small></div><div><span>배포</span><b>Apache 2.0</b><small>55.6GB 원본 · Q4 약 17GB</small></div></div>
+
+      <h2>‘로컬에서 돈다’와 ‘운영할 만하다’는 다른 문장이다</h2>
+      <p>27B dense는 요청마다 활성 파라미터 일부만 쓰는 MoE와 달리 대부분의 가중치를 계속 읽는다. 파일을 4비트로 줄여 메모리에 올릴 수 있어도, 매 토큰마다 큰 가중치 집합을 메모리에서 가져오는 비용은 남는다. Simon의 환경에서 LM Studio는 대략 15–30 token/s였다. 개인 실험에는 충분하지만 대화형 서비스의 여러 동시 사용자나 긴 reasoning에는 느릴 수 있다.</p>
+      <p>반대로 이 크기에서 이미지 이해, 장문 문맥, 도구 호출, 코딩 에이전트 루프를 한 모델로 실행할 수 있다는 점은 크다. 데이터가 외부 API로 나가면 안 되는 업무, 오프라인 실험, 비용을 예측해야 하는 반복 배치, 모델 동작을 세밀하게 관측하려는 연구에는 로컬 소유권 자체가 가치다.</p>
+      <figure class="report-figure" id="fig-open-model-stack" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">가중치에서 실제 서비스까지 통과해야 하는 다섯 층</span></figcaption><img src="assets/figs/open-model-stack.svg" alt="라이선스, 가중치와 양자화, 런타임과 도구, 용량과 지연, 평가와 운영으로 이어지는 오픈 모델 배포 스택"><small class="asset-note">그림의 질문 중 하나라도 답이 없으면 “다운로드 성공”은 했어도 “운영 가능”은 확인하지 못한 상태다.</small></figure>
+
+      <h2>xhigh의 21분과 reasoning off의 137초가 보여준 것</h2>
+      <p>Simon은 같은 “자전거를 타는 펠리컨 SVG” 프롬프트를 두 모드로 실행했다. 기본 xhigh는 22,276개의 reasoning token을 쓰고 3,223토큰의 결과를 내는 데 21분이 걸렸다. 자전거 프레임, 펠리컨의 다리·부리주머니·핸들 접촉이 비교적 잘 맞았다. reasoning을 끈 실행은 3,715토큰을 137초에 만들었지만 프레임 구조와 발·핸들의 접촉 오류가 늘었다.</p>
+      <div class="source-pair">
+        <figure class="report-figure source-figure" id="fig-qwen-xhigh" data-source-image="true" data-original-url="https://simonwillison.net/2026/Aug/16/qwen-38-27b/"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">원문 결과 A</span><span class="asset-caption__title">xhigh · 21분 · reasoning 22,276토큰</span></figcaption><img src="assets/source/qwen-xhigh-pelican.jpg" alt="Qwen 3.8 27B xhigh가 만든 펠리컨이 자전거를 타는 SVG 렌더"><small class="asset-note">자전거 프레임과 신체 접촉이 더 자연스럽다. <a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/">Simon Willison의 원문과 reasoning trace</a>.</small></figure>
+        <figure class="report-figure source-figure" id="fig-qwen-off" data-source-image="true" data-original-url="https://simonwillison.net/2026/Aug/16/qwen-38-27b/"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">원문 결과 B</span><span class="asset-caption__title">reasoning off · 137초 · 출력 3,715토큰</span></figcaption><img src="assets/source/qwen-no-reasoning-pelican.png" alt="Qwen 3.8 27B reasoning off가 만든 펠리컨과 자전거 SVG 렌더"><small class="asset-note">더 빠르지만 자전거 프레임과 다리·핸들 접촉 오류가 보인다. <a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/">동일 프롬프트 비교 원문</a>.</small></figure>
       </div>
-      <h2>선정은 인기 점수가 아니라 증거가 있는 사건 단위다</h2>
-      <p>YouTube 조회수와 HN 점수는 “어디를 깊게 볼지” 정하는 주의 신호다. 사실을 확정하는 표는 아니다. 영상 여러 개가 같은 주장을 반복하면 공통 원천을 찾고, 모델 카드·논문·코드·IR 발표 같은 1차 출처로 조건을 고정한다. 영향 25, 근거 20, AIML Quant 연관성 20, 기술 깊이 15, 새로움 10, 반응 10으로 점수화하되, 서로 다른 조건의 수치를 억지로 정규화하지 않는다.</p>
-      <table class="cmp-table" id="table-method"><thead><tr><th>단계</th><th>보는 것</th><th>남기는 산출물</th><th>실패 방지</th></tr></thead><tbody><tr><td>발견</td><td>이번 주 새 채널·교차 언급</td><td>source-roster.jsonl</td><td>고정 소스 편향</td></tr><tr><td>수집</td><td>영상·HN·공식·미디어</td><td>raw manifest·관측 시각</td><td>나중에 바뀐 수치 혼입</td></tr><tr><td>클러스터</td><td>같은 사건의 반복 보도</td><td>candidates.jsonl</td><td>한 발표를 여러 뉴스로 부풀림</td></tr><tr><td>검증</td><td>사실·조건·미공개 범위</td><td>claims.jsonl·research notes</td><td>인기도를 진실로 오해</td></tr></tbody></table>
+      <p>이 비교는 정식 벤치마크가 아니라 한 프롬프트·한 양자화·두 장비에서의 관찰이다. 그래도 운영 질문은 선명하다. reasoning effort는 단지 “품질 슬라이더”가 아니라 지연, KV cache, 동시성, 전력, 사용자 대기시간을 바꾸는 용량 계획 변수다. 단순 작업의 기본값이 xhigh이면 요청 하나가 수만 토큰을 소비해 전체 큐를 막을 수 있다.</p>
+
+      <h2>Qwen의 구조가 배포에 주는 힌트</h2>
+      <p>모델 카드는 64개 레이어와 Gated DeltaNet·Gated Attention의 반복 구조, 여러 단계의 Multi-Token Prediction(MTP)을 명시한다. MTP는 가벼운 메커니즘이 다음 토큰 여러 개를 미리 제안하고 본 모델이 검증해 생성 속도를 높일 수 있게 한다. Simon은 llama.cpp의 <code>--spec-type draft-mtp</code>를 사용한 비교에서 자신의 LM Studio 기본 실행보다 약 72% 높은 처리량을 관찰했다. 이 수치 역시 특정 장비·설정의 결과지만, 모델 릴리스와 서빙 최적화를 한 몸으로 봐야 한다는 점을 보여준다.</p>
+      <pre class="code-block"><code>llama serve \
+  -hf  ggml-org/Qwen3.8-27B-GGUF:Q4_K_M \
+  -hfd ggml-org/Qwen3.8-27B-GGUF:Q4_0 \
+  --spec-default \
+  --spec-type draft-mtp \
+  --reasoning-preserve</code></pre>
+      <table class="cmp-table" id="table-qwen-modes"><caption>표 4 · reasoning 모드를 운영 정책으로 바꾸기</caption><thead><tr><th>모드</th><th>관찰된 예</th><th>장점</th><th>위험</th><th>권장 시작점</th></tr></thead><tbody><tr><td>xhigh</td><td>21분 · reasoning 22,276</td><td>복잡한 구조·접촉 품질 개선</td><td>지연·토큰·동시성 폭증</td><td>복잡 태스크를 분류한 뒤 명시적으로</td></tr><tr><td>medium / low</td><td>공식적으로 조절 가능</td><td>품질·비용 절충</td><td>태스크별 최적점이 다름</td><td>업무별 기본 A/B 테스트</td></tr><tr><td>off</td><td>137초 · 출력 3,715</td><td>짧은 대기·높은 처리량</td><td>공간 관계·복합 지시 오류</td><td>단순 변환·초안·반복 작업</td></tr><tr><td>MTP 서빙</td><td>특정 Spark 비교 +72%</td><td>본 모델 분포를 유지하며 가속</td><td>런타임·draft 호환성 필요</td><td>동일 품질·부하로 재측정</td></tr></tbody></table>
+
+      <h2>배포 체크리스트를 모델 카드 밖으로 확장한다</h2>
+      <div class="explainer-grid"><article><b>메모리</b><p>가중치뿐 아니라 KV cache, vision 입력, 긴 context, 동시 요청, runtime workspace를 더한다. “17GB 파일”을 “17GB VRAM”으로 읽지 않는다.</p></article><article><b>품질</b><p>공개 벤치마크와 별도로 우리 문서·코드·도구·언어에서 완료율과 사람 수정시간을 측정한다.</p></article><article><b>운영</b><p>모델 부팅, warmup, timeout, 취소, batching, observability, 버전 롤백을 포함한다.</p></article><article><b>권리</b><p>Apache 2.0은 모델 아티팩트 사용 조건의 중요한 출발점이지만 입력 데이터와 생성물의 권리 판단을 대신하지 않는다.</p></article></div>
+      <div class="story-verdict"><b>팀에 가져갈 결정</b><p>low 또는 reasoning off를 기본으로 내부 태스크를 측정하고, 실패 유형이 reasoning으로 개선되는 업무만 상향한다. 파일 크기, peak memory, TTFT, tok/s, 에너지, 성공률, 수정시간을 한 표에 놓고 hosted API와 전체비용을 비교한다.</p></div>
+      <aside class="story-resources" aria-label="Qwen 원문과 실행 자료"><h2>모델·코드·실험 바로가기</h2><div class="resource-grid"><a href="https://huggingface.co/Qwen/Qwen3.8-27B"><b>Qwen</b><span>공식 모델 카드·가중치·런타임</span></a><a href="https://huggingface.co/Qwen/Qwen3.8-27B/blob/main/README.md"><b>Qwen README</b><span>구조·context·reasoning 설정</span></a><a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/"><b>Simon Willison</b><span>17GB 양자화·두 장비·에이전트 실험</span></a><a href="https://huggingface.co/blog/state-of-open-models-summer-2026"><b>Hugging Face</b><span>2026 여름 오픈 모델 현황</span></a><a href="https://artificialanalysis.ai/models/qwen3-8-27b"><b>Artificial Analysis</b><span>독립 모델 평가</span></a></div></aside>
     </section>
 
-    <section class="report-section s2 page-break story" id="story-frontier-throughput-race">
-      <div class="report-section__kicker">DEEP 01 · INFERENCE · SCORE 95</div><h1>속도가 모델의 새로운 등급이 되다</h1>
-      <p class="report-section__lede">Gemini 3.7 Flash와 GPT-5.6 Sol Ultrafast는 ‘얼마나 맞히는가’와 함께 ‘얼마나 빨리 일이 진행되는가’를 전면에 세웠다. 다만 공개 수치는 측정 조건이 달라 직접 승부표가 아니다.</p>
-      <div class="fact-strip"><span><b>1M</b>Gemini 입력 컨텍스트</span><span><b>64K</b>Gemini 최대 출력</span><span><b>389.5</b>AA 관측 median tok/s</span><span><b>≤750</b>OpenAI 공개 최대 tok/s</span></div>
-      <p>Google 모델 카드는 Gemini 3.7 Flash를 1M 토큰 입력과 64K 출력, 도구 사용과 멀티모달을 포함한 고속 모델로 설명한다. Artificial Analysis의 관측값은 약 389.5 token/s였다. OpenAI는 Cerebras 기반 GPT-5.6 Sol Ultrafast 프리뷰에서 최대 750 token/s, 기존 대비 최대 14배를 제시했다. 후자는 제한 프리뷰이며 모든 API 요청의 보장치가 아니다.</p>
-      <figure class="report-figure" id="fig-throughput-race" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 3</span><span class="asset-caption__title">같은 축에 놓지 말아야 할 두 속도 신호</span></figcaption><img src="assets/figs/throughput-race.svg" alt="Gemini 3.7 Flash 관측 중앙 속도와 GPT-5.6 Ultrafast 공개 최대 속도의 측정 조건을 나란히 보여주는 차트"><small class="asset-note">389.5는 독립 관측의 중앙 속도, 750은 공급자가 공개한 최대 속도다. 하드웨어·출력 길이·부하가 다르므로 직접 벤치마크가 아니다.</small></figure>
-      <h2>token/s가 빨라도 에이전트가 빨라지는 것은 아니다</h2>
-      <p>작업 완료 시간은 요청 준비, 첫 토큰 대기, 생성, 도구 호출, 외부 시스템 대기, 사람 승인, 재시도로 나뉜다. 코딩처럼 긴 출력을 생성하는 작업에서는 token/s가 큰 레버다. 반면 브라우저 자동화나 결제처럼 도구와 승인 대기가 긴 작업에서는 모델 속도를 두 배로 해도 전체 시간은 거의 줄지 않을 수 있다.</p>
-      <figure class="report-figure" id="fig-throughput-loop" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 4</span><span class="asset-caption__title">에이전트 완료시간을 구성하는 여섯 구간</span></figcaption><img src="assets/figs/throughput-loop.svg" alt="요청 준비, 첫 토큰, 생성, 도구 호출, 승인, 재시도로 이어지는 작업 완료 루프"><small class="asset-note">어느 구간이 병목인지 모르면 고속 모델 구매가 실제 처리량으로 이어지지 않는다.</small></figure>
-      <pre><code class="language-python">elapsed = completed_at - submitted_at
-model_time = sum(c.output_tokens / c.tokens_per_second for c in calls)
-tool_wait = sum(c.finished_at - c.started_at for c in tools)
-approval_wait = sum(a.decided_at - a.requested_at for a in approvals)
-retry_rate = failed_attempts / max(1, total_attempts)</code></pre>
-      <table class="cmp-table" id="table-throughput"><thead><tr><th>항목</th><th>Gemini 3.7 Flash</th><th>GPT-5.6 Sol Ultrafast</th><th>비교할 때 주의</th></tr></thead><tbody><tr><td>공개 상태</td><td>Gemini API 모델</td><td>제한 프리뷰</td><td>가용 범위가 다름</td></tr><tr><td>속도 신호</td><td>AA median 389.5 tok/s</td><td>OpenAI 최대 750 tok/s</td><td>관측 중앙값 vs 공급자 최대값</td></tr><tr><td>구매 판단</td><td colspan="2">업무별 완료시간·성공률·비용을 같은 하네스로 재측정</td><td>token/s 단독 순위 금지</td></tr></tbody></table>
-      <div class="claim-limit"><div><b>확인된 범위</b><p>모델 카드의 컨텍스트·가격, OpenAI의 최대 속도와 제한 프리뷰, 독립 관측 속도.</p></div><div><b>아직 모르는 범위</b><p>동일 하드웨어·출력 길이·부하에서의 정면 비교와 실제 조직 업무의 완료시간.</p></div></div>
-      <p class="source-line">원문: <a href="https://deepmind.google/models/model-cards/gemini-3-7-flash/">Gemini 모델 카드</a> · <a href="https://openai.com/index/previewing-ultrafast/">OpenAI Ultrafast</a> · <a href="https://artificialanalysis.ai/models/gemini-3-7-flash">Artificial Analysis</a> · <a href="https://www.youtube.com/watch?v=BpZI_QowF3o">안될공학</a></p>
+    <section class="report-section story page-break" id="story-deepseek-dspark-serving">
+      <div class="report-section__kicker">RADAR 04 · SERVING · RELEASE</div>
+      <h1>DeepSeek V4 Pro는 모델과 서빙기를 함께 설계했다</h1>
+      <p class="report-section__lede">DeepSeek-V4-Pro-0813은 V4 Pro 정식 릴리스에 DSpark 투기 디코딩 모듈을 결합했다. 모델 카드가 단순 가중치 링크에 그치지 않고 vLLM·SGLang에서 DSpark를 켜는 명령과 4×GB300 노드 예시를 함께 제공한다는 점이 핵심이다. 모델 크기는 약 1.7T 파라미터로 표시되어 있어 ‘오픈’이 ‘가벼움’을 뜻하지 않는 사례이기도 하다.</p>
+      <h2>투기 디코딩은 무엇을 바꾸나</h2>
+      <p>일반적인 자기회귀 생성은 본 모델이 한 번에 다음 토큰 하나를 확정한다. 투기 디코딩은 더 싼 draft 메커니즘이 다음 토큰 여러 개를 미리 제안하고, 본 모델이 한 번의 병렬 계산으로 그 블록을 검증한다. 후보가 본 모델의 선택과 일치하는 구간은 한꺼번에 확정하므로, 최종 분포를 바꾸지 않으면서 사용자에게 보이는 생성 속도를 높일 수 있다.</p>
+      <p>문제는 draft가 길어질수록 뒤쪽 토큰의 수용률이 빠르게 떨어진다는 점이다. 앞쪽 토큰 하나가 틀리면 뒤의 후보도 조건이 달라져 버려지기 쉽고, 동시 사용자가 많은 서버에서는 거절될 후보까지 검증한 계산이 처리량을 갉아먹는다. DSpark는 병렬 backbone에 가벼운 순차 모듈을 붙여 블록 내부 의존성을 보완하고, 후보 prefix가 살아남을 확률과 엔진 부하에 따라 검증 길이를 조절한다.</p>
+      <figure class="report-figure" id="fig-dspark" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 7</span><span class="asset-caption__title">후보 블록을 만들고 본 모델이 통과 접두부만 확정하는 과정</span></figcaption><img src="assets/figs/dspark-serving.svg" alt="문맥에서 DSpark가 최대 일곱 후보 토큰을 만들고 목표 모델이 병렬 검증해 일치하는 접두부를 확정하며 불일치 뒤는 다시 제안하는 흐름"><small class="asset-note">속도 이득은 draft 계산비용, 수용 길이, 본 모델 검증비용, 동시 요청 수의 균형에서 나온다. 후보 수를 무조건 늘리면 오히려 검증 낭비가 커질 수 있다.</small></figure>
+      <h2>논문의 60–85%와 모델 카드의 4×GB300을 함께 읽어야 한다</h2>
+      <p>DSpark 논문은 DeepSeek-V4 실서비스 트래픽에서 기존 MTP-1 baseline과 처리량을 맞춘 조건으로 사용자당 생성 속도가 60–85% 빨라졌다고 보고한다. 이는 “모든 하드웨어에서 1.85배”라는 보장이 아니다. 부하, batch, interactivity 제약, draft·target 구조가 맞는 환경에서 Pareto frontier가 이동했다는 서버 수준 결과다.</p>
+      <p>정식 V4 Pro 0813 모델 카드의 vLLM 예시는 <code>num_speculative_tokens=7</code>, data parallel 4, expert parallel, FP8 KV cache 등을 사용하고 단일 4×GB300 노드를 든다. 공개 가중치와 MIT 라이선스는 재현 가능성을 넓히지만, 실제 예산에는 GPU 조달, 1M context의 KV cache, 네트워크, 전력, 운영 인력이 포함된다.</p>
+      <pre class="code-block"><code>vllm serve deepseek-ai/DeepSeek-V4-Pro-0813 \
+  --data-parallel-size 4 \
+  --enable-expert-parallel \
+  --kv-cache-dtype fp8 \
+  --speculative-config \
+  '{"method":"dspark","num_speculative_tokens":7,"draft_sample_method":"greedy"}'</code></pre>
+      <div class="claim-boundary"><b>재현할 때 고정할 조건</b><p>동일 모델·정밀도·프롬프트 분포·출력 길이·batch·동시성에서 DSpark on/off를 비교하고, 사용자 속도와 서버 처리량을 동시에 기록한다. 품질 동일성, 첫 토큰, 평균 수용 길이, 거절 뒤 낭비, GPU 메모리까지 봐야 “빠르다”가 용량 절감으로 이어지는지 알 수 있다.</p></div>
+      <div class="story-verdict"><b>왜 중요한가</b><p>앞으로 모델 평가는 checkpoint의 벤치마크뿐 아니라 그 모델에 맞춘 draft head, KV cache 정밀도, attention backend, scheduler까지 포함해야 한다. 모델·런타임 공동설계가 폐쇄 API만의 장점은 아니다.</p></div>
+      <aside class="story-resources" aria-label="DeepSeek와 DSpark 원문"><h2>모델·논문·코드 바로가기</h2><div class="resource-grid"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813"><b>DeepSeek</b><span>V4 Pro 0813 모델 카드·실행 명령</span></a><a href="https://arxiv.org/abs/2607.05147"><b>DSpark 논문</b><span>confidence-scheduled speculative decoding</span></a><a href="https://arxiv.org/abs/2606.19348"><b>DeepSeek-V4 기술 보고서</b><span>모델 구조·1M context</span></a><a href="https://www.youtube.com/watch?v=kyYepbhe1g8"><b>Two Minute Papers</b><span>이번 주 확산된 기술 해설</span></a></div></aside>
     </section>
 
-    <section class="report-section s3 page-break story" id="story-grok-bot-computer-agent">
-      <div class="report-section__kicker">DEEP 02 · COMPUTER-USE AGENT · SCORE 94 · BETA</div><h1>Grok Bot은 에이전트에게 전용 컴퓨터를 줬다</h1>
-      <p class="report-section__lede">24시간 실행되는 로그인된 컴퓨터는 채팅보다 강력하다. 동시에 브라우저 세션, 자격증명, 파일, 메시지와 결제가 하나의 새로운 보안 경계가 된다.</p>
-      <p>SpaceXAI의 설명에서 Grok Bot은 자체 컴퓨터와 앱을 가진 에이전트다. 사용자는 작업을 맡기고, Bot은 여러 앱을 오가며 장시간 계속 실행한다. 베타는 SuperGrok Heavy, Cursor Ultra, Teams Premium 등 제한된 플랜에 제공된다. 크리에이터 데모는 쇼핑·조사·업무 자동화를 보여주지만, 장기간 신뢰성·오류 회복·팀 환경의 감사를 증명하는 독립 벤치마크는 아직 없다.</p>
-      <figure class="report-figure source-figure" id="fig-grok-source" data-source-image="true"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">원문 화면</span><span class="asset-caption__title">Matthew Berman의 Grok Bot 사용 사례 영상</span></figcaption><img src="assets/source/creator-grok-bot.jpg" alt="Grok Bot의 여러 사용 사례를 소개하는 Matthew Berman 영상 썸네일"><small class="asset-note">출처: <a href="https://www.youtube.com/watch?v=5CSXUsljJ_E">Matthew Berman</a>. 영상은 후보 발견과 사용 장면 이해에 사용했고 제품 조건은 공식 발표로 확인했다.</small></figure>
-      <figure class="report-figure" id="fig-grok-stack" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 5</span><span class="asset-caption__title">전용 컴퓨터 에이전트가 만드는 새로운 신뢰 경계</span></figcaption><img src="assets/figs/grok-bot-stack.svg" alt="사용자 지시, Grok Bot, 클라우드 컴퓨터, 앱과 외부 세계를 연결한 구조"><small class="asset-note">모델 호출보다 세션·파일·자격증명·네트워크·감사 로그의 수명이 길다.</small></figure>
-      <h2>자율성보다 먼저 승인 표면을 설계한다</h2>
-      <p>검색·요약은 자동으로 허용할 수 있지만 로그인, 전송, 게시, 구매, 삭제, 권한 변경은 금액·수신자·데이터 민감도에 따라 사람 승인이 필요하다. 승인 화면은 대상, 금액, 전송 데이터, 되돌릴 수 있는지, 직전 관찰을 함께 제시해야 한다.</p>
-      <figure class="report-figure" id="fig-agent-approval" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 6</span><span class="asset-caption__title">행동의 영향과 복구 가능성으로 나누는 승인 매트릭스</span></figcaption><img src="assets/figs/agent-approval-matrix.svg" alt="읽기, 초안, 전송과 구매, 삭제와 권한 변경을 자동 실행과 사람 승인으로 분류한 매트릭스"><small class="asset-note">복구 가능성이 낮고 외부 영향이 클수록 승인 강도를 높인다.</small></figure>
-      <table class="cmp-table" id="table-agent-controls"><thead><tr><th>경계</th><th>기본값</th><th>승인 화면</th><th>로그</th></tr></thead><tbody><tr><td>자격증명</td><td>앱별 단기·최소권한</td><td>계정·권한·만료</td><td>발급·사용·폐기</td></tr><tr><td>외부 전송</td><td>수신자 단위 승인</td><td>수신자·본문·첨부</td><td>최종 전송 원문</td></tr><tr><td>결제</td><td>금액·상점 한도</td><td>품목·총액·환불성</td><td>견적·승인·영수증</td></tr><tr><td>장기 실행</td><td>시간·비용 상한</td><td>목표·남은 예산</td><td>체크포인트·재시도</td></tr></tbody></table>
-      <div class="claim-limit"><div><b>확인된 범위</b><p>자체 컴퓨터·앱·장기 실행이라는 제품 형태와 베타 대상.</p></div><div><b>검증할 범위</b><p>장기 성공률, 프롬프트 주입 방어, 자격증명 격리, 감사 로그, 결제 분쟁 처리.</p></div></div>
-      <p class="source-line"><a href="https://x.ai/news/introducing-grok-bot">Introducing Grok Bot</a> · <a href="https://x.ai/news/grok-4-6">Grok 4.6</a> · <a href="https://www.youtube.com/watch?v=5CSXUsljJ_E">Matthew Berman</a></p>
+    <section class="report-section story page-break" id="story-claude-zeta-bound">
+      <div class="report-section__kicker">RADAR 05 · MATHEMATICS · RESEARCH CLAIM + FORMAL ARTIFACT</div>
+      <h1>Claude의 제타 연구는 ‘리만 가설 67% 해결’이 아니다</h1>
+      <p class="report-section__lede">8월 11일 Claude를 저자로 표기한 17쪽 논문은 리만 제타 함수의 비자명 영점 가운데 임계선 위에 있고 단순한 영점의 무조건 하한을 적어도 2/3로 높였다고 주장한다. 최적 Montgomery–Taylor window에서는 0.6725, 서로 다른 영점의 비율은 5/6과 0.8362를 제시한다. Lean 4 형식화 저장소도 함께 공개됐다.</p>
+      <figure class="report-figure source-figure" id="fig-zeta-source" data-source-image="true" data-original-url="https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">논문 원문</span><span class="asset-caption__title">초록과 Theorem A가 보여주는 정확한 명제</span></figcaption><img src="assets/source/zeta-paper-first-page.png" alt="More than two thirds of the zeros of the Riemann zeta function are simple and on the critical line 논문의 첫 페이지"><small class="asset-note">첫 페이지에는 2/3, 5/6, 0.6725, 0.8362가 각각 무엇을 세는지 적혀 있다. <a href="https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf">17쪽 PDF 원문 열기</a>. 확대창에서 수식과 각주까지 볼 수 있다.</small></figure>
+
+      <h2>먼저 ‘영점’, ‘임계선’, ‘단순’의 뜻</h2>
+      <p>리만 제타 함수 ζ(s)는 복소수 입력에서 정의되는 함수다. 관심 대상인 비자명 영점은 ζ(s)=0이 되는 복소수 점들이다. 리만 가설은 이 영점의 실수부가 모두 1/2, 즉 <strong>임계선</strong> 위에 있다고 말한다. “단순 영점”은 그 점에서 함수가 한 번만 0이 되는, 중복도가 1인 영점이다. “서로 다른 영점” 비율은 중복을 한 점으로 세는 또 다른 통계다.</p>
+      <p>이번 논문의 2/3는 유한한 초기 영점 3개 중 2개를 확인했다는 뜻이 아니다. 높이 T를 무한히 보낼 때 전체 영점 수에 대한 임계선 위 단순 영점 수의 비율에 무조건적인 하한을 준다는 점근 명제다. “무조건”은 리만 가설이 참이라고 가정하지 않고 증명한다는 뜻이다.</p>
+      <figure class="report-figure" id="fig-zeta-bound" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 8</span><span class="asset-caption__title">41.7% → 66.7%와 100% 사이의 논리적 거리</span></figcaption><img src="assets/figs/zeta-bound.svg" alt="이전 무조건 하한 5분의 12인 41.7퍼센트, 새 하한 3분의 2와 최적 67.25퍼센트, 리만 가설 100퍼센트를 구분한 축"><small class="asset-note">하한 개선은 “최소 이만큼은 임계선 위 단순 영점이다”를 강화한다. 100%가 아닌 값의 차이를 단순한 진척률로 해석할 수는 없다.</small></figure>
+
+      <h2>증명의 아이디어는 어디에 있나</h2>
+      <p>고전적인 Montgomery의 1973년 논증은 영점 쪽 합을 양수로 읽기 위해 리만 가설을 가정하는 부분이 있었다. 새 논문은 Weil의 Hermitian form을 유한 차원으로 압축하고, rank–trace 부등식과 Sylvester의 inertia 법칙으로 임계선 밖의 대칭 영점 쌍을 다루어 이 가정을 제거했다고 설명한다. analytic input 자체는 Aryan과 Baluyot·Goldston·Suriajaya·Turnage-Butterbaugh의 결과를 사용한다.</p>
+      <p>쉽게 말하면 모든 영점의 정확한 위치를 직접 구한 것이 아니라, 영점들이 만드는 행렬적·스펙트럼적 양을 압축해 “임계선 위에 있어야 하는 최소 질량”을 하한으로 읽어낸다. 그래서 결과는 리만 가설보다 약하지만, 기존 무조건 하한을 크게 밀어 올리는 독립적인 정리다.</p>
+
+      <h2>Lean 저장소는 무엇을 확인하고 무엇을 대신하지 않나</h2>
+      <p><code>anthropics/zeta-23-lean</code>은 Theorem A–E를 Lean 4와 Mathlib로 형식화했고, README는 <code>sorry</code>가 없으며 headline theorem의 <code>#print axioms</code>가 Lean 표준 공리만 보고한다고 설명한다. 파일에는 제타 함수와 Dirichlet L-function, 영점 계수, 명시 공식, 최종 조립이 모듈로 나뉘어 있다. 이는 논리 단계와 의존성이 형식 체계에서 통과한다는 강한 재현 자료다.</p>
+      <p>다만 형식 검증은 입력된 명제가 의도한 수학 명제와 정확히 대응하는지, 정의·정리의 해석이 적절한지, 구현 도구chain에 결함이 없는지에 대한 인간 검토를 없애지 않는다. 저장소는 연구 artifact이며 유지보수·기여를 받지 않는다고 명시한다. 8월 13일에는 Levent Alpöge와 Ralph Furman이 같은 2/3·5/6 결과와 Lean 형식화를 담은 인간 저자 arXiv 논문을 올렸다. 두 문서의 관계와 독립성은 후속 학술 검토에서 더 분명해질 사안이다.</p>
+      <table class="cmp-table"><caption>표 5 · 이번 결과의 네 문장을 구분하기</caption><thead><tr><th>문장</th><th>판정</th><th>이유</th></tr></thead><tbody><tr><td>적어도 2/3의 비자명 영점은 단순하고 임계선 위다</td><td>논문의 핵심 무조건 하한</td><td>점근 비율과 중복도 조건을 포함</td></tr><tr><td>최적 창에서는 하한이 약 67.25%다</td><td>논문에 제시된 강화 상수</td><td>특정 test window 최적화</td></tr><tr><td>Claude가 리만 가설의 67%를 풀었다</td><td>잘못된 요약</td><td>증명의 진척률 개념이 아니며 100%로 선형 외삽 불가</td></tr><tr><td>Lean이 있으니 학술 검토는 끝났다</td><td>과장</td><td>정의 대응·수학적 의미·도구chain 검토가 남음</td></tr></tbody></table>
+      <div class="story-verdict"><b>왜 중요한가</b><p>AI가 수학 문제의 답을 낸 장면보다, 논문·형식 증명·의존성·인간 검토를 함께 배포하는 연구 프로토콜이 중요하다. 다음 평가 단위는 “정답률”이 아니라 새 명제의 정확성, 기여의 독창성, 기계 검증 가능성, 전문가 재검토 비용이다.</p></div>
+      <aside class="story-resources" aria-label="제타 연구 논문과 형식 검증"><h2>논문·Lean·후속 연구 바로가기</h2><div class="resource-grid"><a href="https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf"><b>Claude · Anthropic</b><span>More than two thirds… PDF</span></a><a href="https://github.com/anthropics/zeta-23-lean"><b>GitHub</b><span>Lean 4 형식화 전체 저장소</span></a><a href="https://github.com/anthropics/zeta-23-lean/blob/main/README.md"><b>Lean README</b><span>정리 이름·공리·파일 대응표</span></a><a href="https://arxiv.org/abs/2608.13637"><b>Alpöge · Furman</b><span>인간 저자 arXiv 논문</span></a></div></aside>
     </section>
 
-    <section class="report-section s4 page-break story" id="story-qwen-open-deployment">
-      <div class="report-section__kicker">DEEP 03 · OPEN MODELS · SCORE 93</div><h1>Qwen 3.8 27B는 오픈 모델의 승부를 배포층으로 옮겼다</h1>
-      <p class="report-section__lede">27B dense 멀티모달, 262K 기본 컨텍스트, Apache 2.0, vLLM·SGLang 호환이 한 묶음으로 나왔다. ‘다운로드 가능’보다 ‘우리 하드웨어에서 어떤 모드로 운영 가능한가’가 핵심이다.</p>
-      <div class="fact-strip"><span><b>27B</b>dense VLM</span><span><b>262,144</b>native context</span><span><b>Apache 2.0</b>license</span><span><b>17GB</b>Q4 실험 파일</span></div>
-      <p>공식 모델 카드는 텍스트·이미지 입력, 262,144 토큰의 기본 컨텍스트, reasoning effort 조절, vLLM과 SGLang 예시를 제공한다. Simon Willison은 17GB Q4 양자화를 128GB M5와 DGX에서 시험했다. xhigh 추론은 21분과 22,276개의 reasoning token을 썼고, reasoning을 끄면 137초로 줄었다. 이것은 특정 양자화·프롬프트·하드웨어의 관찰이며 일반 벤치마크가 아니다.</p>
-      <figure class="report-figure" id="fig-open-model-stack" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 7</span><span class="asset-caption__title">오픈 모델을 실제 서비스로 만드는 다섯 층</span></figcaption><img src="assets/figs/open-model-stack.svg" alt="라이선스, 가중치, 양자화, 런타임, 평가와 운영으로 이어지는 오픈 모델 배포 스택"><small class="asset-note">가중치 공개만으로 운영 가능성이 보장되지 않는다.</small></figure>
-      <pre><code class="language-bash">vllm serve Qwen/Qwen3.8-27B \
-  --tensor-parallel-size 2 \
-  --max-model-len 32768
-
-for effort in none low high xhigh; do
-  run_eval --model qwen3.8-27b --reasoning "$effort" --task internal-agent-set
-done</code></pre>
-      <table class="cmp-table" id="table-qwen-modes"><thead><tr><th>모드</th><th>관측 예시</th><th>얻는 것</th><th>운영 위험</th></tr></thead><tbody><tr><td>xhigh</td><td>21분 · reasoning 22,276 tokens</td><td>복잡한 탐색 여지</td><td>지연·비용 폭증</td></tr><tr><td>off</td><td>137초</td><td>빠른 응답</td><td>복잡 문제 성능 저하 가능</td></tr><tr><td>Q4</td><td>약 17GB 파일</td><td>로컬 실험 접근성</td><td>정밀도 손실·런타임 편차</td></tr><tr><td>장문</td><td>262K native</td><td>큰 작업 문맥</td><td>KV cache·회상 검증</td></tr></tbody></table>
-      <p>Hugging Face는 모델 저장소 243만→296만, 데이터셋 71.1만→100만, Spaces 100만→144만으로 생태계가 커졌다고 집계한다. 그러나 관심과 실제 채택은 다르다. 기반 모델 라이선스, 계보, 런타임 지원, 조직 내부 평가가 맞물릴 때 비로소 전환 비용을 낮출 수 있다.</p>
-      <div class="claim-limit"><div><b>확인된 범위</b><p>모델 크기·라이선스·컨텍스트·공식 런타임 예시와 공개 로컬 실험.</p></div><div><b>검증할 범위</b><p>우리 데이터의 품질, 양자화 손실, 동시성·메모리, 장문 회상, 도구 성공률.</p></div></div>
-      <p class="source-line"><a href="https://huggingface.co/Qwen/Qwen3.8-27B">Qwen3.8-27B</a> · <a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/">Simon Willison 실험</a> · <a href="https://huggingface.co/blog/state-of-open-models-summer-2026">State of Open Models</a></p>
+    <section class="report-section story page-break" id="story-claude-text-watermark">
+      <div class="report-section__kicker">RADAR 06 · PROVENANCE · ANNOUNCED FOR FUTURE MODELS</div>
+      <h1>Claude 텍스트 워터마크는 ‘저자 판정기’가 아니다</h1>
+      <p class="report-section__lede">Anthropic은 8월 14일 향후 Claude 모델이 텍스트 출력에 눈에 보이지 않는 통계적 워터마크를 넣을 것이라고 설명했다. EU AI Act의 AI 생성물 표시 요구와 2026년 7월 투명성 행동강령에 대응하는 조치다. 현재 모든 Claude 출력에 이미 적용됐다는 발표가 아니며, 검사 API도 “곧 제공” 단계다.</p>
+      <h2>숨은 문자를 넣는 방식이 아니다</h2>
+      <p>언어모델은 다음 토큰 후보 가운데 문맥상 가능한 선택을 한다. “날씨가 춥고…” 뒤에 overcast와 grey가 모두 자연스럽다면 어느 쪽을 골라도 의미 손실이 거의 없다. Anthropic이 설명한 SynthID-Text 계열 방식은 이 저위험 선택에서 무작위의 원천을 임의 난수 대신 비밀 키와 앞 문맥으로 바꾼다. 긴 글 전체에서 선택 패턴이 누적되면 키를 가진 검출기가 우연히 나올 확률을 계산할 수 있다.</p>
+      <p>출력에 제로폭 문자나 사용자 식별자를 심는 것이 아니다. 추가 토큰도 없고 개인·조직·대화로 역추적할 정보도 담지 않는다고 Anthropic은 밝힌다. 파일(.png, .jpg, .svg 등)은 텍스트 워터마크와 별도로 C2PA 서명 metadata를 붙이는 계획이다.</p>
+      <figure class="report-figure" id="fig-watermark-flow" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 9</span><span class="asset-caption__title">단어 선택의 작은 편향이 긴 글의 통계 신호가 되는 과정</span></figcaption><img src="assets/figs/watermark-flow.svg" alt="다음 토큰 후보, 문맥과 비밀 키, 숨은 문자가 없는 평문 출력, 통계 일치 점수로 이어지는 텍스트 워터마크 흐름"><small class="asset-note">정답이 하나뿐인 사실·수식·코드는 선택 여지가 적어 신호가 희박하다. 충분한 길이와 entropy가 검출력의 핵심이다.</small></figure>
+      <h2>어디에서 약해지나</h2>
+      <p>짧은 문장은 표본이 작다. 사실 문장은 정확한 단어를 골라야 해 워터마크를 얹을 선택지가 적다. 사람이 쓴 글을 맞춤법만 고치면 Claude가 직접 고른 단어가 거의 없어 검출되지 않을 수 있다. 코드는 식별자·문법·API가 정확해야 하므로 일반 산문보다 신호가 약하고, 주석처럼 임의 선택이 있는 부분에 주로 남는다. 완전 재작성은 신호를 제거할 수 있으며 번역은 모든 단어를 Claude가 고르므로 오히려 워터마크가 생길 수 있다.</p>
+      <table class="cmp-table" id="table-watermark"><caption>표 6 · 검출 결과가 말하는 것과 말하지 않는 것</caption><thead><tr><th>상황</th><th>신호 기대</th><th>가능한 해석</th><th>금지할 결론</th></tr></thead><tbody><tr><td>긴 자유형 산문</td><td>상대적으로 강함</td><td>Claude가 일부 작성·대폭 편집했을 가능성</td><td>특정 사람이 부정행위를 했다</td></tr><tr><td>짧은 문장</td><td>약함</td><td>정보가 부족함</td><td>음성이므로 AI를 쓰지 않았다</td></tr><tr><td>교정·부분 편집</td><td>편집량에 따라 약함</td><td>Claude 관여를 놓칠 수 있음</td><td>원저자가 Claude다</td></tr><tr><td>코드·수식·사실</td><td>선택지 부족</td><td>주석·설명 부분에 일부 신호</td><td>워터마크가 없으니 사람 코드다</td></tr><tr><td>번역·완전 재작성</td><td>번역은 생기고 재작성은 사라질 수 있음</td><td>현재 처리 단계의 관여</td><td>최초 저자·소유권을 확정</td></tr></tbody></table>
+      <p>워터마크 양성은 “이 키를 쓰는 모델이 이 텍스트 일부에 관여했을 가능성”을 높인다. 저자, 소유권, 진실성, 표절, 시험 규정 위반을 판정하지 않는다. 음성도 다른 AI 사용, 짧은 표본, 재작성, 약한 entropy 때문에 AI 미사용을 보장하지 않는다. 따라서 학교·채용·출판에서 단일 자동 판정 근거로 쓰면 안 된다.</p>
+      <div class="story-verdict"><b>팀에 가져갈 결정</b><p>provenance 검사는 처벌 버튼이 아니라 조사 시작 신호로 다룬다. 원본 편집 이력, 과제 과정, C2PA metadata, 사용자 설명과 함께 보고, 검출기의 버전·키·threshold·오탐/미탐 조건을 기록한다.</p></div>
+      <aside class="story-resources" aria-label="Claude 워터마크 원문"><h2>원문·기술 배경 바로가기</h2><div class="resource-grid"><a href="https://www.anthropic.com/news/claude-text-watermark"><b>Anthropic</b><span>How Claude’s text watermarking works</span></a><a href="https://www.nature.com/articles/s41586-024-08025-4"><b>Nature</b><span>SynthID-Text 기술 논문</span></a><a href="https://news.ycombinator.com/item?id=49324087"><b>Hacker News</b><span>821점·727댓글 반응 스냅샷</span></a></div></aside>
     </section>
 
-    <section class="report-section s5 page-break radar-detail" id="story-deepseek-dspark-serving">
-      <div class="report-section__kicker">RADAR 04 · SERVING · SCORE 88</div><h1>DeepSeek V4 Pro는 모델과 서빙기를 함께 설계했다</h1>
-      <p class="report-section__lede">DSpark의 target-attached speculative decoding은 다음 토큰 후보를 더 싸게 만들고 본 모델로 검증하는 서빙 최적화다. 공개 모델이어도 공식 예시는 4×GB300이다.</p>
-      <figure class="report-figure source-figure" id="fig-deepseek-source" data-source-image="true"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">발견 소스</span><span class="asset-caption__title">Two Minute Papers가 부각한 DeepSeek V4</span></figcaption><img src="assets/source/creator-deepseek-v4.jpg" alt="DeepSeek V4를 설명하는 Two Minute Papers 영상 썸네일"><small class="asset-note">수집 시점 115,800회. 조건은 <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813">공식 모델 카드</a>로 확인했다.</small></figure>
-      <figure class="report-figure" id="fig-dspark" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 8</span><span class="asset-caption__title">DSpark의 제안·검증 루프와 배포 조건</span></figcaption><img src="assets/figs/dspark-serving.svg" alt="DSpark가 후보 토큰을 제안하고 본 모델이 병렬 검증하는 추론 구조"><small class="asset-note">본 모델 검증을 통과한 토큰만 확정한다.</small></figure>
-      <pre><code class="language-bash">vllm serve deepseek-ai/DeepSeek-V4-Pro-0813 --tensor-parallel-size 4
-# throughput, p95 latency, acceptance rate, power를 같은 부하에서 측정</code></pre>
-      <p class="source-line"><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813">공식 모델 카드·코드</a> · <a href="https://arxiv.org/abs/2606.19348">DSpark 논문</a> · <a href="https://www.youtube.com/watch?v=kyYepbhe1g8">Two Minute Papers</a></p>
+    <section class="report-section story page-break" id="story-amie-video-consultation">
+      <div class="report-section__kicker">RADAR 07 · HEALTH AI · RANDOMIZED SIMULATION STUDY</div>
+      <h1>AMIE는 영상 상담에서 ‘대화 지연’과 ‘깊은 추론’을 분리했다</h1>
+      <p class="report-section__lede">Google Research는 AMIE를 실시간 영상 상담으로 확장해 100개 임상 시나리오, 300회의 라이브 상담, 30명의 board-certified primary care physician, 15명의 환자 배우가 참여한 무작위 OSCE 연구를 공개했다. Video AMIE, Text AMIE, 의사의 영상 상담을 비교하고 환자 배우와 임상 평가자가 점수를 매겼다.</p>
+      <figure class="report-figure source-figure" id="fig-amie-source" data-source-image="true" data-original-url="https://research.google/blog/advancing-amie-towards-expert-level-audio-visual-clinical-consultations/"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">공식 연구 도표</span><span class="asset-caption__title">AMIE Video 구조 · 무작위 비교 · 결과를 한 장에 모은 개요</span></figcaption><img src="assets/source/amie-study-overview.png" alt="환자 배우와 AMIE Video의 talker planner perception agent 구조, 100개 시나리오 300개 상담 연구, 의사와 비교한 결과"><small class="asset-note">출처: <a href="https://research.google/blog/advancing-amie-towards-expert-level-audio-visual-clinical-consultations/">Google Research 공식 해설</a>. 도표의 성능 막대는 모의 OSCE 안의 평가이며 실제 환자 안전성이나 임상 결과를 뜻하지 않는다.</small></figure>
+      <h2>왜 에이전트를 여러 개로 나눴나</h2>
+      <p>영상 통화는 침묵이 길면 대화 품질이 무너진다. 그러나 표정·움직임·이미지·대화 이력을 종합한 임상 추론은 시간이 필요하다. AMIE Video는 환자와 낮은 지연으로 말하는 talker agent, 대화의 방향과 질문을 계획하는 planner agent, 영상 신호를 보는 perception agent를 비동기 구조로 결합한다. talker는 다른 에이전트의 결과를 기다리며 통화를 멈추지 않고, 새 정보가 도착하면 다음 질문과 설명에 반영한다.</p>
+      <p>이 설계는 의료에만 국한되지 않는다. 고객지원, 현장 점검, 원격 교육처럼 사람과의 대화 latency budget은 짧지만 뒤쪽 분석은 오래 걸리는 업무에서 ‘대화 담당’과 ‘깊은 분석 담당’을 분리할 수 있다. 핵심은 에이전트 수가 아니라 서로 다른 지연·정확도 예산을 독립적으로 관리하는 것이다.</p>
+      <h2>연구 결과를 어디까지 믿을 수 있나</h2>
+      <p>공식 도표는 Video AMIE가 여러 임상 평가 항목에서 비교 의사 그룹과 대등하거나 높은 점수를 받았고, 환자 배우가 텍스트보다 영상 방식을 선호한 결과를 제시한다. 무작위 배정, 여러 평가 관점, 100개 시나리오는 단순 데모보다 강한 근거다.</p>
+      <p>동시에 환자는 배우이고 시나리오는 구성된 OSCE다. 실제 진료에는 불완전한 기록, 돌발 응급, 언어·문화·장애, 반복 방문, 의료 책임, 개인정보, 센서 오류가 들어온다. 논문 자체도 real-world translation에 추가 연구가 필요하다고 선을 긋는다. “expert-level”은 이 모의 연구의 rubric에서 나온 표현이지 자율 진료 허가가 아니다.</p>
+      <div class="claim-boundary"><b>배포 전 필요한 다음 증거</b><p>실제 환자 집단의 prospective study, 불확실할 때의 escalation, 응급징후 미탐, 편향·접근성, 의사 감독 workload, privacy와 녹화 보존, 장기 임상 결과를 별도로 검증해야 한다. 현재 가장 안전한 해석은 연구용 시스템의 상담 인터페이스·에이전트 구조가 진전됐다는 것이다.</p></div>
+      <div class="story-verdict"><b>왜 중요한가</b><p>실시간 제품에서 모델 하나가 모든 일을 순차 처리하게 하지 않고, 사람 대화의 latency와 뒤쪽 reasoning을 분리하는 설계 패턴을 보여준다. 단, 의료에서는 구조적 우아함보다 임상 검증과 감독 경계가 우선이다.</p></div>
+      <aside class="story-resources" aria-label="AMIE 연구 원문"><h2>연구 블로그·논문 바로가기</h2><div class="resource-grid"><a href="https://research.google/blog/advancing-amie-towards-expert-level-audio-visual-clinical-consultations/"><b>Google Research</b><span>공식 연구 해설과 전체 도표</span></a><a href="https://arxiv.org/abs/2608.09861"><b>arXiv</b><span>Towards Expert-level Medical AI…</span></a><a href="https://research.google/pubs/towards-expert-level-medical-ai-for-real-time-video-consultations/"><b>Google Publications</b><span>저자·초록·출판 정보</span></a></div></aside>
     </section>
 
-    <section class="report-section radar-detail" id="story-claude-zeta-bound">
-      <div class="report-section__kicker">RADAR 05 · MATHEMATICS · SCORE 91 · RESEARCH CLAIM</div><h1>Claude 연구 산출물이 제타 영점의 무조건 하한을 2/3로 밀었다</h1>
-      <p>Anthropic 논문은 임계선 위 단순 영점의 비율 하한을 이전 5/12에서 2/3 이상으로 높였다고 주장한다. Lean 4 산출물도 공개됐다. 제목의 숫자 67.2%는 Montgomery–Taylor 상수 0.67250과 연결되지만, “리만 가설의 67%를 풀었다”는 뜻이 아니다. 리만 가설은 모든 비자명 영점이 임계선 위에 있다는 명제다.</p>
-      <figure class="report-figure source-figure" id="fig-zeta-source" data-source-image="true"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">발견 소스</span><span class="asset-caption__title">국내 숏폼에서 확산된 Claude 수학 연구</span></figcaption><img src="assets/source/creator-claude-zeta.jpg" alt="Claude의 제타 함수 연구를 설명하는 조코딩 숏폼 썸네일"><small class="asset-note">수집 시점 47,180회. 정확한 명제는 논문과 Lean 저장소로 확인했다.</small></figure>
-      <figure class="report-figure" id="fig-zeta-bound" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 9</span><span class="asset-caption__title">5/12에서 2/3로: 증명된 하한과 리만 가설의 거리</span></figcaption><img src="assets/figs/zeta-bound.svg" alt="이전 5분의12 하한, 새 3분의2 하한, 리만 가설 100퍼센트를 구분한 수직 척도"><small class="asset-note">새 하한과 리만 가설 사이에는 여전히 큰 논리적 간극이 있다.</small></figure>
-      <p class="source-line"><a href="https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf">논문 PDF</a> · <a href="https://github.com/anthropics/zeta-23-lean">Lean 저장소</a> · <a href="https://arxiv.org/abs/2608.13637">관련 인간 연구</a></p>
+    <section class="report-section story page-break" id="story-enterprise-agent-delegation">
+      <div class="report-section__kicker">RADAR 08 · ENTERPRISE ADOPTION · VENDOR DATA</div>
+      <h1>기업 AI의 사용 단위가 ‘답변’에서 ‘위임’으로 바뀌고 있다</h1>
+      <p class="report-section__lede">OpenAI Enterprise Signals는 2026년 6월 기업 고객의 Codex 출력 토큰이 Codex와 ChatGPT 합산 출력의 64%를 차지했다고 발표했다. 사용자당 출력 토큰 기준 상위 10% 기업과 45–55 percentile의 전형 기업 사이 격차는 1월 2.6배에서 6월 8.3배로 벌어졌다.</p>
+      <p>OpenAI는 Codex 토큰을 agentic use의 대리변수로 사용한다. ChatGPT가 질문·아이디어·초안을 돕는다면 Codex와 ChatGPT Work 같은 에이전트는 파일을 찾고 수정하고 도구를 쓰며 여러 단계를 수행한다. 긴 작업은 본질적으로 더 많은 출력과 도구 문맥을 쓰므로 토큰이 위임 깊이의 한 신호가 될 수 있다.</p>
+      <figure class="report-figure" id="fig-enterprise" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 10</span><span class="asset-caption__title">도움에서 검증 가능한 위임으로 깊어지는 기업 사용</span></figcaption><img src="assets/figs/enterprise-delegation.svg" alt="질문과 초안, 도구 사용, 지속 실행, 완료 기준과 승인이 있는 위임으로 기업 AI 사용이 깊어지는 단계와 2.6배 8.3배 64퍼센트 지표"><small class="asset-note">1×·2.6×·8.3×·64%는 하나의 선형 성숙도 점수가 아니라 서로 다른 시점·분모의 공급자 지표다. 그림은 변화 방향을 설명한다.</small></figure>
+      <h2>상위 기업은 모델이 아니라 context·tools·persistence를 붙인다</h2>
+      <p>상위 기업의 주간 활성 사용자 중 plugin 사용은 21%, 전형 기업은 9%였고, skill 사용은 각각 19%와 3%였다. OpenAI 내부 plugin 사용은 95%라고 보고한다. 보고서가 제시하는 공통 구성요소는 업무 문맥, 회사 도구, 작업이 끝날 때까지 유지되는 목표와 loop다. 같은 모델을 사더라도 데이터 연결과 검증 가능한 workflow가 없으면 사용은 단순 채팅에 머문다는 해석이다.</p>
+      <p>확산 속도도 개발자 밖에서 더 크게 나타났다. 2월 이후 weekly active enterprise Codex user가 법무 108배, 영업·채용 각각 41배, 마케팅 26배, 엔지니어링 5배로 증가했다고 OpenAI는 밝힌다. 작은 초기 분모일수록 배수가 커질 수 있으므로 절대 사용자 수로 읽을 수는 없지만, agentic interface가 비개발 업무로 이동하는 방향은 분명하다.</p>
+      <h2>토큰은 가치가 아니다</h2>
+      <p>OpenAI도 긴 답이 가치가 없을 수 있고 짧은 답이 매우 가치 있을 수 있어 토큰은 불완전한 지표라고 명시한다. 더구나 표본은 OpenAI의 기업 고객이며 사용량 상위·중간 기업을 해당 월 안에서 나눈 공급자 분석이다. 자가선택, 제품 mix, 좌석 정책, 가격, 초기 분모가 결과에 영향을 줄 수 있다.</p>
+      <table class="cmp-table"><caption>표 7 · 기업 에이전트 지표에 붙여야 할 가치 측정</caption><thead><tr><th>사용 지표</th><th>보여주는 것</th><th>함께 붙일 가치 지표</th></tr></thead><tbody><tr><td>출력 토큰</td><td>작업 깊이·계산량의 대리변수</td><td>완료율·사람 수정시간·업무 주기</td></tr><tr><td>주간 활성 사용자</td><td>도구 확산</td><td>반복 사용·직무별 성과·중단 이유</td></tr><tr><td>plugin / skill 사용률</td><td>문맥·도구 연결 깊이</td><td>권한 사고·승인 결과·데이터 품질</td></tr><tr><td>성장 배수</td><td>초기 확산 속도</td><td>절대 사용자·분모·비용·기준 시점</td></tr></tbody></table>
+      <div class="story-verdict"><b>팀에 가져갈 결정</b><p>“AI 사용량” 대시보드에 token·message만 두지 않는다. 업무 단위 완료율, 승인까지 걸린 시간, 사람이 고친 비율, 오류 비용, 고객 결과를 연결한다. 상위 사용자를 모방하기 전에 어떤 context와 tool이 검증 가능한 업무를 만들었는지 추적한다.</p></div>
+      <aside class="story-resources" aria-label="기업 AI 도입 데이터"><h2>데이터·분석 바로가기</h2><div class="resource-grid"><a href="https://openai.com/signals/enterprise-data/"><b>OpenAI Signals</b><span>Enterprise Signals 전체 데이터</span></a><a href="https://cdn.openai.com/pdf/5d1e1489-21c0-43e4-9d42-f87efdbf0082/the-shift-to-agentic-ai-evidence-from-codex.pdf"><b>OpenAI PDF</b><span>The shift to agentic AI</span></a><a href="https://www.youtube.com/watch?v=iXt4pp8BI8A"><b>조코딩</b><span>국내 기업 Codex 활용 사례</span></a></div></aside>
     </section>
 
-    <section class="report-section radar-detail" id="story-claude-text-watermark">
-      <div class="report-section__kicker">RADAR 06 · PROVENANCE · SCORE 88 · HN 821 / 727</div><h1>Claude 워터마크는 저자 판정기가 아니다</h1>
-      <p>Anthropic은 비밀 키와 앞선 단어로 의미 차이가 작은 다음 단어 선택에 통계적 편향을 주는 텍스트 워터마크를 설명했다. 긴 출력에서 Claude 관여 가능성을 찾는 보조 신호지만 숨은 문자·사용자 ID가 아니다. 짧은 글, 정답 제약이 큰 코드와 사실, 번역·재작성에는 신호가 약해질 수 있다.</p>
-      <figure class="report-figure" id="fig-watermark-flow" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 10</span><span class="asset-caption__title">키 기반 선택 패턴이 통계 신호로 누적되는 과정</span></figcaption><img src="assets/figs/watermark-flow.svg" alt="다음 단어 후보, 키 기반 선택, 평문 출력, 통계 탐지로 이어지는 워터마크 흐름"><small class="asset-note">양성은 Claude 관여 가능성을 높일 뿐 저자·진실·부정행위를 증명하지 않는다.</small></figure>
-      <table class="cmp-table" id="table-watermark"><thead><tr><th>관찰</th><th>말할 수 있음</th><th>말하면 안 됨</th></tr></thead><tbody><tr><td>긴 글·강한 양성</td><td>Claude 관여 가능성 증가</td><td>특정 저자·내용의 진실</td></tr><tr><td>짧은 글·음성</td><td>판정 정보 부족</td><td>AI 미사용 확정</td></tr><tr><td>재작성 뒤 음성</td><td>신호 제거 가능</td><td>처음부터 AI 미관여</td></tr></tbody></table>
-      <p class="source-line"><a href="https://www.anthropic.com/news/claude-text-watermark">Anthropic 공식 설명</a> · <a href="https://news.ycombinator.com/item?id=49324087">HN 토론</a></p>
+    <section class="report-section story page-break" id="story-ai-factory-finance">
+      <div class="report-section__kicker">RADAR 09 · INFRASTRUCTURE FINANCE · ANNOUNCED</div>
+      <h1>GPU는 장비에서 장기 금융 자산으로 이동하고 있다</h1>
+      <p class="report-section__lede">NVIDIA는 8월 10일 Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR과 독립적인 compute financing platform을 만들어 시간이 지나며 5,000억 달러가 넘는 제3자 자본을 AI 인프라에 동원하겠다고 발표했다. 핵심 단어는 <strong>independent platforms</strong>, <strong>third-party capital</strong>, <strong>over time</strong>이다.</p>
+      <h2>왜 GPU 구매에 금융 플랫폼이 필요한가</h2>
+      <p>AI 데이터센터는 GPU만 사면 끝나지 않는다. 토지, 전력 계약, 변전, 냉각, 네트워크, 건설, 운영이 먼저 필요하고 수익은 여러 해의 compute 계약에서 돌아온다. 초기 비용은 크고 회수 기간은 길다. 장기 자본을 가진 보험·연기금·사모신용이 프로젝트나 특수목적기구에 자금을 대고, 고객의 장기 사용 계약과 시설 현금흐름으로 상환하는 인프라 금융 구조가 자연스럽게 등장한다.</p>
+      <figure class="report-figure" id="fig-ai-factory" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 11</span><span class="asset-caption__title">자본 → 시설 → compute 계약 → 현금흐름의 연결</span></figcaption><img src="assets/figs/ai-factory-finance.svg" alt="기관 자본이 독립 금융 플랫폼과 AI 데이터센터에 들어가 고객 compute 계약을 만들고 사용료와 상환으로 돌아오는 구조"><small class="asset-note">자산 가치는 GPU 가격만으로 결정되지 않는다. 전력, 가동률, 고객 신용, 계약 기간, 장비 교체 속도, 잔존가치가 대출과 equity의 조건을 바꾼다.</small></figure>
+      <h2>$500B+를 NVIDIA가 받은 수표로 읽으면 안 된다</h2>
+      <p>발표는 여러 플랫폼이 장기간 동원할 수 있는 제3자 자본의 목표 규모다. 계약이 모두 체결됐거나 자금이 즉시 집행됐다는 뜻이 아니며, NVIDIA의 매출이나 보증액과도 같지 않다. 각 금융사가 독립적으로 자금을 모집하고 프로젝트를 심사하며, 실제 투자 속도는 시장 금리·전력·고객 계약·규제·건설 일정에 따라 달라진다.</p>
+      <p>동시에 NVIDIA가 장비 공급자에서 생태계의 금융 조정자 쪽으로 역할을 넓힌다는 신호다. 더 많은 프로젝트가 장기 자본에 접근하면 GPU 수요의 자금 제약이 완화될 수 있다. 반대로 공급자·고객·금융사의 이해관계가 서로 얽히면 순환 금융, 과잉 건설, 수요 낙관론의 위험이 커진다.</p>
+      <div class="explainer-grid"><article><b>기술 노후화</b><p>대출 만기보다 GPU 세대 교체가 빠르면 담보의 잔존가치가 급격히 내려갈 수 있다.</p></article><article><b>가동률</b><p>예약한 고객이 빠지거나 수요가 작은 지역이면 전력·이자·운영비를 감당할 현금흐름이 줄어든다.</p></article><article><b>전력·건설</b><p>자본이 있어도 전력망·냉각·허가·공급망이 지연되면 수익 발생 시점이 늦어진다.</p></article><article><b>고객 집중</b><p>소수 frontier lab의 신용과 모델 수요에 과도하게 의존하면 프로젝트 위험이 한 방향으로 묶인다.</p></article></div>
+      <div class="story-verdict"><b>팀에 가져갈 결정</b><p>AI 인프라 숫자를 볼 때 발표 목표, 약정 자본, 실제 집행, 가동 중 자산, 계약된 매출을 분리한다. 기술 팀도 GPU 효율뿐 아니라 계약 기간·가동률·전력·교체주기·잔존가치를 capacity plan에 넣어야 한다.</p></div>
+      <aside class="story-resources" aria-label="AI 인프라 금융 원문"><h2>IR 발표·시장 토론 바로가기</h2><div class="resource-grid"><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx"><b>NVIDIA IR</b><span>6개 금융사·$500B+ 공식 발표</span></a><a href="https://blogs.nvidia.com/blog/nvidia-ai-factory-compute/"><b>NVIDIA Blog</b><span>AI factory와 compute 인프라 설명</span></a><a href="https://news.ycombinator.com/item?id=49323686"><b>Hacker News</b><span>251점·152댓글 금융 리스크 토론</span></a></div></aside>
     </section>
 
-    <section class="report-section radar-detail" id="story-amie-video-consultation">
-      <div class="report-section__kicker">RADAR 07 · HEALTH RESEARCH · SCORE 81</div><h1>AMIE는 영상 상담의 실시간 대화와 깊은 추론을 분리했다</h1>
-      <p>Google Research는 100개 시나리오, 300회의 라이브 모의 상담, 30명의 일차진료의를 포함한 연구에서 비동기 다중 에이전트 구조를 평가했다. 한 에이전트가 환자와 실시간으로 대화하는 동안 다른 에이전트들이 기록·영상·추론을 병렬로 검토하고 결과를 합친다. 핵심은 모델 수보다 서로 다른 지연 예산의 분리다.</p>
-      <figure class="report-figure" id="fig-amie" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 11</span><span class="asset-caption__title">실시간 대화와 비동기 임상 추론의 분리</span></figcaption><img src="assets/figs/amie-architecture.svg" alt="환자 영상 대화와 뒤쪽의 비동기 전문 에이전트들이 조정자로 합쳐지는 구조"><small class="asset-note">모의 환자 배우를 사용한 연구다. 실제 환자 배포와 안전성을 입증한 임상 시험이 아니다.</small></figure>
-      <div class="claim-limit"><div><b>연구가 말한 것</b><p>정해진 모의 상담에서 비교 평가한 오디오·비주얼 상담 성능.</p></div><div><b>아직 말하지 못하는 것</b><p>실제 진료 현장의 환자 안전, 희귀 질환, 책임 주체, 개인정보 운영.</p></div></div>
-      <p class="source-line"><a href="https://research.google/blog/advancing-amie-towards-expert-level-audio-visual-clinical-consultations/">Google Research 공식 연구</a></p>
+    <section class="report-section story page-break" id="story-amazon-rare-books-training-data">
+      <div class="report-section__kicker">RADAR 10 · DATA SUPPLY CHAIN · INVESTIGATION</div>
+      <h1>AirTag가 AI 학습 데이터의 물리적 공급망을 드러냈다</h1>
+      <p class="report-section__lede">404 Media는 온라인 희귀서적 시장 Biblio를 통해 들어온 약 1,000권의 대량 주문에 판매자의 협조로 Apple AirTag를 넣었다. 추적기는 Las Vegas의 Amazon 시설 LAS8 안 VGT3로 이동했다. 보도는 현장 관계자와 온라인 직원 증언을 통해 책의 제본을 자르고 페이지를 스캔하는 공정을 묘사했다.</p>
+      <h2>이 탐사가 강하게 보여준 것</h2>
+      <p>웹에서 접근할 수 없는 오래된 책이나 ISBN이 없는 자료는 물리적으로 사서 디지털화해야 한다. 무작위에 가까운 대량 주문, 배송 추적, 시설 도착, VGT3의 책을 먹는 공룡 로고, 직원들이 설명한 cutting·scanning 공정이 서로 맞물리면서 학습 데이터가 crawler뿐 아니라 구매·물류·파괴적 스캔을 거칠 수 있음을 구체적으로 보여준다.</p>
+      <p>AirTag는 특정 주문의 경로에 강한 물리 증거를 제공한다. 직원 증언은 시설의 역할을 보강한다. 이 두 층은 “대량 서적이 Amazon 시설에 도착해 스캔됐다”는 주장에 힘을 준다. 다만 탐사가 모든 대량 주문, 모든 희귀서적, Amazon의 전체 모델 학습 체계를 대표하는 것은 아니다.</p>
+      <figure class="report-figure" id="fig-training-data" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 12</span><span class="asset-caption__title">확인된 물리 흐름과 공개되지 않은 디지털 사용 범위</span></figcaption><img src="assets/figs/training-data-chain.svg" alt="약 천 권 대량 주문과 AirTag의 VGT3 도착, 제본 제거와 스캔은 확인됐지만 코퍼스 편입과 모델 학습, 권리 근거는 공개되지 않은 공급망"><small class="asset-note">실선은 추적·관찰·증언, 점선은 기사만으로 단정할 수 없는 단계다. “스캔했다”와 “특정 모델을 학습했다” 사이에는 OCR·정제·중복 제거·선정·법적 검토가 있을 수 있다.</small></figure>
+      <h2>아직 답하지 못한 질문</h2>
+      <p>어떤 책이 OCR됐는지, 스캔 파일이 어떤 데이터셋에 들어갔는지, 특정 Amazon 모델에 실제 학습됐는지, 보관·삭제 정책은 무엇인지가 공개 자료에 없다. 희귀·절판·저작권 만료·공정이용·라이선스가 서로 다른 책을 어떤 법적 기준으로 분류했는지도 알 수 없다. 따라서 “Amazon이 이 1,000권 전부를 특정 모델에 넣었다”는 문장은 탐사 결과보다 앞선다.</p>
+      <h2>데이터 거버넌스는 URL 목록보다 길다</h2>
+      <p>모델 학습 원장은 소스 URL과 라이선스 필드만으로 부족하다. 물리 구매 영수증, 판매자, 소유권 이전, 스캔 시설, 원본 파괴, OCR 버전, 페이지 hash, 중복 제거, 데이터셋 snapshot, 학습 run, 삭제·opt-out 요청까지 연결돼야 한다. 특히 책을 파괴한 뒤 권리 이의가 제기되면 원본을 다시 검토할 수 없으므로 provenance와 보존 정책이 더 중요하다.</p>
+      <table class="cmp-table"><caption>표 8 · 학습 데이터 공급망의 증거 원장</caption><thead><tr><th>단계</th><th>남겨야 할 증거</th><th>이번 탐사에서 보인 것</th><th>남은 공백</th></tr></thead><tbody><tr><td>구매</td><td>판매자·품목·권리·영수증</td><td>약 1,000권 Biblio 주문</td><td>최종 구매주체·전체 품목</td></tr><tr><td>물류</td><td>배송·시설·수령 기록</td><td>AirTag → Amazon VGT3</td><td>다른 주문의 범위</td></tr><tr><td>디지털화</td><td>스캔·OCR·원본 처리</td><td>제본 제거·스캔 증언</td><td>파일·OCR 품질·보존</td></tr><tr><td>데이터셋</td><td>snapshot·hash·filter·license</td><td>공개되지 않음</td><td>편입 여부와 범위</td></tr><tr><td>학습</td><td>모델·run·삭제 계보</td><td>공개되지 않음</td><td>어떤 모델·법적 근거</td></tr></tbody></table>
+      <div class="story-verdict"><b>팀에 가져갈 결정</b><p>데이터 구매·스캔 업체를 쓰면 “합법적으로 받았다”는 계약 한 줄로 끝내지 않는다. 샘플 원본, 권리 분류, 파일 hash, 변환 이력, dataset snapshot, 모델 run 연결, 삭제 요청 전파를 감사 가능한 원장으로 만든다.</p></div>
+      <aside class="story-resources" aria-label="희귀 서적 탐사 원문"><h2>탐사·후속 보도 바로가기</h2><div class="resource-grid"><a href="https://www.404media.co/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-training-facility/"><b>404 Media</b><span>AirTag 희귀 서적 탐사 원문</span></a><a href="https://simonwillison.net/2026/Aug/17/rare-books/"><b>Simon Willison</b><span>핵심 사실과 데이터 맥락</span></a><a href="https://news.ycombinator.com/item?id=49330742"><b>Hacker News</b><span>163점·319댓글 반응</span></a><a href="https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/"><b>TechCrunch</b><span>후속 보도와 산업 맥락</span></a></div></aside>
     </section>
 
-    <section class="report-section s6 page-break radar-detail" id="story-enterprise-agent-delegation">
-      <div class="report-section__kicker">RADAR 08 · ENTERPRISE ADOPTION · SCORE 83</div><h1>기업 AI의 단위가 답변에서 위임으로 바뀌고 있다</h1>
-      <p>OpenAI의 고객 데이터에서는 Codex가 결합 출력 토큰의 64%를 차지했고, 프런티어 사용 기업과 전형적 기업의 사용 격차는 2026년 1월 2.6배에서 8.3배로 커졌다고 한다. 법무 주간 사용자 108배, 영업·채용 41배 같은 증가율도 제시됐다. 모두 공급자 고객군의 관찰이며 전체 기업 시장의 인과 추정이 아니다.</p>
-      <figure class="report-figure" id="fig-enterprise" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 12</span><span class="asset-caption__title">질문 빈도에서 위임 깊이로 바뀌는 기업 도입 지표</span></figcaption><img src="assets/figs/enterprise-delegation.svg" alt="채팅 질문, 도구 사용, 긴 코딩 작업, 반복 위임으로 기업 AI 도입 단계가 깊어지는 구조"><small class="asset-note">토큰은 위임 깊이의 불완전한 대리변수다. 승인 결과, 재작업, 오류 비용을 붙여야 한다.</small></figure>
-      <p class="source-line"><a href="https://openai.com/signals/enterprise-data/">OpenAI Enterprise Signals</a> · <a href="https://cdn.openai.com/pdf/5d1e1489-21c0-43e4-9d42-f87efdbf0082/the-shift-to-agentic-ai-evidence-from-codex.pdf">분석 PDF</a></p>
+    <section class="report-section page-break" id="actions">
+      <div class="report-section__kicker">SECTION 07 · ACTION PLAYBOOK</div>
+      <h1>이번 주 뉴스를 팀의 설계 변경으로 바꾸는 다섯 가지</h1>
+      <div class="action-list"><article><span>01</span><div><h2>업무 완료시간을 분해한다</h2><p>TTFT·생성·도구·승인·검증·재시도를 한 trace에 기록한다. 공급자 tok/s가 우리 병목에 실제로 닿는지 먼저 확인한다.</p></div></article><article><span>02</span><div><h2>행동별 승인 계약을 만든다</h2><p>읽기·초안·전송·결제·삭제·권한 변경의 자동화 수준, 승인 카드, 로그, 만료, 복구를 문서가 아니라 실행 정책으로 둔다.</p></div></article><article><span>03</span><div><h2>오픈 모델을 전체 스택으로 평가한다</h2><p>라이선스·가중치·양자화·runtime·memory·reasoning mode·동시성·내부 품질·rollback을 같은 비교표에 넣는다.</p></div></article><article><span>04</span><div><h2>대리변수에 가치·한계 지표를 붙인다</h2><p>토큰에는 완료율과 수정시간을, 자본 목표에는 집행·가동률을, 연구 점수에는 표본과 실제 배포 경계를 붙인다.</p></div></article><article><span>05</span><div><h2>데이터와 결과의 provenance를 연결한다</h2><p>구매·스캔·OCR·dataset·training run·삭제 요청을 이어 붙이고, 워터마크는 저자 판정이 아닌 보조 신호로 사용한다.</p></div></article></div>
+      <h2 id="discussion">30분 스터디를 여는 네 질문</h2>
+      <div class="discussion-grid discussion-grid--four"><article><b>속도</b><p>우리 업무에서 생성 구간은 전체 완료시간의 몇 %인가?</p></article><article><b>권한</b><p>전송·결제 직전에 사람이 반드시 봐야 할 필드는 무엇인가?</p></article><article><b>소유</b><p>로컬 모델의 느림과 hosted API의 데이터·비용을 어떻게 비교할까?</p></article><article><b>증거</b><p>연구·도입·데이터 공급망에서 ‘확인’과 ‘추정’을 어디서 나눌까?</p></article></div>
     </section>
 
-    <section class="report-section radar-detail" id="story-ai-factory-finance">
-      <div class="report-section__kicker">RADAR 09 · INFRASTRUCTURE FINANCE · SCORE 86 · HN 251 / 152</div><h1>GPU는 장비에서 장기 금융 자산으로 이동하고 있다</h1>
-      <p>NVIDIA와 Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR는 AI 인프라를 위한 금융 플랫폼을 만들고 장기간 5,000억 달러 이상의 제3자 자본을 동원하겠다고 발표했다. 이 숫자는 지금 집행된 투자도, 확보된 매출도, NVIDIA의 보증액도 아니다. 전력·부지·GPU·고객 계약을 금융 가능한 현금흐름 묶음으로 바꾸려는 목표액이다.</p>
-      <figure class="report-figure" id="fig-ai-factory" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 13</span><span class="asset-caption__title">자본에서 AI 팩토리 현금흐름으로 이어지는 금융 구조</span></figcaption><img src="assets/figs/ai-factory-finance.svg" alt="기관 자본, 금융 플랫폼, 데이터센터 자산, 컴퓨트 계약, 현금흐름으로 이어지는 구조"><small class="asset-note">목표액을 확정 자금·매출로 읽지 않는다.</small></figure>
-      <table class="cmp-table" id="table-ai-factory"><thead><tr><th>발표 문구</th><th>뜻</th><th>뜻하지 않는 것</th></tr></thead><tbody><tr><td>over $500B</td><td>시간을 두고 동원할 목표</td><td>즉시 집행된 현금</td></tr><tr><td>third-party capital</td><td>외부 투자자 자본</td><td>NVIDIA 단독 투자</td></tr><tr><td>AI factory</td><td>컴퓨트·전력·시설의 묶음</td><td>GPU만의 가치</td></tr></tbody></table>
-      <p class="source-line"><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx">NVIDIA IR 원문</a> · <a href="https://news.ycombinator.com/item?id=49323686">HN 토론</a></p>
-    </section>
-
-    <section class="report-section radar-detail" id="story-amazon-rare-books-training-data">
-      <div class="report-section__kicker">RADAR 10 · DATA SUPPLY CHAIN · SCORE 76 · INVESTIGATION</div><h1>AirTag가 AI 학습 데이터의 물리적 공급망을 드러냈다</h1>
-      <p>404 Media는 희귀 서적 약 1,000권 주문에 AirTag를 넣어 배송 경로를 추적했고, 물품이 Amazon VGT3 시설에 도착했다고 보도했다. 현장 관계자 증언은 제본을 제거하고 스캔한 뒤 책을 폐기하는 공정을 설명했다. 이 탐사는 특정 주문과 시설의 흐름을 강하게 보여주지만, 어떤 모델에 어떤 텍스트가 얼마나 사용됐는지, 권리 처리가 어떻게 됐는지는 공개되지 않았다.</p>
-      <figure class="report-figure" id="fig-training-data" data-deck-use="required"><figcaption class="asset-caption asset-caption--figure"><span class="asset-caption__chip">그림 14</span><span class="asset-caption__title">희귀 서적에서 학습 코퍼스까지의 확인·미확인 경계</span></figcaption><img src="assets/figs/training-data-chain.svg" alt="서적 주문, 배송 추적, 시설 도착, 제본 제거와 스캔, 데이터 처리, 모델 학습으로 이어지는 공급망"><small class="asset-note">주문→시설→스캔 공정은 탐사와 증언으로 뒷받침된다. 데이터셋 편입·모델 학습·권리 근거는 공개되지 않아 점선으로 분리했다.</small></figure>
-      <p>웹 크롤링 정책만으로 데이터 거버넌스가 끝나지 않는다. 구매·배송·스캔·OCR·중복 제거·라이선스·삭제 요청까지 물리적·법적 계보를 하나의 원장으로 연결해야 한다.</p>
-      <p class="source-line"><a href="https://www.404media.co/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-training-facility/">404 Media 탐사</a> · <a href="https://simonwillison.net/2026/Aug/17/rare-books/">Simon Willison</a> · <a href="https://news.ycombinator.com/item?id=49330742">HN 토론</a></p>
-    </section>
-
-    <section class="report-section s7 page-break" id="actions">
-      <div class="report-section__kicker">SECTION 07 · ACTION PLAYBOOK</div><h1>이번 주에 팀으로 가져갈 네 가지 변경</h1>
-      <div class="action-list"><article><span>01</span><div><h2>완료시간을 분해한다</h2><p>첫 토큰·생성·도구·승인·재시도를 분리해 기록하고 token/s가 실제 병목인지 확인한다.</p></div></article><article><span>02</span><div><h2>에이전트 승인 표면을 그린다</h2><p>읽기·초안·전송·결제·삭제·권한 변경을 복구 가능성과 외부 영향으로 나눈다.</p></div></article><article><span>03</span><div><h2>오픈 모델을 스택으로 평가한다</h2><p>라이선스·양자화·VRAM·런타임·컨텍스트·내부 태스크 품질을 같은 원장에 묶는다.</p></div></article><article><span>04</span><div><h2>대리변수에 가치 지표를 붙인다</h2><p>토큰·조회·자본 목표와 함께 완료율·재작업·오류 비용·가동률·권리 계보를 측정한다.</p></div></article></div>
-      <h2 id="discussion">30분 스터디를 여는 세 질문</h2>
-      <div class="discussion-grid"><article><b>속도</b><p>우리 에이전트 업무에서 모델 생성이 실제 병목인 구간은 어디인가?</p></article><article><b>통제</b><p>전용 컴퓨터 에이전트가 전송·구매 전에 반드시 보여줘야 할 정보는 무엇인가?</p></article><article><b>소유</b><p>오픈 모델의 운영 책임과 학습 데이터의 권리 계보를 누가 유지해야 하는가?</p></article></div>
-    </section>
-
-    <section class="report-appendix s-refs page-break" id="references">
-      <div class="report-section__kicker">APPENDIX · SOURCE, CODE &amp; PAPER LEDGER</div><h1>원문·코드·논문 원장</h1>
-      <p>수집 시각은 2026년 8월 21일 09:53 KST다. 이미지 다섯 장은 공개 YouTube 썸네일을 해당 영상을 식별·비평하는 최소 범위로 사용했고, 나머지 구조도는 원문을 바탕으로 직접 작도했다. URL·관측 시각·선정/탈락 이유·주장별 조건은 비공개 raw 원장에 보존한다.</p>
-      <ol class="references weekly-references"><li><span>[1]</span><a href="https://deepmind.google/models/model-cards/gemini-3-7-flash/">Google DeepMind — Gemini 3.7 Flash model card</a></li><li><span>[2]</span><a href="https://openai.com/index/previewing-ultrafast/">OpenAI — Previewing Ultrafast</a></li><li><span>[3]</span><a href="https://x.ai/news/introducing-grok-bot">SpaceXAI — Introducing Grok Bot</a></li><li><span>[4]</span><a href="https://huggingface.co/Qwen/Qwen3.8-27B">Qwen — Qwen3.8-27B model card and code</a></li><li><span>[5]</span><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813">DeepSeek — V4 Pro 0813 model card</a></li><li><span>[6]</span><a href="https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf">Anthropic — Zeta zeros paper</a></li><li><span>[7]</span><a href="https://github.com/anthropics/zeta-23-lean">Anthropic — zeta-23-lean</a></li><li><span>[8]</span><a href="https://www.anthropic.com/news/claude-text-watermark">Anthropic — Claude text watermark</a></li><li><span>[9]</span><a href="https://research.google/blog/advancing-amie-towards-expert-level-audio-visual-clinical-consultations/">Google Research — AMIE audio-visual consultations</a></li><li><span>[10]</span><a href="https://openai.com/signals/enterprise-data/">OpenAI — Enterprise Signals</a></li><li><span>[11]</span><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx">NVIDIA — AI infrastructure financing platforms</a></li><li><span>[12]</span><a href="https://www.404media.co/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-training-facility/">404 Media — Rare books investigation</a></li><li><span>[13]</span><a href="https://huggingface.co/blog/state-of-open-models-summer-2026">Hugging Face — State of Open Models, Summer 2026</a></li></ol>
+    <section class="report-appendix page-break" id="references">
+      <div class="report-section__kicker">APPENDIX · SOURCE, CODE &amp; PAPER LEDGER</div>
+      <h1>원문·코드·논문 전체 원장</h1>
+      <p>관측 창은 2026년 8월 15일 00:00부터 8월 21일 09:53 KST까지다. 사건 자체가 관측 창 직전에 발표됐더라도 이 기간 국내외 크리에이터·커뮤니티에서 새로 확산되고 원문을 재확인한 경우를 포함했다. 아래 링크는 각 아이템의 직접 원문이며, 다섯 개 원자료 이미지는 해당 주장·실험을 설명하는 최소 범위로 인용했다.</p>
+      <ol class="references weekly-references">
+        <li><span>[1]</span><a href="https://deepmind.google/models/model-cards/gemini-3-7-flash/">Google DeepMind — Gemini 3.7 Flash model card</a></li>
+        <li><span>[2]</span><a href="https://openai.com/index/previewing-ultrafast/">OpenAI — Previewing GPT-5.6 Sol Ultrafast</a></li>
+        <li><span>[3]</span><a href="https://artificialanalysis.ai/models/gemini-3-7-flash">Artificial Analysis — Gemini 3.7 Flash independent measurements</a></li>
+        <li><span>[4]</span><a href="https://x.ai/news/introducing-grok-bot">SpaceXAI — Introducing Grok Bot</a></li>
+        <li><span>[5]</span><a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=493s">Matthew Berman — Grok Bot use cases, browser section</a></li>
+        <li><span>[6]</span><a href="https://huggingface.co/Qwen/Qwen3.8-27B">Qwen — Qwen3.8-27B model card and weights</a></li>
+        <li><span>[7]</span><a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/">Simon Willison — Qwen 3.8 27B local experiments</a></li>
+        <li><span>[8]</span><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813">DeepSeek — V4 Pro 0813 model card</a></li>
+        <li><span>[9]</span><a href="https://arxiv.org/abs/2607.05147">DeepSeek et al. — DSpark paper</a></li>
+        <li><span>[10]</span><a href="https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf">Claude · Anthropic — More than two thirds…</a></li>
+        <li><span>[11]</span><a href="https://github.com/anthropics/zeta-23-lean">Anthropic — zeta-23-lean</a></li>
+        <li><span>[12]</span><a href="https://arxiv.org/abs/2608.13637">Alpöge · Furman — More than two thirds…</a></li>
+        <li><span>[13]</span><a href="https://www.anthropic.com/news/claude-text-watermark">Anthropic — How Claude’s text watermarking works</a></li>
+        <li><span>[14]</span><a href="https://www.nature.com/articles/s41586-024-08025-4">Google DeepMind — SynthID-Text</a></li>
+        <li><span>[15]</span><a href="https://research.google/blog/advancing-amie-towards-expert-level-audio-visual-clinical-consultations/">Google Research — AMIE real-time video consultations</a></li>
+        <li><span>[16]</span><a href="https://arxiv.org/abs/2608.09861">Google Research — AMIE Video paper</a></li>
+        <li><span>[17]</span><a href="https://openai.com/signals/enterprise-data/">OpenAI — Enterprise Signals</a></li>
+        <li><span>[18]</span><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Partners-With-Apollo-BlackRock-Blackstone-Brookfield-Goldman-Sachs-and-KKR-to-Establish-AI-Compute-Infrastructure-Financing-Platforms-to-Mobilize-Over-500-Billion-of-Third-Party-Capital/default.aspx">NVIDIA — AI compute financing platforms</a></li>
+        <li><span>[19]</span><a href="https://www.404media.co/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-training-facility/">404 Media — Rare books and Amazon VGT3 investigation</a></li>
+      </ol>
+      <h2>원자료 이미지 사용 맥락</h2>
+      <ul class="image-ledger"><li><b>Grok Bot 공식 화면</b> — 제품 상태·전용 컴퓨터·24시간 실행 설명을 확인하기 위한 공식 페이지 부분 캡처.</li><li><b>Qwen 결과 2장</b> — 동일 프롬프트의 reasoning mode별 시간·품질 차이를 비평하기 위한 Simon Willison 게시 결과.</li><li><b>제타 논문 1쪽</b> — 2/3·5/6·0.6725의 정확한 명제를 보여주는 공개 PDF 첫 페이지.</li><li><b>AMIE 공식 개요</b> — agent 구조·무작위 연구·결과를 연결하는 Google Research 도표.</li></ul>
       <div class="report-jump-links"><a href="./">15장 발표자료</a><a href="../">AI Weekly 전체 호</a><a href="#summary">문서 처음</a></div>
     </section>
   </article>

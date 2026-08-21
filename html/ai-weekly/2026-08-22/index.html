@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="AIML Quant AI Weekly 2026-08-22 · 국내외 AI 크리에이터와 원문 근거를 교차한 30분 발표자료 15장">
+  <meta name="description" content="2026년 8월 15일부터 21일까지의 AI 뉴스 10개를 30분에 설명하는 AIML Quant AI Weekly 발표자료">
   <title>AI Weekly 2026-08-22 · 발표자료</title>
   <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/deck.css">
 </head>
 <body>
   <a class="skip-link" href="#deck">발표자료로 건너뛰기</a>
-  <div class="deck-settings" aria-label="설정">
-    <button id="settingsToggle" class="deck-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.04 2.34 2.34 0 0 0 0 3.82 2.34 2.34 0 0 1-2.33 4.04 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.04 2.34 2.34 0 0 0 0-3.82 2.34 2.34 0 0 1 2.33-4.04 2.34 2.34 0 0 0 3.32-1.91"/></svg></button>
+
+  <div class="deck-settings" aria-label="발표 설정">
+    <button id="settingsToggle" class="deck-settings-toggle" type="button" aria-label="설정 열기" aria-controls="settingsPanel" aria-expanded="false" title="설정">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M9.67 4.14a2.34 2.34 0 0 1 4.66 0 2.34 2.34 0 0 0 3.32 1.91 2.34 2.34 0 0 1 2.33 4.04 2.34 2.34 0 0 0 0 3.82 2.34 2.34 0 0 1-2.33 4.04 2.34 2.34 0 0 0-3.32 1.91 2.34 2.34 0 0 1-4.66 0 2.34 2.34 0 0 0-3.32-1.91 2.34 2.34 0 0 1-2.33-4.04 2.34 2.34 0 0 0 0-3.82 2.34 2.34 0 0 1 2.33-4.04 2.34 2.34 0 0 0 3.32-1.91"/></svg>
+    </button>
     <div id="settingsPanel" class="deck-settings-panel" aria-hidden="true">
       <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">화면</span><button id="themeButton" type="button" aria-label="화면 테마 전환">☀</button></div>
       <div class="deck-settings-panel__group"><span class="deck-settings-panel__label">발표</span><button class="deck-settings-action" type="button" id="fullscreenButton">Fullscreen</button></div>
@@ -23,92 +26,94 @@
     <section class="slide slide--cover" aria-label="AI Weekly 표지" data-report-refs="summary">
       <header class="cover-brand"><span class="brand-name">AIML Quant</span><span class="brand-sub">AI WEEKLY · ISSUE 001</span></header>
       <div class="cover-hero"><p class="eyebrow">2026.08.15 → 08.21 · 10 SIGNALS</p><h1>AI가 답하던 주에서,<br>일을 맡기던 주로</h1><p class="cover-subtitle">속도 경쟁, 전용 컴퓨터 에이전트, 로컬 오픈 모델까지—모델 점수보다 일을 끝내는 전체 시스템이 중요해졌다.</p></div>
-      <dl class="cover-meta"><div><dt>FORMAT</dt><dd>30분 · 15장</dd></div><div><dt>DEEP DIVE</dt><dd>3개 + Radar 7개</dd></div><div><dt>SOURCE RADAR</dt><dd>26개 · 신규 8</dd></div><div><dt>CUTOFF</dt><dd>08.21 09:53 KST</dd></div></dl>
+      <dl class="cover-meta"><div><dt>FORMAT</dt><dd>30분 · 15장</dd></div><div><dt>DEEP DIVE</dt><dd>3개 · 22분</dd></div><div><dt>RADAR</dt><dd>7개 · 5분</dd></div><div><dt>REPORT</dt><dd><a href="report.html#summary">상세 해설 ↗</a></dd></div></dl>
     </section>
 
-    <section class="slide slide--visual" aria-label="이번 주 소스 레이더" data-report-refs="method fig-source-radar table-method">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">SOURCE RADAR · 2 MIN</span></header><h1>고정 북마크가 아니라, 매주 영향력 지도를 다시 만든다</h1><p class="lead">영상 33개와 HN 689개 후보에서 교차 언급을 찾고, 공식·논문·코드로 되돌아갔다.</p>
-      <div class="slide-body source-radar-slide"><figure class="deck-report-figure deck-report-figure--compact"><img src="assets/figs/source-radar.svg" alt="다섯 소스 군과 교차 검증 루프"><figcaption><b>수집</b><span><strong>26개</strong> 선택 채널</span><span><strong>신규 8</strong> 회전 소스</span><a class="report-ref" href="report.html#method">선정법</a></figcaption></figure><div class="creator-strip"><img src="assets/source/creator-weekly-roundup.jpg" alt="조코딩 주간 뉴스"><img src="assets/source/creator-gemini-37.jpg" alt="안될공학 Gemini"><img src="assets/source/creator-grok-bot.jpg" alt="Matthew Berman Grok Bot"><img src="assets/source/creator-deepseek-v4.jpg" alt="Two Minute Papers DeepSeek"><img src="assets/source/creator-claude-zeta.jpg" alt="조코딩 Claude 제타"></div></div>
-      <footer class="slide-footer"><span>YouTube · HN · Media · Experts · Primary</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide" aria-label="이번 주 한 문장" data-report-refs="summary table-top-ten">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">THESIS · 1 MIN</span></header>
+      <h1>모델 선택에서, 일을 맡기는 시스템 설계로</h1>
+      <p class="lead">이번 주 10개 뉴스는 서로 달라 보이지만 세 질문으로 모인다.</p>
+      <div class="slide-body thesis-grid"><article><span>01</span><h2>얼마나 빨리 끝내나</h2><p>token/s가 아니라 도구·승인·재시도까지 포함한 업무 완료시간을 잰다.</p></article><article><span>02</span><h2>어디까지 행동하나</h2><p>로그인·결제·전송·삭제처럼 외부 영향이 있는 행동의 권한과 복구를 설계한다.</p></article><article><span>03</span><h2>어떤 스택에서 운영하나</h2><p>가중치 밖의 런타임·메모리·평가·자본·데이터 계보가 실제 배포성을 결정한다.</p></article></div>
+      <footer class="slide-footer"><span>하나의 결론 · 세 개의 운영 질문</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
     <section class="slide slide--visual" aria-label="이번 주 10개 신호 지도" data-report-refs="summary fig-week-map table-top-ten">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">WEEK MAP · 2 MIN</span></header><h1>열 개 뉴스는 하나의 변화로 모였다</h1><p class="lead">모델이 답을 내는 단계를 넘어, 속도·도구·배포·승인·자본·데이터를 가진 작업 시스템이 됐다.</p>
-      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/week-map-v2.svg" alt="딥다이브 세 개와 레이더 일곱 개를 배치한 지도"><figcaption><b>지도</b><span><strong>Deep 3</strong> 속도·컴퓨터·오픈 배포</span><span><strong>Radar 7</strong> 연구·도입·인프라</span><a class="report-ref" href="report.html#fig-week-map">10개 원장</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>AI Weekly · 10 Signals</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">WEEK MAP · 1 MIN</span></header><h1>세 개를 깊게, 일곱 개를 경계와 함께</h1><p class="lead">위쪽은 발표의 주축, 아래쪽은 같은 변화가 서빙·연구·조직·금융·데이터로 번지는 신호다.</p>
+      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/week-map.svg" alt="딥다이브 세 개와 레이더 일곱 개를 배치한 지도"><figcaption><b>그림</b><span><strong>Deep 3</strong> 속도·컴퓨터·오픈 배포</span><span><strong>Radar 7</strong> 서빙·연구·조직·인프라</span><a class="report-ref" href="report.html#fig-week-map">10개 해설</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>모든 그림은 클릭하여 확대·전체화면</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
-    <section class="slide slide--visual" aria-label="추론 속도 경쟁" data-report-refs="story-frontier-throughput-race fig-throughput-race table-throughput">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 01 · 2 MIN</span></header><h1>속도가 모델의 새로운 등급이 됐다</h1><p class="lead">389.5는 독립 관측 중앙값, 750은 공급자 공개 최대값이다. 숫자를 한 줄 순위표로 합치면 안 된다.</p>
-      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/throughput-race.svg" alt="Gemini 관측 중앙 속도와 OpenAI 공개 최대 속도의 조건 비교"><figcaption><b>비교</b><span><strong>Gemini</strong> 1M in · 64K out</span><span><strong>GPT-5.6</strong> ≤750 tok/s</span><a class="report-ref" href="report.html#fig-throughput-race">측정 조건</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Deep 01 · Frontier Throughput</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide slide--visual" aria-label="추론 속도 경쟁의 측정 조건" data-report-refs="story-frontier-throughput-race fig-throughput-race table-throughput">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 01 · 2 MIN</span></header><h1>389.5와 750은 같은 경주의 기록이 아니다</h1><p class="lead">전자는 독립 관측 중앙값, 후자는 공급자 공개 최대값이다. 숫자보다 통계량과 측정 조건을 먼저 맞춘다.</p>
+      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/throughput-race.svg" alt="Gemini 3.7 Flash의 독립 관측 중앙 속도와 GPT-5.6 Sol Ultrafast의 공개 최대 속도 조건 비교"><figcaption><b>그림</b><span><strong>Gemini</strong> 389.5 tok/s · median</span><span><strong>Ultrafast</strong> ≤750 tok/s · max</span><a class="report-ref" href="report.html#fig-throughput-race">측정 조건</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>같은 지역·프롬프트·출력 길이·동시성으로 재측정</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
-    <section class="slide slide--visual" aria-label="에이전트 작업 완료시간" data-report-refs="story-frontier-throughput-race fig-throughput-loop table-throughput">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 01 · 2 MIN</span></header><h1>token/s보다 업무 한 건의 완료시간</h1><p class="lead">도구·승인·재시도가 병목이면 모델을 두 배 빠르게 해도 전체 처리량은 거의 늘지 않는다.</p>
-      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/throughput-loop.svg" alt="첫 토큰, 생성, 도구, 승인과 재시도로 나뉜 작업 완료 루프"><figcaption><b>계측</b><span><strong>Model</strong> TTFT + token/s</span><span><strong>System</strong> tool + approval</span><a class="report-ref" href="report.html#fig-throughput-loop">측정 코드</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Deep 01 · End-to-end Latency</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide slide--visual" aria-label="에이전트 업무 완료시간" data-report-refs="story-frontier-throughput-race fig-latency-budget table-throughput">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 01 · 2 MIN</span></header><h1>속도가 1.93배여도 업무는 5.4%만 빨라질 수 있다</h1><p class="lead">4,000토큰 생성은 10.3초에서 5.3초로 줄지만, 도구 18초·테스트 20초·승인 45초가 붙으면 전체 차이는 5초다.</p>
+      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/latency-budget.svg" alt="요청 준비부터 검증과 재시도까지 여섯 구간으로 나눈 에이전트 완료시간"><figcaption><b>그림</b><span><strong>Model</strong> TTFT + generation</span><span><strong>System</strong> tool + approval + verify</span><a class="report-ref" href="report.html#fig-latency-budget">계산 예시</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>측정 단위: useful work / second</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
-    <section class="slide slide--visual" aria-label="Grok Bot 전용 컴퓨터" data-report-refs="story-grok-bot-computer-agent fig-grok-source fig-grok-stack">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 02 · 2 MIN</span></header><h1>Grok Bot은 에이전트에게 전용 컴퓨터를 줬다</h1><p class="lead">24시간 로그인된 앱을 오가면 세션·파일·자격증명·외부 행동이 하나의 긴 신뢰 경계가 된다.</p>
-      <div class="slide-body split-evidence"><figure class="creator-card"><img src="assets/source/creator-grok-bot.jpg" alt="Matthew Berman Grok Bot 영상 썸네일"><figcaption><b>크리에이터 신호</b><span>11 use cases · 11,647회</span></figcaption></figure><figure class="deck-report-figure"><img src="assets/figs/grok-bot-stack.svg" alt="Grok Bot과 클라우드 컴퓨터, 앱을 연결한 구조"><figcaption><b>구조</b><span><strong>24/7</strong> 장기 실행</span><span><strong>경계</strong> credentials</span><a class="report-ref" href="report.html#fig-grok-stack">제품 원문</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Deep 02 · Computer-use Agent</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide" aria-label="속도 경쟁의 운영 플레이북" data-report-refs="story-frontier-throughput-race table-throughput">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 01 · 1 MIN</span></header><h1>모델 벤치마크를 업무 계측으로 바꾼다</h1><p class="lead">빠른 모델을 사기 전에, 어느 구간의 몇 초가 반복적으로 사라지는지 확인한다.</p>
+      <div class="slide-body metric-grid"><article><b>01 · 계측</b><h2>TTFT · tok/s</h2><p>모델 생성 구간은 p50과 p95를 함께 기록한다.</p></article><article><b>02 · 분해</b><h2>Tool · Approval</h2><p>API 대기, rate limit, 사람 검토 시간을 별도 span으로 남긴다.</p></article><article><b>03 · 검증</b><h2>Failure · Retry</h2><p>빠르게 틀려 재작업한 횟수를 완료시간에 포함한다.</p></article><article><b>04 · 선택</b><h2>Task portfolio</h2><p>대화·코딩 루프·배치 업무별로 속도의 경제적 가치를 나눈다.</p></article></div>
+      <p class="takeaway"><strong>결정 질문</strong> — 우리 업무의 진짜 병목은 생성인가, 도구인가, 승인인가?</p>
+      <footer class="slide-footer"><span>Deep 01 · Action</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
-    <section class="slide slide--visual" aria-label="에이전트 승인 매트릭스" data-report-refs="story-grok-bot-computer-agent fig-agent-approval table-agent-controls">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 02 · 2 MIN</span></header><h1>자율성보다 먼저 승인 표면을 설계한다</h1><p class="lead">외부 영향이 크고 되돌리기 어려울수록 대상·금액·데이터·복구 가능성을 사람에게 보여준다.</p>
-      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/agent-approval-matrix.svg" alt="행동 영향과 복구 가능성에 따른 승인 매트릭스"><figcaption><b>원칙</b><span><strong>Auto</strong> 읽기·초안</span><span><strong>Approve</strong> 전송·결제·삭제</span><a class="report-ref" href="report.html#table-agent-controls">통제표</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Deep 02 · Approval Surface</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide slide--visual" aria-label="Grok Bot 공식 제품 화면과 영상 사용 사례" data-report-refs="story-grok-bot-computer-agent fig-grok-source">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 02 · 2 MIN</span></header><h1>Grok Bot은 ‘대답’이 아니라 로그인된 컴퓨터를 제공한다</h1><p class="lead">공식 발표의 세 요소는 전용 클라우드 컴퓨터, 앱 안의 작업, 24시간 routine이다.</p>
+      <div class="slide-body source-focus"><figure class="deck-report-figure deck-source-figure" data-original-url="https://x.ai/news/introducing-grok-bot"><img src="assets/source/grok-bot-official-screen.png" alt="Grok Bot 공식 발표 페이지에서 전용 컴퓨터, 앱 안의 작업, 24시간 실행을 설명하는 화면"><figcaption><b>공식 화면</b><span>전용 컴퓨터 · 앱 · 24/7</span><a href="https://x.ai/news/introducing-grok-bot" target="_blank" rel="noopener">제품 원문 ↗</a><a class="report-ref" href="report.html#fig-grok-source">상세 해설</a></figcaption></figure><div class="video-jumps"><a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=493s" target="_blank" rel="noopener"><b>08:13</b><span>브라우저·쇼핑 사용</span></a><a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=569s" target="_blank" rel="noopener"><b>09:29</b><span>Amazon 로그인 세션 지속</span></a><a href="https://www.youtube.com/watch?v=5CSXUsljJ_E&amp;t=1104s" target="_blank" rel="noopener"><b>18:24</b><span>파일 정리 routine</span></a></div></div>
+      <footer class="slide-footer"><span>Matthew Berman 영상의 실제 사용 구간으로 바로 이동</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--visual" aria-label="Grok Bot 신뢰 경계" data-report-refs="story-grok-bot-computer-agent fig-grok-boundary">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 02 · 2 MIN</span></header><h1>모델 호출은 끝나도, 권한과 상태는 남는다</h1><p class="lead">세션·쿠키·파일·routine이 며칠 이상 지속되면 접근권한의 수명과 행동의 복구 가능성을 따로 설계해야 한다.</p>
+      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/grok-trust-boundary.svg" alt="사용자 지시가 봇과 클라우드 컴퓨터, 로그인된 앱을 거쳐 외부 행동으로 이어지는 신뢰 경계"><figcaption><b>그림</b><span><strong>Short</strong> model invocation</span><span><strong>Long</strong> session · files · routines</span><a class="report-ref" href="report.html#fig-grok-boundary">경계 해설</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>최소권한 · 단기 토큰 · 자동 만료 · 감사 로그</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    </section>
+
+    <section class="slide slide--visual" aria-label="에이전트 승인 매트릭스" data-report-refs="story-grok-bot-computer-agent fig-approval-matrix table-agent-controls">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 02 · 2 MIN</span></header><h1>승인 여부는 행동 이름보다 결과로 정한다</h1><p class="lead">외부 영향이 크고 되돌리기 어려울수록 대상·금액·데이터·복구 경로를 사람에게 고정된 카드로 보여준다.</p>
+      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/approval-matrix.svg" alt="외부 영향과 복구 가능성으로 읽기부터 결제와 삭제까지 나눈 승인 매트릭스"><figcaption><b>그림</b><span><strong>Auto</strong> 읽기·초안</span><span><strong>Dual approval</strong> 결제·삭제</span><a class="report-ref" href="report.html#fig-approval-matrix">통제 계약</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>가격·대상·권한이 바뀌면 반드시 재승인</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
     <section class="slide slide--visual" aria-label="Qwen 오픈 모델 배포 스택" data-report-refs="story-qwen-open-deployment fig-open-model-stack table-qwen-modes">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 03 · 2 MIN</span></header><h1>오픈 모델의 승부는 가중치 밖에서 난다</h1><p class="lead">27B dense VLM · 262K context · Apache 2.0은 출발점이다. 양자화·런타임·평가·운영이 배포성을 결정한다.</p>
-      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/open-model-stack.svg" alt="라이선스에서 운영까지 다섯 층의 오픈 모델 배포 스택"><figcaption><b>스택</b><span><strong>Open</strong> ≠ lightweight</span><span><strong>Local</strong> ≠ production</span><a class="report-ref" href="report.html#fig-open-model-stack">배포 조건</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Deep 03 · Open Deployment</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 03 · 2 MIN</span></header><h1>‘다운로드 성공’과 ‘운영 가능’ 사이에는 다섯 층이 있다</h1><p class="lead">27B dense VLM · 262K context · Apache 2.0은 시작점이다. 양자화·런타임·용량·평가를 지나야 서비스가 된다.</p>
+      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/open-model-stack.svg" alt="라이선스, 가중치와 양자화, 런타임과 도구, 용량과 지연, 평가와 운영으로 이어지는 배포 스택"><figcaption><b>그림</b><span><strong>Open</strong> ≠ lightweight</span><span><strong>Local</strong> ≠ production</span><a class="report-ref" href="report.html#fig-open-model-stack">배포 체크</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>라이선스 → 가중치 → 런타임 → 용량 → 평가</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
-    <section class="slide" aria-label="Qwen 추론 모드 운영" data-report-refs="story-qwen-open-deployment table-qwen-modes">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 03 · 2 MIN</span></header><h1>추론 깊이는 품질 옵션이자 용량 계획이다</h1><p class="lead">공개 실험에서 xhigh는 21분·22,276 reasoning token, off는 137초였다. 특정 조건의 관찰이지만 운영 질문은 명확하다.</p>
-      <div class="slide-body qwen-ops"><div class="kpi-grid"><article class="kpi"><strong>17GB</strong><h2>Q4 파일</h2><p>로컬 진입 비용은 낮아졌지만 양자화 손실을 내부 태스크로 확인한다.</p></article><article class="kpi"><strong>21분</strong><h2>xhigh</h2><p>복잡 탐색의 여지와 지연·토큰 폭증을 함께 예산화한다.</p></article><article class="kpi"><strong>137초</strong><h2>off</h2><p>빠른 모드가 허용되는 태스크 경계를 별도로 둔다.</p></article></div><pre class="weekly-safe-code"><code>vllm serve Qwen/Qwen3.8-27B --max-model-len 32768
-run_eval --reasoning {none,low,high,xhigh}</code></pre></div>
-      <footer class="slide-footer"><span>Deep 03 · Reasoning Budget</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide slide--visual" aria-label="Qwen reasoning 모드 원문 결과 비교" data-report-refs="story-qwen-open-deployment fig-qwen-xhigh fig-qwen-off table-qwen-modes">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 03 · 2 MIN</span></header><h1>21분의 xhigh와 137초의 off는 다른 운영 상품이다</h1><p class="lead">동일 프롬프트의 원문 결과에서 속도와 공간 관계 품질의 차이가 보인다. 특정 장비의 관찰이므로 내부 태스크로 다시 잰다.</p>
+      <div class="slide-body source-compare"><figure class="mini-source" data-original-url="https://simonwillison.net/2026/Aug/16/qwen-38-27b/"><img src="assets/source/qwen-xhigh-pelican.jpg" alt="Qwen xhigh가 만든 펠리컨과 자전거 SVG 결과"><figcaption><b>xhigh</b><span>21분 · reasoning 22,276</span><a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/" target="_blank" rel="noopener">원문 ↗</a></figcaption></figure><figure class="mini-source" data-original-url="https://simonwillison.net/2026/Aug/16/qwen-38-27b/"><img src="assets/source/qwen-no-reasoning-pelican.png" alt="Qwen reasoning off가 만든 펠리컨과 자전거 SVG 결과"><figcaption><b>reasoning off</b><span>137초 · 출력 3,715</span><a href="https://simonwillison.net/2026/Aug/16/qwen-38-27b/" target="_blank" rel="noopener">원문 ↗</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>원본 이미지를 클릭하면 비교 확대, 원문 버튼은 실험 기록으로 이동</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
-    <section class="slide slide--visual" aria-label="DeepSeek DSpark 서빙" data-report-refs="story-deepseek-dspark-serving fig-deepseek-source fig-dspark">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">RADAR 04 · 2 MIN</span></header><h1>DeepSeek은 모델과 서빙기를 함께 설계했다</h1><p class="lead">DSpark는 후보 토큰을 제안하고 본 모델이 검증한다. 오픈 모델이어도 공식 예시는 4×GB300이다.</p>
-      <div class="slide-body split-evidence"><figure class="creator-card"><img src="assets/source/creator-deepseek-v4.jpg" alt="Two Minute Papers DeepSeek V4 영상"><figcaption><b>확산 신호</b><span>115,800회</span></figcaption></figure><figure class="deck-report-figure"><img src="assets/figs/dspark-serving.svg" alt="DSpark 제안·검증 서빙 구조"><figcaption><b>서빙</b><span><strong>Draft</strong> 후보 제안</span><span><strong>Target</strong> 병렬 검증</span><a class="report-ref" href="report.html#fig-dspark">코드·논문</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Radar 04 · Model × Serving</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide" aria-label="Qwen reasoning 운영 정책" data-report-refs="story-qwen-open-deployment table-qwen-modes">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">DEEP 03 · 1 MIN</span></header><h1>추론 깊이를 사용자 옵션이 아니라 정책으로</h1><p class="lead">태스크 복잡도와 지연 예산을 분류한 뒤 모드를 선택하고, 품질·처리량·비용을 같은 표에 기록한다.</p>
+      <div class="slide-body qwen-policy"><div class="kpi-grid"><article class="kpi"><strong>17GB</strong><h2>Q4_K_M</h2><p>로컬 진입은 쉬워졌지만 내부 품질과 동시성을 별도로 검증한다.</p></article><article class="kpi"><strong>262K</strong><h2>native context</h2><p>긴 입력 가능성과 실제 메모리 예산·지연은 같은 뜻이 아니다.</p></article><article class="kpi"><strong>4 modes</strong><h2>none → xhigh</h2><p>단순 변환은 빠르게, 복잡 탐색은 명시적으로 깊게 실행한다.</p></article></div><p class="takeaway"><strong>운영 기본값</strong> — off/low로 시작하고, 내부 평가가 보여준 복잡 태스크에만 high/xhigh 예산을 연다.</p></div>
+      <footer class="slide-footer"><span>Deep 03 · Reasoning budget</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
-    <section class="slide slide--visual" aria-label="AI 과학 연구 레이더" data-report-refs="story-claude-zeta-bound fig-zeta-bound story-amie-video-consultation fig-amie">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">RADAR 05 + 07 · 3 MIN</span></header><h1>과학 뉴스는 결과보다 명제와 실험 경계를 먼저 읽는다</h1><p class="lead">2/3 하한은 리만 가설 100%가 아니고, 300회 모의 상담은 실제 환자 배포가 아니다.</p>
-      <div class="slide-body dual-figure"><figure><img src="assets/figs/zeta-bound.svg" alt="제타 영점 하한 5분의12, 3분의2, 100퍼센트 비교"><figcaption><b>Claude × Math</b><span>5/12 → ≥2/3 · Lean 공개</span><a href="report.html#story-claude-zeta-bound">명제 원문</a></figcaption></figure><figure><img src="assets/figs/amie-architecture.svg" alt="AMIE 실시간 대화와 비동기 추론 구조"><figcaption><b>Google AMIE</b><span>100 시나리오 · 300 모의 상담</span><a href="report.html#story-amie-video-consultation">연구 경계</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Radar · Research Claims, Not Product Claims</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide slide--visual radar-slide" aria-label="서빙, 수학, 워터마크, 의료 레이더" data-report-refs="story-deepseek-dspark-serving fig-dspark story-claude-zeta-bound fig-zeta-bound story-claude-text-watermark fig-watermark-flow story-amie-video-consultation fig-amie-source">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">RADAR 04–07 · 3 MIN</span></header><h1>연구 뉴스는 숫자보다 작동 원리와 경계를 읽는다</h1>
+      <div class="slide-body radar-grid radar-grid--four"><figure><img src="assets/figs/dspark-serving.svg" alt="DSpark 후보 제안과 본 모델 병렬 검증"><figcaption><b>04 · DSpark</b><span>60–85%/user at matched throughput</span><a href="report.html#story-deepseek-dspark-serving">해설</a></figcaption></figure><figure><img src="assets/figs/zeta-bound.svg" alt="제타 영점 하한 41.7%, 66.7%, 100% 비교"><figcaption><b>05 · Claude × Math</b><span>≥2/3 하한 ≠ RH 67% 해결</span><a href="report.html#story-claude-zeta-bound">논문</a></figcaption></figure><figure><img src="assets/figs/watermark-flow.svg" alt="키 기반 텍스트 워터마크의 생성과 통계 검출"><figcaption><b>06 · Watermark</b><span>보조 신호 ≠ 저자 판정</span><a href="report.html#story-claude-text-watermark">해석</a></figcaption></figure><figure data-original-url="https://research.google/blog/advancing-amie-towards-expert-level-audio-visual-clinical-consultations/"><img src="assets/source/amie-study-overview.png" alt="AMIE Video 구조와 100개 시나리오 300회 모의 상담 개요"><figcaption><b>07 · AMIE Video</b><span>300 모의 상담 ≠ 임상 배포</span><a href="https://research.google/blog/advancing-amie-towards-expert-level-audio-visual-clinical-consultations/" target="_blank" rel="noopener">원문 ↗</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>Release · Research · Vendor data · Investigation을 분리해 읽기</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
-    <section class="slide slide--visual" aria-label="Claude 텍스트 워터마크" data-report-refs="story-claude-text-watermark fig-watermark-flow table-watermark">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">RADAR 06 · 2 MIN</span></header><h1>워터마크는 저자 판정기가 아니다</h1><p class="lead">HN 821점·727댓글의 강한 반응. 긴 글의 Claude 관여 가능성을 높이는 보조 신호일 뿐이다.</p>
-      <div class="slide-body watermark-slide"><figure class="deck-report-figure"><img src="assets/figs/watermark-flow.svg" alt="키 기반 단어 선택에서 통계 탐지까지의 흐름"><figcaption><b>신호</b><span><strong>Positive</strong> 관여 가능성 ↑</span><span><strong>Negative</strong> 미사용 확정 X</span><a class="report-ref" href="report.html#table-watermark">해석 금지선</a></figcaption></figure><p class="takeaway"><strong>자동 판정 금지</strong> — 양성=부정행위, 음성=AI 미사용, 워터마크=내용의 진실이라는 결론을 만들지 않는다.</p></div>
-      <footer class="slide-footer"><span>Radar 06 · Statistical Provenance</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
-    </section>
-
-    <section class="slide slide--visual" aria-label="기업 위임과 AI 인프라 금융" data-report-refs="story-enterprise-agent-delegation fig-enterprise story-ai-factory-finance fig-ai-factory">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">RADAR 08 + 09 · 3 MIN</span></header><h1>위임은 깊어지고, 컴퓨트는 금융 자산이 된다</h1><p class="lead">Codex 출력 토큰 64%와 $500B+ 동원 목표는 방향 신호다. 전자는 가치, 후자는 집행 자금 그 자체가 아니다.</p>
-      <div class="slide-body dual-figure"><figure><img src="assets/figs/enterprise-delegation.svg" alt="채팅에서 반복 위임으로 깊어지는 기업 AI 사용"><figcaption><b>Enterprise</b><span>frontier gap 2.6× → 8.3×</span><a href="report.html#story-enterprise-agent-delegation">공급자 데이터</a></figcaption></figure><figure><img src="assets/figs/ai-factory-finance.svg" alt="자본에서 AI 팩토리 현금흐름으로 이어지는 구조"><figcaption><b>Infrastructure</b><span>$500B+ mobilization target</span><a href="report.html#story-ai-factory-finance">IR 원문</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Radar · Adoption Proxy × Capital Structure</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
-    </section>
-
-    <section class="slide slide--visual" aria-label="AI 학습 데이터 공급망" data-report-refs="story-amazon-rare-books-training-data fig-training-data">
-      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">RADAR 10 · 2 MIN</span></header><h1>AirTag가 학습 데이터의 물리적 공급망을 드러냈다</h1><p class="lead">약 1,000권 주문→시설 도착→스캔 공정은 추적됐다. 데이터셋 편입·모델 학습·권리 근거는 공개되지 않았다.</p>
-      <div class="slide-body report-visual-body"><figure class="deck-report-figure deck-report-figure--tall"><img src="assets/figs/training-data-chain.svg" alt="희귀 서적 주문부터 스캔과 학습 코퍼스로 이어지는 확인·미확인 공급망"><figcaption><b>탐사</b><span><strong>실선</strong> 추적·증언</span><span><strong>점선</strong> 미공개 범위</span><a class="report-ref" href="report.html#fig-training-data">404 Media</a></figcaption></figure></div>
-      <footer class="slide-footer"><span>Radar 10 · Physical Data Provenance</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
+    <section class="slide slide--visual radar-slide" aria-label="기업 도입, AI 인프라 금융, 학습 데이터 레이더" data-report-refs="story-enterprise-agent-delegation fig-enterprise story-ai-factory-finance fig-ai-factory story-amazon-rare-books-training-data fig-training-data">
+      <header class="slide-header"><span class="brand-name">AIML Quant</span><span class="section-tag">RADAR 08–10 · 2 MIN</span></header><h1>위임·자본·데이터는 모델 밖의 생산 시스템이다</h1>
+      <div class="slide-body radar-grid radar-grid--three"><figure><img src="assets/figs/enterprise-delegation.svg" alt="기업 AI 사용이 질문에서 검증 가능한 위임으로 깊어지는 단계"><figcaption><b>08 · Enterprise</b><span>Codex 64%는 output-token 비중</span><a href="report.html#story-enterprise-agent-delegation">분모</a></figcaption></figure><figure><img src="assets/figs/ai-factory-finance.svg" alt="기관 자본에서 AI 데이터센터와 compute 계약으로 이어지는 금융 구조"><figcaption><b>09 · AI Factory</b><span>$500B+는 장기 동원 목표</span><a href="report.html#story-ai-factory-finance">구조</a></figcaption></figure><figure><img src="assets/figs/training-data-chain.svg" alt="희귀 서적 주문과 스캔의 확인된 흐름, 모델 학습의 미공개 단계"><figcaption><b>10 · Data supply</b><span>스캔 확인 ≠ 특정 모델 학습 확인</span><a href="report.html#story-amazon-rare-books-training-data">원장</a></figcaption></figure></div>
+      <footer class="slide-footer"><span>토큰·자본 목표·물리 추적을 사업 가치나 학습 사실로 과잉 해석하지 않기</span><span><b data-slide-number></b> / <b data-slide-total></b></span></footer>
     </section>
 
     <section class="slide slide--closing" aria-label="이번 주 실행과 질의응답" data-report-refs="actions discussion references">
       <header class="cover-brand"><span class="brand-name">AIML Quant</span><span class="brand-sub">WRAP UP · 2 MIN</span></header>
-      <div class="closing-body weekly-closing"><p class="eyebrow">NEXT ACTIONS</p><h1>모델이 아니라, 일을 맡기는 시스템을 측정하자</h1><div class="card-grid card-grid--four weekly-four"><article class="card"><span>01</span><h2>완료시간</h2><p>모델·도구·승인·재시도 분해</p></article><article class="card"><span>02</span><h2>승인</h2><p>전송·결제·삭제의 경계</p></article><article class="card"><span>03</span><h2>배포 스택</h2><p>라이선스·VRAM·평가·운영</p></article><article class="card"><span>04</span><h2>계보</h2><p>가치·자본·데이터 원장</p></article></div><p class="closing-question">우리 업무의 진짜 병목은 모델 속도인가,<br>도구와 승인인가?</p></div>
-      <div class="closing-links"><a class="back-link" href="report.html">상세 리포트</a><a class="back-link" href="../">전체 호</a></div>
+      <div class="closing-body weekly-closing"><p class="eyebrow">NEXT ACTIONS</p><h1>모델이 아니라, 일을 맡기는 시스템을 측정하자</h1><div class="card-grid card-grid--four weekly-four"><article class="card"><span>01</span><h2>완료시간</h2><p>모델·도구·승인·재시도를 분해한다.</p></article><article class="card"><span>02</span><h2>승인</h2><p>전송·결제·삭제의 경계를 고정한다.</p></article><article class="card"><span>03</span><h2>배포 스택</h2><p>라이선스·VRAM·평가·운영을 잇는다.</p></article><article class="card"><span>04</span><h2>계보</h2><p>가치·자본·데이터의 분모를 남긴다.</p></article></div><p class="closing-question">우리 업무의 진짜 병목은 모델 속도인가,<br>도구와 승인인가?</p></div>
+      <div class="closing-links"><a class="back-link" href="report.html#actions">실행 플레이북</a><a class="back-link" href="report.html">상세 리포트</a></div>
     </section>
   </main>
 
