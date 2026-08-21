@@ -34,17 +34,27 @@
     </section>
 
     <nav class="report-toc page-break" aria-label="인쇄용 목차">
-      <h1 class="report-toc__title">목차</h1>
+      <header class="report-toc__head">
+        <p class="report-toc__kicker">AI 위클리 · 1호</p>
+        <h1 class="report-toc__title">이 리포트에서 다루는 내용</h1>
+        <p class="report-toc__lede">핵심 결론만 빠르게 훑거나, 세 가지 심층 해설부터 차례대로 읽어도 좋다. 항목을 누르면 원하는 부분으로 바로 이동한다.</p>
+      </header>
+      <div class="toc-paths" aria-label="추천 읽기 순서">
+        <a href="#summary"><span>먼저 보기</span><b>이번 주 결론</b><small>주요 소식 10개의 공통 흐름을 3분 안에 훑는다.</small></a>
+        <a href="#story-frontier-throughput-race"><span>깊이 읽기</span><b>심층 해설 3개</b><small>생성 속도·에이전트·오픈 모델을 차근차근 살펴본다.</small></a>
+        <a href="#actions"><span>바로 써보기</span><b>실무 적용</b><small>이번 주에 확인할 다섯 가지와 토론 질문을 정리한다.</small></a>
+      </div>
+      <div class="report-toc__chapters-head"><h2>전체 목차</h2><span>9개 항목</span></div>
       <ol class="report-toc__list">
-        <li class="report-toc__item"><a href="#summary"><span class="report-toc__num">00</span><span class="report-toc__label">이번 주의 결론과 주요 소식 10개</span><span class="report-toc__leader"></span><span class="report-toc__page">3</span></a></li>
-        <li class="report-toc__item"><a href="#reading-guide"><span class="report-toc__num">01</span><span class="report-toc__label">주장과 숫자를 읽는 법</span><span class="report-toc__leader"></span><span class="report-toc__page">5</span></a></li>
-        <li class="report-toc__item"><a href="#story-frontier-throughput-race"><span class="report-toc__num">02</span><span class="report-toc__label">심층 01 · 모델의 생성 속도가 중요한 이유</span><span class="report-toc__leader"></span><span class="report-toc__page">7</span></a></li>
-        <li class="report-toc__item"><a href="#story-grok-bot-computer-agent"><span class="report-toc__num">03</span><span class="report-toc__label">심층 02 · Grok Bot의 전용 컴퓨터</span><span class="report-toc__leader"></span><span class="report-toc__page">13</span></a></li>
-        <li class="report-toc__item"><a href="#story-qwen-open-deployment"><span class="report-toc__num">04</span><span class="report-toc__label">심층 03 · 직접 운영하는 Qwen 오픈 모델</span><span class="report-toc__leader"></span><span class="report-toc__page">20</span></a></li>
-        <li class="report-toc__item"><a href="#story-deepseek-dspark-serving"><span class="report-toc__num">05</span><span class="report-toc__label">주요 소식 04–07 · 생성 속도·수학·워터마크·의료</span><span class="report-toc__leader"></span><span class="report-toc__page">27</span></a></li>
-        <li class="report-toc__item"><a href="#story-enterprise-agent-delegation"><span class="report-toc__num">06</span><span class="report-toc__label">주요 소식 08–10 · 기업 도입·금융·학습 데이터</span><span class="report-toc__leader"></span><span class="report-toc__page">38</span></a></li>
-        <li class="report-toc__item"><a href="#actions"><span class="report-toc__num">07</span><span class="report-toc__label">실무에 적용할 다섯 가지와 토론 질문</span><span class="report-toc__leader"></span><span class="report-toc__page">46</span></a></li>
-        <li class="report-toc__item"><a href="#references"><span class="report-toc__num">A</span><span class="report-toc__label">원문·코드·논문 전체 목록</span><span class="report-toc__leader"></span><span class="report-toc__page">49</span></a></li>
+        <li class="report-toc__item report-toc__item--overview"><a href="#summary"><span class="report-toc__num">00</span><span class="report-toc__label">이번 주의 결론과 주요 소식 10개</span><span class="report-toc__leader"></span><span class="report-toc__page">3</span></a></li>
+        <li class="report-toc__item report-toc__item--guide"><a href="#reading-guide"><span class="report-toc__num">01</span><span class="report-toc__label">주장과 숫자를 읽는 법</span><span class="report-toc__leader"></span><span class="report-toc__page">5</span></a></li>
+        <li class="report-toc__item report-toc__item--deep"><a href="#story-frontier-throughput-race"><span class="report-toc__num">02</span><span class="report-toc__label">심층 01 · 모델의 생성 속도가 중요한 이유</span><span class="report-toc__leader"></span><span class="report-toc__page">7</span></a></li>
+        <li class="report-toc__item report-toc__item--deep"><a href="#story-grok-bot-computer-agent"><span class="report-toc__num">03</span><span class="report-toc__label">심층 02 · Grok Bot의 전용 컴퓨터</span><span class="report-toc__leader"></span><span class="report-toc__page">13</span></a></li>
+        <li class="report-toc__item report-toc__item--deep"><a href="#story-qwen-open-deployment"><span class="report-toc__num">04</span><span class="report-toc__label">심층 03 · 직접 운영하는 Qwen 오픈 모델</span><span class="report-toc__leader"></span><span class="report-toc__page">20</span></a></li>
+        <li class="report-toc__item report-toc__item--radar"><a href="#story-deepseek-dspark-serving"><span class="report-toc__num">05</span><span class="report-toc__label">주요 소식 04–07 · 생성 속도·수학·워터마크·의료</span><span class="report-toc__leader"></span><span class="report-toc__page">27</span></a></li>
+        <li class="report-toc__item report-toc__item--radar"><a href="#story-enterprise-agent-delegation"><span class="report-toc__num">06</span><span class="report-toc__label">주요 소식 08–10 · 기업 도입·금융·학습 데이터</span><span class="report-toc__leader"></span><span class="report-toc__page">38</span></a></li>
+        <li class="report-toc__item report-toc__item--action"><a href="#actions"><span class="report-toc__num">07</span><span class="report-toc__label">실무에 적용할 다섯 가지와 토론 질문</span><span class="report-toc__leader"></span><span class="report-toc__page">46</span></a></li>
+        <li class="report-toc__item report-toc__item--appendix"><a href="#references"><span class="report-toc__num">A</span><span class="report-toc__label">원문·코드·논문 전체 목록</span><span class="report-toc__leader"></span><span class="report-toc__page">49</span></a></li>
       </ol>
     </nav>
 
