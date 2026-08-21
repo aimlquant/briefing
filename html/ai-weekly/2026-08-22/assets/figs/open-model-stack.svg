@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img">
-  <title>오픈 모델 배포의 다섯 층</title>
-  <desc>라이선스, 가중치, 런타임, 용량 계획, 운영 평가의 다섯 층과 각 층의 핵심 질문</desc>
+  <title>오픈 모델 운영의 다섯 단계</title>
+  <desc>라이선스, 가중치, 실행 프로그램, 용량 계획, 운영 평가의 다섯 단계와 각 단계의 핵심 질문</desc>
   <style>.bg{fill:#f8fafc}.row{fill:#fff;stroke:#c9d3e1;stroke-width:2}.row2{fill:#e9f2ff;stroke:#1f5ea8;stroke-width:2}.n{font-family:Arial,sans-serif;font-size:25px;font-weight:900;fill:#1f5ea8}.t{font-family:Arial,'Noto Sans KR',sans-serif;font-size:23px;font-weight:900;fill:#172033}.q{font-family:Arial,'Noto Sans KR',sans-serif;font-size:17px;font-weight:650;fill:#536078}.tag{font-family:Arial,sans-serif;font-size:14px;font-weight:800;fill:#1f5ea8}.pill{fill:#fff;stroke:#aac7eb;stroke-width:1.5}</style>
   <rect class="bg" width="1200" height="680" rx="24"/>
   <g><rect class="row" x="110" y="35" width="980" height="105" rx="18"/><rect class="row" x="110" y="160" width="980" height="105" rx="18"/><rect class="row2" x="110" y="285" width="980" height="105" rx="18"/><rect class="row2" x="110" y="410" width="980" height="105" rx="18"/><rect class="row" x="110" y="535" width="980" height="105" rx="18"/></g>
   <g class="n"><text x="145" y="99">01</text><text x="145" y="224">02</text><text x="145" y="349">03</text><text x="145" y="474">04</text><text x="145" y="599">05</text></g>
-  <g class="t"><text x="215" y="82">라이선스</text><text x="215" y="207">가중치·양자화</text><text x="215" y="332">런타임·도구</text><text x="215" y="457">용량·지연</text><text x="215" y="582">평가·운영</text></g>
-  <g class="q"><text x="450" y="82">상업 이용·재배포·파생물 조건은?</text><text x="450" y="207">원본 55.6GB를 어떤 정밀도와 파일로 줄일까?</text><text x="450" y="332">Transformers · vLLM · SGLang · llama.cpp 중 무엇이 맞나?</text><text x="450" y="457">VRAM · KV cache · context · reasoning이 동시성에 미치는 값은?</text><text x="450" y="582">우리 태스크의 품질·완료율·실패·롤백을 어떻게 잴까?</text></g>
+  <g class="t"><text x="215" y="82">라이선스</text><text x="215" y="207">가중치·양자화</text><text x="215" y="332">실행 프로그램·도구</text><text x="215" y="457">용량·응답 시간</text><text x="215" y="582">평가·운영</text></g>
+  <g class="q"><text x="450" y="82">상업 이용·재배포·파생물 조건은?</text><text x="450" y="207">원본 55.6GB를 어떤 정밀도와 파일로 줄일까?</text><text x="450" y="332">어떤 실행 프로그램이 우리 환경에 맞나?</text><text x="450" y="457">그래픽 메모리·문맥·추론 깊이가 동시 사용자 수에 미치는 영향은?</text><text x="450" y="582">우리 업무의 품질·완료율·실패·되돌리기를 어떻게 잴까?</text></g>
   <g><rect class="pill" x="900" y="57" width="150" height="42" rx="21"/><rect class="pill" x="900" y="182" width="150" height="42" rx="21"/><rect class="pill" x="900" y="307" width="150" height="42" rx="21"/><rect class="pill" x="900" y="432" width="150" height="42" rx="21"/><rect class="pill" x="900" y="557" width="150" height="42" rx="21"/></g>
-  <g class="tag" text-anchor="middle"><text x="975" y="84">APACHE 2.0</text><text x="975" y="209">Q4 ≈ 17GB</text><text x="975" y="334">TOOLS</text><text x="975" y="459">15–30 tok/s</text><text x="975" y="584">OWN TASKS</text></g>
+  <g class="tag" text-anchor="middle"><text x="975" y="84">APACHE 2.0</text><text x="975" y="209">4비트 ≈ 17GB</text><text x="975" y="334">실행 도구</text><text x="975" y="459">초당 15~30토큰</text><text x="975" y="584">내부 업무</text></g>
 </svg>

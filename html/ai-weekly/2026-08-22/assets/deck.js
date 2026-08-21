@@ -202,7 +202,7 @@
           '<button type="button" data-deck-lightbox-action="zoom-out" aria-label="축소">−</button>' +
           '<output class="deck-lightbox__scale" aria-live="polite">100%</output>' +
           '<button type="button" data-deck-lightbox-action="zoom-in" aria-label="확대">+</button>' +
-          '<button type="button" data-deck-lightbox-action="reset" aria-label="원래 크기">1:1</button>' +
+          '<button type="button" data-deck-lightbox-action="reset" aria-label="화면에 맞춤">맞춤</button>' +
           '<button type="button" data-deck-lightbox-action="fullscreen" aria-label="브라우저 전체화면" aria-pressed="false">⛶</button>' +
           '<button type="button" data-deck-lightbox-action="close" aria-label="닫기">×</button>' +
         '</div>' +
@@ -291,6 +291,7 @@
       lightbox.setAttribute("aria-hidden", "false");
       lightbox.hidden = false;
       document.body.classList.add("deck-lightbox-open");
+      document.documentElement.classList.add("deck-lightbox-open");
       resetView();
       requestAnimationFrame(() => {
         lightbox.classList.add("is-open");
@@ -303,6 +304,7 @@
       lightbox.classList.remove("is-open");
       lightbox.setAttribute("aria-hidden", "true");
       document.body.classList.remove("deck-lightbox-open");
+      document.documentElement.classList.remove("deck-lightbox-open");
       if (document.fullscreenElement === lightbox) document.exitFullscreen?.();
       lightbox.hidden = true;
       lightboxStage.replaceChildren();

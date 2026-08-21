@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img">
   <title>이번 주 열 개 AI 신호 지도</title>
-  <desc>세 개 딥다이브와 일곱 개 레이더 뉴스를 동일 그리드 카드로 배치한 지도</desc>
+  <desc>심층 해설 세 개와 빠른 정리 일곱 개를 같은 크기의 카드로 배치한 지도</desc>
   <style>.bg{fill:#f8fafc}.deep{fill:#e9f2ff;stroke:#1f5ea8}.radar{fill:#fff;stroke:#c9d3e1}.n{font-family:Arial,sans-serif;font-size:18px;font-weight:800;fill:#1f5ea8}.k{font-family:Arial,sans-serif;font-size:13px;font-weight:800;letter-spacing:1.5px;fill:#536078}.t{font-family:Arial,'Noto Sans KR',sans-serif;font-size:22px;font-weight:800;fill:#172033}.s{font-family:Arial,'Noto Sans KR',sans-serif;font-size:15px;font-weight:600;fill:#536078}</style>
   <rect class="bg" width="1200" height="680" rx="24"/>
   <g stroke-width="2">
@@ -8,11 +8,11 @@
     <rect class="radar" x="15" y="330" width="150" height="230" rx="16"/><rect class="radar" x="185" y="330" width="150" height="230" rx="16"/><rect class="radar" x="355" y="330" width="150" height="230" rx="16"/><rect class="radar" x="525" y="330" width="150" height="230" rx="16"/><rect class="radar" x="695" y="330" width="150" height="230" rx="16"/><rect class="radar" x="865" y="330" width="150" height="230" rx="16"/><rect class="radar" x="1035" y="330" width="150" height="230" rx="16"/>
   </g>
   <g class="n"><text x="58" y="78">01</text><text x="448" y="78">02</text><text x="838" y="78">03</text></g>
-  <g class="k"><text x="58" y="108">DEEP · INFERENCE</text><text x="448" y="108">DEEP · AGENT</text><text x="838" y="108">DEEP · OPEN MODEL</text></g>
-  <g class="t"><text x="58" y="155">속도가 모델의</text><text x="58" y="185">새 등급이 되다</text><text x="448" y="155">에이전트에게</text><text x="448" y="185">컴퓨터를 주다</text><text x="838" y="155">배포층이 성능을</text><text x="838" y="185">결정하다</text></g>
-  <g class="s"><text x="58" y="228">throughput → 완료시간</text><text x="448" y="228">credentials → approval</text><text x="838" y="228">weights → operations</text></g>
+  <g class="k"><text x="58" y="108">심층 · 생성 속도</text><text x="448" y="108">심층 · 에이전트</text><text x="838" y="108">심층 · 오픈 모델</text></g>
+  <g class="t"><text x="58" y="155">생성 속도도</text><text x="58" y="185">중요한 성능</text><text x="448" y="155">전용 컴퓨터로</text><text x="448" y="185">여러 앱에서 일</text><text x="838" y="155">내려받기보다</text><text x="838" y="185">실제 운영</text></g>
+  <g class="s"><text x="58" y="228">생성 속도 → 완료시간</text><text x="448" y="228">로그인 권한 → 사람 승인</text><text x="838" y="228">가중치 → 실제 서비스</text></g>
   <g class="n"><text x="35" y="366">04</text><text x="205" y="366">05</text><text x="375" y="366">06</text><text x="545" y="366">07</text><text x="715" y="366">08</text><text x="885" y="366">09</text><text x="1055" y="366">10</text></g>
-  <g class="k"><text x="35" y="396">SERVING</text><text x="205" y="396">MATH</text><text x="375" y="396">PROVENANCE</text><text x="545" y="396">HEALTH</text><text x="715" y="396">ADOPTION</text><text x="885" y="396">FINANCE</text><text x="1055" y="396">DATA</text></g>
+  <g class="k"><text x="35" y="396">생성 엔진</text><text x="205" y="396">수학</text><text x="375" y="396">출처 확인</text><text x="545" y="396">의료</text><text x="715" y="396">기업 도입</text><text x="885" y="396">금융</text><text x="1055" y="396">학습 데이터</text></g>
   <g class="t" font-size="18"><text x="35" y="444">DSpark</text><text x="35" y="470">투기 디코딩</text><text x="205" y="444">제타 영점</text><text x="205" y="470">2/3 하한</text><text x="375" y="444">텍스트</text><text x="375" y="470">워터마크</text><text x="545" y="444">AMIE 영상</text><text x="545" y="470">모의 상담</text><text x="715" y="444">기업 AI</text><text x="715" y="470">위임 심화</text><text x="885" y="444">$500B+</text><text x="885" y="470">동원 목표</text><text x="1055" y="444">희귀 서적</text><text x="1055" y="470">스캔 공급망</text></g>
-  <g class="s" font-size="13"><text x="35" y="530">모델×서빙</text><text x="205" y="530">명제 경계</text><text x="375" y="530">확률 신호</text><text x="545" y="530">실험 경계</text><text x="715" y="530">가치≠토큰</text><text x="885" y="530">목표≠집행</text><text x="1055" y="530">확인≠추정</text></g>
+  <g class="s" font-size="13"><text x="35" y="530">모델×생성</text><text x="205" y="530">주장 범위</text><text x="375" y="530">보조 신호</text><text x="545" y="530">모의 연구</text><text x="715" y="530">가치≠토큰</text><text x="885" y="530">목표≠집행</text><text x="1055" y="530">확인≠추정</text></g>
 </svg>

@@ -239,7 +239,7 @@
           '<button type="button" data-lightbox-action="zoom-out" aria-label="축소" title="축소 (−)">−</button>' +
           '<output class="report-lightbox__scale" aria-live="polite">100%</output>' +
           '<button type="button" data-lightbox-action="zoom-in" aria-label="확대" title="확대 (+)">+</button>' +
-          '<button type="button" data-lightbox-action="reset" aria-label="원래 크기로" title="원래 크기 (0)">1:1</button>' +
+          '<button type="button" data-lightbox-action="reset" aria-label="화면에 맞춤" title="화면에 맞춤 (0)">맞춤</button>' +
           '<button type="button" data-lightbox-action="fullscreen" aria-label="브라우저 전체화면" aria-pressed="false" title="브라우저 전체화면">⛶</button>' +
           '<button type="button" data-lightbox-action="close" aria-label="닫기" title="닫기 (Esc)">×</button>' +
         '</div>' +
@@ -364,6 +364,7 @@
       lightbox.setAttribute('aria-hidden', 'false');
       lightbox.hidden = false;
       document.body.classList.add('report-lightbox-open');
+      document.documentElement.classList.add('report-lightbox-open');
       resetView();
       window.requestAnimationFrame(function () {
         lightbox.classList.add('is-open');
@@ -376,6 +377,7 @@
       lightbox.classList.remove('is-open');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('report-lightbox-open');
+      document.documentElement.classList.remove('report-lightbox-open');
       if (document.fullscreenElement === lightbox && document.exitFullscreen) {
         document.exitFullscreen().catch(function () {});
       }
