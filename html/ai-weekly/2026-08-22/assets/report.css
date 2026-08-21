@@ -13,6 +13,49 @@
     'Noto Sans KR', NanumGothic, Inter, system-ui, sans-serif;
 }
 
+/* AI Weekly 2026-08-22 · dynamic creator/source evidence */
+.source-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 22px 0 30px;
+  break-inside: avoid;
+}
+.source-gallery figure {
+  min-width: 0;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.source-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #111;
+}
+.source-gallery figcaption {
+  display: grid;
+  gap: 2px;
+  padding: 8px 9px 9px;
+}
+.source-gallery figcaption b { color: var(--text); font-size: 11px; }
+.source-gallery figcaption span { color: var(--text-secondary); font-size: 10px; line-height: 1.35; }
+
+@media (max-width: 760px) {
+  .source-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .source-gallery figure:last-child { grid-column: 1 / -1; width: calc(50% - 5px); }
+}
+
+@media print {
+  .source-gallery { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2mm; margin: 3mm 0 5mm; }
+  .source-gallery figcaption { padding: 1.5mm; }
+  .source-gallery figcaption b { font-size: 7pt; }
+  .source-gallery figcaption span { font-size: 6.5pt; }
+}
+
 /* ===== THEMES (class-based, 슬라이드와 완전 동일) ===== */
 html.theme-dark {
   --bg: #0A0A0A; --surface: #141414; --surface-hover: #1C1C1C;
