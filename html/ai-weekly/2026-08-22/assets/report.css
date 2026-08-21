@@ -4107,12 +4107,12 @@ html, body, button, input { font-family: var(--font-sans-ko); }
 .ai-weekly-report .report-cover__meta dd { margin: 0; color: var(--text); font-size: 15px; font-weight: 800; }
 
 .ai-weekly-report .report-toc {
-  width: min(1040px, calc(100vw - 48px));
-  max-width: 1040px;
+  width: 100%;
+  max-width: var(--reader-column-width);
   min-height: auto;
   margin-top: 56px;
   margin-bottom: 72px;
-  padding: 44px 48px 48px;
+  padding: 44px clamp(20px, 5vw, 32px) 48px;
   border: 1px solid color-mix(in srgb, var(--brand-primary) 18%, var(--border));
   border-radius: 20px;
   background:
@@ -4523,7 +4523,7 @@ html, body, button, input { font-family: var(--font-sans-ko); }
   .fact-strip span { min-height: 68px; }
   .radar-card { padding: 20px; }
   .ai-weekly-report .report-toc {
-    width: calc(100vw - 20px);
+    width: 100%;
     margin-top: 24px;
     margin-bottom: 44px;
     padding: 28px 18px 22px;
