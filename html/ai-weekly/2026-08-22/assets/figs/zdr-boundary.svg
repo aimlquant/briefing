@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Zero Data Retention과 Private Safety Processing의 데이터 경계</title>
+  <desc id="desc">고객이 통제하는 원문 콘텐츠 안에서 자동 시스템이 여러 상호작용의 패턴을 분석하고, OpenAI 쪽으로는 좁은 안전 신호만 전달되는 경계도</desc>
+  <defs><marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#2563eb"/></marker></defs>
+  <style>
+    .bg{fill:#f7f8fb}.zone{fill:#fff;stroke:#8aa0bf;stroke-width:3}.signal{fill:#e8eef8;stroke:#2563eb;stroke-width:3}.boundary{fill:none;stroke:#a93650;stroke-width:4;stroke-dasharray:12 10}.h{font:900 26px Inter,'Noto Sans KR',sans-serif;fill:#101114}.p{font:600 17px Inter,'Noto Sans KR',sans-serif;fill:#5f6570}.tag{font:900 17px Inter,'Noto Sans KR',sans-serif;fill:#a93650}.arrow{fill:none;stroke:#2563eb;stroke-width:8;marker-end:url(#arrow)}.foot{font:800 18px Inter,'Noto Sans KR',sans-serif;fill:#0f2c59}
+  </style>
+  <rect class="bg" width="1200" height="630" rx="24"/>
+  <rect class="boundary" x="44" y="52" width="700" height="474" rx="26"/>
+  <text class="tag" x="70" y="88">고객이 통제하는 콘텐츠 경계</text>
+  <g transform="translate(84 126)"><rect class="zone" width="250" height="164" rx="18"/><text class="h" x="24" y="58">원문 상호작용</text><text class="p" x="24" y="98">프롬프트 · 응답</text><text class="p" x="24" y="128">여러 세션의 맥락</text></g>
+  <path class="arrow" d="M334 208H426"/>
+  <g transform="translate(426 126)"><rect class="signal" width="270" height="164" rx="18"/><text class="h" x="24" y="58">자동 패턴 분석</text><text class="p" x="24" y="98">반복 탐색 · 계정 간 조정</text><text class="p" x="24" y="128">멈춤 지시 이후 행동</text></g>
+  <path class="arrow" d="M696 208H824"/>
+  <g transform="translate(824 126)"><rect class="signal" width="292" height="164" rx="18"/><text class="h" x="24" y="58">좁은 안전 신호</text><text class="p" x="24" y="98">활동 유형만 전달</text><text class="p" x="24" y="128">원문은 사람에게 미노출</text></g>
+  <g transform="translate(84 342)"><rect class="zone" width="612" height="136" rx="18"/><text class="h" x="24" y="48">두 저장 선택지</text><text class="p" x="24" y="82">① 고객 인프라 · ② OpenAI 저장소 + 고객 관리 키</text><text class="p" x="24" y="110">어느 경우든 사람의 원문 접근을 막는다는 제품 프리뷰</text></g>
+  <text class="foot" x="600" y="588" text-anchor="middle">확인할 것: 9월 기술 백서의 신호 스키마 · 키 운영 · 오탐 이의제기 · 법적 보존 예외</text>
+</svg>

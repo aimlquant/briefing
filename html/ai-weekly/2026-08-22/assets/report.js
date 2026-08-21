@@ -43,17 +43,17 @@
     if (!target) return;
     var params = new URLSearchParams(window.location.search);
     if (params.get('fragment-capture') === '1') {
-      // Chromium's one-shot --screenshot path can produce an empty bitmap when
-      // a very long document opens directly at a deep fragment. Visual QA may
-      // opt into a deterministic capture layout that removes only the report
-      // siblings before the target section. Normal readers and ordinary hash
-      // links keep the document untouched.
+      // Chromium's one-shot --screenshot path can stall or produce an empty
+      // bitmap when a very long document opens directly at a deep fragment,
+      // especially at a narrow viewport. Visual QA may opt into a deterministic
+      // single-section layout. Normal readers and ordinary hash links keep the
+      // full document untouched.
       var section = target.closest('.report-section, .report-appendix') || target;
       var report = section.closest('.report');
       if (report) {
         Array.from(report.children).forEach(function (child) {
-          if (child === section || child.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_CONTAINED_BY) return;
-          if (child.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_FOLLOWING) child.style.display = 'none';
+          if (child === section || child.contains(section)) return;
+          child.style.display = 'none';
         });
       }
       document.documentElement.classList.add('report-fragment-capture');
